@@ -39,36 +39,36 @@ permalink: /publications/
 ## Preprints
 {% assign preprints = "" | split: "" %}
 {% for p in pubs %}
-  {% if p.type == "preprint" %}
-    {% assign preprints = preprints | push: p %}
-  {% endif %}
+	{% if p.type == "preprint" %}
+		{% assign preprints = preprints | push: p %}
+	{% endif %}
 {% endfor %}
 
 {% if preprints.size > 0 %}
-  {% assign years2 = "" | split: "" %}
-  {% for p in preprints %}
-    {% unless years2 contains p.year %}
-      {% assign years2 = years2 | push: p.year %}
-    {% endunless %}
-  {% endfor %}
+	{% assign years2 = "" | split: "" %}
+	{% for p in preprints %}
+		{% unless years2 contains p.year %}
+			{% assign years2 = years2 | push: p.year %}
+		{% endunless %}
+	{% endfor %}
 
-  {% for y in years2 %}
-  ### {{ y }}
-    {% for pub in preprints %}
-      {% if pub.year == y %}
-        {% include pub-item.html pub=pub %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
+	{% for y in years2 %}
+	### {{ y }}
+		{% for pub in preprints %}
+			{% if pub.year == y %}
+				{% include pub-item.html pub=pub %}
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
 {% else %}
   <p class="muted">No preprints yet. Add items with <code>type: preprint</code> in <code>_data/publications.yml</code>.</p>
 {% endif %}
 
 {% assign other = "" | split: "" %}
 {% for p in pubs %}
-  {% if p.type != "journal" and p.type != "preprint" %}
-    {% assign other = other | push: p %}
-  {% endif %}
+	{% if p.type != "journal" and p.type != "preprint" %}
+		{% assign other = other | push: p %}
+	{% endif %}
 {% endfor %}
 
 {% if other.size > 0 %}
@@ -76,6 +76,6 @@ permalink: /publications/
 
 ## Other
 {% for pub in other %}
-  {% include pub-item.html pub=pub %}
+	{% include pub-item.html pub=pub %}
 {% endfor %}
 {% endif %}

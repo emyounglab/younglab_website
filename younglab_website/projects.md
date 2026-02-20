@@ -8,6 +8,6 @@ permalink: /projects/
 
 <div class="cards">
 {% for proj in site.data.projects %}
-  {% include project-card.html project=proj %}
+	{% include project-card.html project=proj %}
 {% endfor %}
 </div>

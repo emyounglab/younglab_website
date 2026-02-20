@@ -1,0 +1,8 @@
+<li class="news-item">
+  <span class="muted">{{ include.item.date | date: "%B %-d, %Y" }}</span><br/>
+  <strong>{{ include.item.title }}</strong><br/>
+  {{ include.item.text }}
+  {% if include.item.link %}
+    <div><a href="{{ include.item.link }}" target="_blank" rel="noreferrer">Read more →</a></div>
+  {% endif %}
+</li>
