@@ -36,18 +36,6 @@ permalink: /
 
 		</div>
 
-
-
-		<div class="quick-facts">
-
-			<div><strong>Department:</strong> Chemical Engineering</div>
-
-			<div><strong>Institution:</strong> WPI</div>
-
-			<div><strong>Location:</strong> Worcester, MA</div>
-
-		</div>
-
 	</div>
 
 
