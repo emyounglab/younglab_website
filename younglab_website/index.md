@@ -11,7 +11,7 @@ subtitle: "Research in X, Y, and Z"
 <div class="hero">
 	<div>
 		<p class="lead">
-			{{The <strong>Young Lab</strong> uses genomics, synthetic biology, and metabolic engineering to engineer organisms.
+			{{The Young Lab uses genomics, synthetic biology, and metabolic engineering to engineer organisms.
 			We are designing the next generation of biosensors and cell factories for a sustainable future.
 			We are developing biofoundry-based workflows to enable engineering across the tree of life.}}
 		</p>
