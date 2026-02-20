@@ -29,11 +29,8 @@ permalink: /
 
 
 		<div class="cta-row">
-
 			<a class="button" href="{{ '/research/' | relative_url }}">Explore research</a>
-
 			<a class="button button-secondary" href="{{ '/join/' | relative_url }}">Join the lab</a>
-
 		</div>
 
 	</div>
