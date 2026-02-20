@@ -14,77 +14,79 @@ permalink: /
 
 <div class="hero">
 
-&nbsp; <div>
+	<div>
 
-&nbsp;   <p class="lead">
+		<p class="lead">
 
-&nbsp;     The <strong>Young Lab</strong> develops methods and tools for <strong>X</strong>, <strong>Y</strong>, and <strong>Z</strong>.
+		The <strong>Young Lab</strong> uses genomics, synthetic biology, and metabolic engineering to engineer organisms for a sustainable future.
+		
+		We are designing the next generation of biosensors and cell factories for a sustainable future.
+		
+		We are developing biofoundry-based workflows to enable engineering across the tree of life.
 
-&nbsp;     We combine experimental and computational approaches to enable scalable, reproducible research.
-
-&nbsp;   </p>
-
-
-
-&nbsp;   <div class="cta-row">
-
-&nbsp;     <a class="button" href="{{ '/research/' | relative\_url }}">Explore research</a>
-
-&nbsp;     <a class="button button-secondary" href="{{ '/join/' | relative\_url }}">Join the lab</a>
-
-&nbsp;   </div>
+		</p>
 
 
 
-&nbsp;   <div class="quick-facts">
+		<div class="cta-row">
 
-&nbsp;     <div><strong>Department:</strong> Chemical Engineering</div>
+			<a class="button" href="{{ '/research/' | relative\_url }}">Explore research</a>
 
-&nbsp;     <div><strong>Institution:</strong> Your University</div>
+			<a class="button button-secondary" href="{{ '/join/' | relative\_url }}">Join the lab</a>
 
-&nbsp;     <div><strong>Location:</strong> City, State</div>
-
-&nbsp;   </div>
-
-&nbsp; </div>
+		</div>
 
 
 
-&nbsp; <div class="hero-card">
+		<div class="quick-facts">
 
-&nbsp;   <h2 class="h3">Latest news</h2>
+			<div><strong>Department:</strong> Chemical Engineering</div>
 
-&nbsp;   {% assign items = site.data.news | sort: "date" | reverse | slice: 0, 3 %}
+			<div><strong>Institution:</strong> WPI</div>
 
-&nbsp;   {% if items.size > 0 %}
+			<div><strong>Location:</strong> Worcester, MA</div>
 
-&nbsp;     <ul class="clean-list">
+		</div>
 
-&nbsp;       {% for n in items %}
+	</div>
 
-&nbsp;         <li>
 
-&nbsp;           <span class="muted">{{ n.date | date: "%b %-d, %Y" }}</span><br/>
 
-&nbsp;           <strong>{{ n.title }}</strong><br/>
+	<div class="hero-card">
 
-&nbsp;           {{ n.text }}
+		<h2 class="h3">Latest news</h2>
 
-&nbsp;         </li>
+		{% assign items = site.data.news | sort: "date" | reverse | slice: 0, 3 %}
 
-&nbsp;       {% endfor %}
+		{% if items.size > 0 %}
 
-&nbsp;     </ul>
+			<ul class="clean-list">
 
-&nbsp;     <p><a href="{{ '/news/' | relative\_url }}">All news →</a></p>
+				{% for n in items %}
 
-&nbsp;   {% else %}
+					<li>
 
-&nbsp;     <p class="muted">No news yet.</p>
+						<span class="muted">{{ n.date | date: "%b %-d, %Y" }}</span><br/>
 
-&nbsp;   {% endif %}
+						<strong>{{ n.title }}</strong><br/>
 
-&nbsp; </div>
+						{{ n.text }}
+
+					</li>
+
+				{% endfor %}
+
+			</ul>
+
+			<p><a href="{{ '/news/' | relative\_url }}">All news →</a></p>
+
+		{% else %}
+
+			<p class="muted">No news yet.</p>
+
+		{% endif %}
+
+	</div>
 
 </div>
 
@@ -94,85 +96,43 @@ permalink: /
 
 
 
-\## Selected publications
-
-
+## Selected publications
 
 {% assign pubs = site.data.publications | sort: "year" | reverse | slice: 0, 3 %}
-
 {% for pub in pubs %}
-
-&nbsp; {% include pub-item.html pub=pub %}
-
+  {% include pub-item.html pub=pub %}
 {% endfor %}
 
-
-
-<p><a href="{{ '/publications/' | relative\_url }}">All publications →</a></p>
-
-
+<p><a href="{{ '/publications/' | relative_url }}">All publications →</a></p>
 
 <hr/>
 
-
-
-\## Upcoming conferences
-
-
+## Upcoming conferences
 
 {% assign today = site.time | date: '%s' %}
-
 {% assign upcoming = "" | split: "" %}
-
 {% for c in site.data.conferences %}
-
-&nbsp; {% if c.date %}
-
-&nbsp;   {% assign cts = c.date | date: '%s' %}
-
-&nbsp;   {% if cts >= today %}
-
-&nbsp;     {% assign upcoming = upcoming | push: c %}
-
-&nbsp;   {% endif %}
-
-&nbsp; {% endif %}
-
+  {% if c.date %}
+    {% assign cts = c.date | date: '%s' %}
+    {% if cts >= today %}
+      {% assign upcoming = upcoming | push: c %}
+    {% endif %}
+  {% endif %}
 {% endfor %}
-
 {% assign upcoming = upcoming | sort: "date" | slice: 0, 3 %}
 
-
-
 {% if upcoming.size > 0 %}
-
-&nbsp; <ul class="clean-list">
-
-&nbsp; {% for c in upcoming %}
-
-&nbsp;   <li>
-
-&nbsp;     <strong>{{ c.title }}</strong><br/>
-
-&nbsp;     <span class="muted">
-
-&nbsp;       {{ c.venue }}{% if c.type %} · {{ c.type }}{% endif %}{% if c.location %} · {{ c.location }}{% endif %} · {{ c.date | date: "%b %-d, %Y" }}
-
-&nbsp;     </span>
-
-&nbsp;   </li>
-
-&nbsp; {% endfor %}
-
-&nbsp; </ul>
-
-&nbsp; <p><a href="{{ '/conferences/' | relative\_url }}">All conferences →</a></p>
-
+  <ul class="clean-list">
+  {% for c in upcoming %}
+    <li>
+      <strong>{{ c.title }}</strong><br/>
+      <span class="muted">
+        {{ c.venue }}{% if c.type %} · {{ c.type }}{% endif %}{% if c.location %} · {{ c.location }}{% endif %} · {{ c.date | date: "%b %-d, %Y" }}
+      </span>
+    </li>
+  {% endfor %}
+  </ul>
+  <p><a href="{{ '/conferences/' | relative_url }}">All conferences →</a></p>
 {% else %}
-
-&nbsp; <p class="muted">No upcoming conference items yet.</p>
-
+  <p class="muted">No upcoming conference items yet.</p>
 {% endif %}
-
-
-

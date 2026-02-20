@@ -1,28 +1,13 @@
 ---
-
 layout: page
-
 title: Contact
-
 permalink: /contact/
-
 ---
 
+**Email:** younglab@example.edu  
+**Address:** Department, Building, Room, University, City, State, ZIP  
 
-
-\*\*Email:\*\* younglab@example.edu  
-
-\*\*Address:\*\* Department, Building, Room, University, City, State, ZIP  
-
-
-
-\## Links
-
-\- GitHub: https://github.com/yourlab
-
-\- Google Scholar: (add link)
-
-\- ORCID: (optional)
-
-
-
+## Links
+- GitHub: https://github.com/yourlab
+- Google Scholar: (add link)
+- ORCID: (optional)
