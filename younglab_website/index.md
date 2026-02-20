@@ -6,11 +6,7 @@ title: "Young Lab"
 
 subtitle: "Research in X, Y, and Z"
 
-permalink: /
-
 ---
-
-
 
 <div class="hero">
 	<div>
