@@ -30,9 +30,9 @@ permalink: /
 
 		<div class="cta-row">
 
-			<a class="button" href="{{ '/research/' | relative\_url }}">Explore research</a>
+			<a class="button" href="{{ '/research/' | relative_url }}">Explore research</a>
 
-			<a class="button button-secondary" href="{{ '/join/' | relative\_url }}">Join the lab</a>
+			<a class="button button-secondary" href="{{ '/join/' | relative_url }}">Join the lab</a>
 
 		</div>
 
@@ -78,7 +78,7 @@ permalink: /
 
 			</ul>
 
-			<p><a href="{{ '/news/' | relative\_url }}">All news →</a></p>
+			<p><a href="{{ '/news/' | relative_url }}">All news →</a></p>
 
 		{% else %}
 
@@ -106,33 +106,3 @@ permalink: /
 <p><a href="{{ '/publications/' | relative_url }}">All publications →</a></p>
 
 <hr/>
-
-## Upcoming conferences
-
-{% assign today = site.time | date: '%s' %}
-{% assign upcoming = "" | split: "" %}
-{% for c in site.data.conferences %}
-  {% if c.date %}
-    {% assign cts = c.date | date: '%s' %}
-    {% if cts >= today %}
-      {% assign upcoming = upcoming | push: c %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
-{% assign upcoming = upcoming | sort: "date" | slice: 0, 3 %}
-
-{% if upcoming.size > 0 %}
-  <ul class="clean-list">
-  {% for c in upcoming %}
-    <li>
-      <strong>{{ c.title }}</strong><br/>
-      <span class="muted">
-        {{ c.venue }}{% if c.type %} · {{ c.type }}{% endif %}{% if c.location %} · {{ c.location }}{% endif %} · {{ c.date | date: "%b %-d, %Y" }}
-      </span>
-    </li>
-  {% endfor %}
-  </ul>
-  <p><a href="{{ '/conferences/' | relative_url }}">All conferences →</a></p>
-{% else %}
-  <p class="muted">No upcoming conference items yet.</p>
-{% endif %}
