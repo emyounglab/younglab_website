@@ -1,0 +1,30 @@
+<div class="card person-card">
+  <div class="person-top">
+    {% if include.person.photo %}
+      <img class="avatar" src="{{ include.person.photo | relative_url }}" alt="{{ include.person.name | escape }}">
+    {% else %}
+      <div class="avatar placeholder" aria-hidden="true"></div>
+    {% endif %}
+
+    <div>
+      <div class="person-name">{{ include.person.name }}</div>
+      <div class="person-role">{{ include.person.role }}</div>
+
+      {% if include.person.email %}
+        <div class="person-meta">
+          <a href="mailto:{{ include.person.email }}">{{ include.person.email }}</a>
+        </div>
+      {% endif %}
+
+      {% if include.person.website %}
+        <div class="person-meta">
+          <a href="{{ include.person.website }}" target="_blank" rel="noreferrer">Website</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if include.person.interests %}
+    <p class="muted"><strong>Interests:</strong> {{ include.person.interests }}</p>
+  {% endif %}
+</div>

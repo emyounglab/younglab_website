@@ -1,0 +1,26 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    <nav class="site-nav">
+      {% assign links = "
+        Home:/,
+        About:/about/,
+        Facilities:/facilities/,
+        News:/news/,
+        Partners:/partners/,
+        Contact:/contact/
+      " | strip | split: "," %}
+
+      {% for item in links %}
+        {% assign pair = item | strip | split: ":" %}
+        {% assign label = pair[0] | strip %}
+        {% assign href = pair[1] | strip %}
+        <a href="{{ href | relative_url }}"
+           class="{% if page.url == href or page.permalink == href %}active{% endif %}">
+          {{ label }}
+        </a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

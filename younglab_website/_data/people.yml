@@ -1,0 +1,26 @@
+pi:
+  - name: "Prof. Eric Young"
+    role: "Principal Investigator"
+    email: "eric.young@example.edu"
+    website: "https://example.edu/~young"
+    interests: "Bioprocessing, fermentation scale-up, metabolic engineering"
+    photo: "/assets/img/logo.png"   # replace with headshot if you want
+
+students:
+  - name: "Sam Researcher"
+    role: "PhD Student"
+    email: "sam@example.edu"
+    interests: "Strain engineering, omics, automation"
+
+  - name: "Taylor Analyst"
+    role: "MS Student"
+    email: "taylor@example.edu"
+    interests: "Modeling, bioreactor data, control"
+
+staff:
+  - name: "Jordan Scientist"
+    role: "Lab Manager"
+    email: "jordan@example.edu"
+    interests: "Operations, safety, training"
+
+alumni: []

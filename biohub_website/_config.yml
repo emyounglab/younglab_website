@@ -1,0 +1,8 @@
+title: "Bioindustrial Hub"
+description: "An advanced biotech bioindustrial hub enabling discovery, scale-up, and translation."
+url: ""
+baseurl: ""   # set to "/repo-name" if using username.github.io/repo-name
+
+markdown: kramdown
+permalink: pretty
+plugins: []

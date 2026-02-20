@@ -1,0 +1,25 @@
+<div class="card">
+  <h3 class="h3">
+    {% if include.partner.url %}
+      <a href="{{ include.partner.url }}" target="_blank" rel="noreferrer">{{ include.partner.name }}</a>
+    {% else %}
+      {{ include.partner.name }}
+    {% endif %}
+  </h3>
+
+  {% if include.partner.type %}
+    <p class="muted"><strong>Type:</strong> {{ include.partner.type }}</p>
+  {% endif %}
+
+  {% if include.partner.description %}
+    <p>{{ include.partner.description }}</p>
+  {% endif %}
+
+  {% if include.partner.tags %}
+    <div class="tags">
+      {% for tag in include.partner.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

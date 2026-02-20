@@ -1,0 +1,16 @@
+- year: 2026
+  type: journal
+  title: "A Robust Method for Doing X in Y Systems"
+  authors: "E. Young, S. Researcher, J. Scientist"
+  venue: "Journal of Important Results"
+  url: "https://example.com/paper"
+  doi: "10.1234/example.2026.001"
+  tags: ["methods", "scale-up"]
+
+- year: 2025
+  type: preprint
+  title: "Dataset and Benchmark for Z"
+  authors: "S. Researcher, E. Young"
+  venue: "bioRxiv"
+  pdf: "/assets/papers/example-paper.pdf"
+  tags: ["dataset"]

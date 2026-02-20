@@ -1,0 +1,17 @@
+- name: "WPI"
+  url: "https://www.wpi.edu/"
+  type: "Academic"
+  description: "Host institution supporting research translation and workforce development."
+  tags: ["education", "research"]
+
+- name: "Massachusetts Bioindustrial Initiative (MBI)"
+  url: "https://www.mass.gov/orgs/massachusetts-bioindustrial-initiative"
+  type: "State initiative"
+  description: "State-supported efforts to grow a world-leading bioindustrial ecosystem."
+  tags: ["policy", "ecosystem"]
+
+- name: "MassTech Collaborative"
+  url: "https://masstech.org/"
+  type: "Economic development"
+  description: "Invests in innovation, infrastructure, and talent to strengthen Massachusetts’ tech economy."
+  tags: ["innovation", "infrastructure"]

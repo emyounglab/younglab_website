@@ -1,0 +1,26 @@
+- title: "Project A: Scalable strain engineering"
+  status: "Active"
+  summary: "We develop robust pipelines for engineering organisms for industrially relevant conditions."
+  highlights:
+    - "High-throughput design-build-test-learn"
+    - "Scale-down models for scale-up prediction"
+    - "Open protocols and tooling"
+  tags: ["strain-engineering", "DBTL"]
+
+- title: "Project B: Fermentation analytics & control"
+  status: "Active"
+  summary: "We build data-driven models for bioreactors and create tools for monitoring and control."
+  highlights:
+    - "Soft sensors from online + offline data"
+    - "Anomaly detection and drift monitoring"
+    - "Reproducible analysis notebooks"
+  tags: ["bioreactors", "data", "control"]
+
+- title: "Project C: Open datasets"
+  status: "Ongoing"
+  summary: "We curate and publish datasets to accelerate benchmarking and method development."
+  highlights:
+    - "Standardized metadata"
+    - "Baseline models and evaluation"
+    - "Community contributions"
+  tags: ["datasets", "open-science"]
