@@ -1,16 +1,187 @@
-- year: 2026
-  type: journal
-  title: "A Robust Method for Doing X in Y Systems"
-  authors: "E. Young, S. Researcher, J. Scientist"
-  venue: "Journal of Important Results"
-  url: "https://example.com/paper"
-  doi: "10.1234/example.2026.001"
-  tags: ["methods", "scale-up"]
+# Publications for the Young Lab
+# Sources: ORCID 0000-0001-5276-2873, CrossRef
+# Types: journal | preprint | book-chapter
 
 - year: 2025
   type: preprint
-  title: "Dataset and Benchmark for Z"
-  authors: "S. Researcher, E. Young"
+  title: "Combinatorial metabolic engineering of alkane biosynthesis in the osmotolerant yeast Debaryomyces hansenii CBS 767"
+  authors: "Z. Li, N.K. Sharma, S. Weintraub, E.M. Young"
   venue: "bioRxiv"
-  pdf: "/assets/papers/example-paper.pdf"
-  tags: ["dataset"]
+  doi: "10.1101/2025.10.23.684212"
+  url: "https://doi.org/10.1101/2025.10.23.684212"
+
+- year: 2025
+  type: journal
+  title: "Oleaginous yeast biology elucidated with comparative transcriptomics"
+  authors: "S.J. Weintraub, Z. Li, C.L. Nakagawa, J.H. Collins, E.M. Young"
+  venue: "Biotechnology and Bioengineering"
+  doi: "10.1002/bit.28891"
+  url: "https://doi.org/10.1002/bit.28891"
+
+- year: 2024
+  type: journal
+  title: "Omics-driven onboarding of the carotenoid producing red yeast Xanthophyllomyces dendrorhous CBS 6938"
+  authors: "E.E. Tobin, J.H. Collins, C.B. Marsan, G.T. Nadeau, K. Mori, A. Lipzen, S. Mondo, I.V. Grigoriev, E.M. Young"
+  venue: "Applied Microbiology and Biotechnology"
+  doi: "10.1007/s00253-024-13379-w"
+  url: "https://doi.org/10.1007/s00253-024-13379-w"
+
+- year: 2024
+  type: journal
+  title: "Ten years of the Synthetic Biology Summer Course at Cold Spring Harbor Laboratory"
+  authors: "K.A. Haynes, L.B. Andrews, C.L. Beisel, J. Chappell, C.E. Cuba Samaniego, J.E. Dueber, M.J. Dunlop, E. Franco, J.B. Lucks, V. Noireaux, D.F. Savage, P.A. Silver, M. Smanski, E.M. Young"
+  venue: "ACS Synthetic Biology"
+  doi: "10.1021/acssynbio.4c00276"
+  url: "https://doi.org/10.1021/acssynbio.4c00276"
+
+- year: 2024
+  type: journal
+  title: "A correlative study of the genomic underpinning of virulence traits and drug tolerance of Candida auris"
+  authors: "B. Yang, B. Vaisvil, D. Schmitt, J. Collins, E.M. Young, V. Kapatral, R. Rao"
+  venue: "Infection and Immunity"
+  doi: "10.1128/iai.00103-24"
+  url: "https://doi.org/10.1128/iai.00103-24"
+
+- year: 2024
+  type: journal
+  title: "Ensemble detection of DNA engineering signatures"
+  authors: "A. Adler, J.S. Bader, B. Basnight, B.W. Booth, J. Cai, E. Cho, J.H. Collins, Y. Ge, J. Grothendieck, K. Keating, T. Marshall, A. Persikov, H. Scott, R. Siegelmann, M. Singh, A. Taggart, B. Toll, K.H. Wan, D. Wyschogrod, F. Yaman, E.M. Young, S.E. Celniker, N. Roehner"
+  venue: "ACS Synthetic Biology"
+  doi: "10.1021/acssynbio.3c00398"
+  url: "https://doi.org/10.1021/acssynbio.3c00398"
+
+- year: 2023
+  type: journal
+  title: "Integration of yeast episomal/integrative plasmid causes genotypic and phenotypic diversity and improved sesquiterpene production in metabolically engineered Saccharomyces cerevisiae"
+  authors: "B. Peng, S.J. Weintraub, Z. Lu, S. Evans, Q. Shen, L. McDonnell, M. Plan, T. Collier, L.C. Cheah, L. Ji, C.B. Howard, W. Anderson, M. Trau, G. Dumsday, E.L. Bredeweg, E.M. Young, R. Speight, C.E. Vickers"
+  venue: "ACS Synthetic Biology"
+  doi: "10.1021/acssynbio.3c00363"
+  url: "https://doi.org/10.1021/acssynbio.3c00363"
+
+- year: 2023
+  type: journal
+  title: "Isolation and sequencing of the spoilage yeast Kregervanrija delftensis"
+  authors: "J.H. Collins, A. Cosio, G. Brogan, L. Chico, A. Rozen, E. Thomson, E.M. Young"
+  venue: "Microbiology Resource Announcements"
+  doi: "10.1128/MRA.00397-23"
+  url: "https://doi.org/10.1128/MRA.00397-23"
+
+- year: 2023
+  type: journal
+  title: "Targeted control of supporting pathways in paclitaxel biosynthesis with CRISPR-guided methylation"
+  authors: "C. Brzycki Newton, E.M. Young, S.C. Roberts"
+  venue: "Frontiers in Bioengineering and Biotechnology"
+  doi: "10.3389/fbioe.2023.1272811"
+  url: "https://doi.org/10.3389/fbioe.2023.1272811"
+
+- year: 2023
+  type: journal
+  title: "Draft genome of the Ogataea polymorpha type strain CBS 4732"
+  authors: "J.H. Collins, E.M. Young"
+  venue: "Microbiology Resource Announcements"
+  doi: "10.1128/MRA.00611-22"
+  url: "https://doi.org/10.1128/MRA.00611-22"
+
+- year: 2023
+  type: preprint
+  title: "Phenotypic and genomic evidence for transparent cellulose, metabolic diversity, and stable cellulose production in the Acetobacteraceae"
+  authors: "K.W. Keating, E.M. van Zyl, J.H. Collins, C. Nakagawa, S.J. Weintraub, J.M. Coburn, E.M. Young"
+  venue: "bioRxiv"
+  doi: "10.1101/2023.08.21.554206"
+  url: "https://doi.org/10.1101/2023.08.21.554206"
+
+- year: 2023
+  type: journal
+  title: "Genetic basis for probiotic yeast phenotypes revealed by nanopore sequencing"
+  authors: "J.H. Collins, L. Kunyeit, S. Weintraub, N. Sharma, C. White, N. Haq, K.A. Anu-Appaiah, R.P. Rao, E.M. Young"
+  venue: "G3: Genes, Genomes, Genetics"
+  doi: "10.1093/g3journal/jkad093"
+  url: "https://doi.org/10.1093/g3journal/jkad093"
+
+- year: 2023
+  type: journal
+  title: "Systematic part transfer by extending a modular toolkit to diverse bacteria"
+  authors: "K.W. Keating, E.M. Young"
+  venue: "ACS Synthetic Biology"
+  doi: "10.1021/acssynbio.3c00104"
+  url: "https://doi.org/10.1021/acssynbio.3c00104"
+
+- year: 2023
+  type: journal
+  title: "Structural properties of optically clear bacterial cellulose produced by Komagataeibacter hansenii using arabitol"
+  authors: "E.M. van Zyl, M.A. Kennedy, W. Nason, S.J. Fenlon, E.M. Young, L.J. Smith, S.R. Bhatia, J.M. Coburn"
+  venue: "Biomaterials Advances"
+  doi: "10.1016/j.bioadv.2023.213345"
+  url: "https://doi.org/10.1016/j.bioadv.2023.213345"
+
+- year: 2022
+  type: journal
+  title: "Multicolor plate reader fluorescence calibration"
+  authors: "J. Beal, C.A. Telmer, A. Vignoni, Y. Boada, G.S. Baldwin, L. Hallett, T. Lee, V. Selvarajah, S. Billerbeck, B. Brown, G. Cai, L. Cai, E. Eisenstein, D. Kiga, D. Ross, N. Alperovich, N. Sprent, J. Thompson, E.M. Young, D. Endy, T. Haddock-Angelli"
+  venue: "Synthetic Biology"
+  doi: "10.1093/synbio/ysac010"
+  url: "https://doi.org/10.1093/synbio/ysac010"
+
+- year: 2022
+  type: journal
+  title: "Discovering content through text mining for a Synthetic Biology Knowledge System"
+  authors: "B.T. McInnes, J.S. Downie, Y. Hao, J. Jett, K. Keating, G. Nakum, S. Ranjan, N.E. Rodriguez, J. Tang, D. Xiang, E.M. Young, M.H. Nguyen"
+  venue: "ACS Synthetic Biology"
+  doi: "10.1021/acssynbio.1c00611"
+  url: "https://doi.org/10.1021/acssynbio.1c00611"
+
+- year: 2021
+  type: journal
+  title: "Curation principles derived from the analysis of the SBOL iGEM data set"
+  authors: "J. Mante, N. Roehner, K. Keating, J.A. McLaughlin, E.M. Young, J. Beal, C.J. Myers"
+  venue: "ACS Synthetic Biology"
+  doi: "10.1021/acssynbio.1c00225"
+  url: "https://doi.org/10.1021/acssynbio.1c00225"
+
+- year: 2021
+  type: journal
+  title: "Synthetic Biology Knowledge System"
+  authors: "J. Mante, Y. Hao, J. Jett, U. Joshi, K. Keating, X. Lu, G. Nakum, N.E. Rodriguez, J. Tang, L. Terry, X. Wu, E. Yu, J.S. Downie, B.T. McInnes, M.H. Nguyen, B. Sepulvado, E.M. Young, C.J. Myers"
+  venue: "ACS Synthetic Biology"
+  doi: "10.1021/acssynbio.1c00188"
+  url: "https://doi.org/10.1021/acssynbio.1c00188"
+
+- year: 2021
+  type: journal
+  title: "Engineered yeast genomes accurately assembled from pure and mixed samples"
+  authors: "J.H. Collins, K.W. Keating, T.R. Jones, S. Balaji, C.B. Marsan, M. Çomo, Z.J. Newlon, T. Mitchell, B. Bartley, A. Adler, N. Roehner, E.M. Young"
+  venue: "Nature Communications"
+  doi: "10.1038/s41467-021-21656-9"
+  url: "https://doi.org/10.1038/s41467-021-21656-9"
+
+- year: 2021
+  type: book-chapter
+  title: "Secondary metabolite production in plant cell culture: a new epigenetic frontier"
+  authors: "C.M. Brzycki, E.M. Young, S.C. Roberts"
+  venue: "Exploring Plant Cells for the Production of Compounds of Interest (Springer)"
+  doi: "10.1007/978-3-030-58271-5_1"
+  url: "https://doi.org/10.1007/978-3-030-58271-5_1"
+
+- year: 2020
+  type: journal
+  title: "Genetic circuit design automation for yeast"
+  authors: "Y. Chen, S. Zhang, E.M. Young, T.S. Jones, D. Densmore, C.A. Voigt"
+  venue: "Nature Microbiology"
+  doi: "10.1038/s41564-020-0757-2"
+  url: "https://doi.org/10.1038/s41564-020-0757-2"
+
+- year: 2019
+  type: journal
+  title: "Synthetic biology for bio-derived structural materials"
+  authors: "K.W. Keating, E.M. Young"
+  venue: "Current Opinion in Chemical Engineering"
+  doi: "10.1016/j.coche.2019.03.002"
+  url: "https://doi.org/10.1016/j.coche.2019.03.002"
+
+- year: 2018
+  type: journal
+  title: "Genetic engineering of host organisms for pharmaceutical synthesis"
+  authors: "J.H. Collins, E.M. Young"
+  venue: "Current Opinion in Biotechnology"
+  doi: "10.1016/j.copbio.2018.02.001"
+  url: "https://doi.org/10.1016/j.copbio.2018.02.001"

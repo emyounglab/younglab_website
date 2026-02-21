@@ -1,26 +1,26 @@
 pi:
-  - name: "Prof. Eric Young"
+  - name: "Eric M. Young"
     role: "Principal Investigator"
-    email: "eric.young@example.edu"
-    website: "https://example.edu/~young"
-    interests: "Bioprocessing, fermentation scale-up, metabolic engineering"
-    photo: "/assets/img/logo.png"   # replace with headshot if you want
+    email: "emyoung@wpi.edu"
+    website: "https://www.wpi.edu/people/faculty/emyoung"
+    interests: "Synthetic biology, metabolic engineering, nonconventional yeasts, microbial genomics"
+    photo: "/assets/img/people/Young_Faculty_2017.jpg"
 
 students:
-  - name: "Sam Researcher"
-    role: "PhD Student"
-    email: "sam@example.edu"
-    interests: "Strain engineering, omics, automation"
-
-  - name: "Taylor Analyst"
-    role: "MS Student"
-    email: "taylor@example.edu"
-    interests: "Modeling, bioreactor data, control"
+  # Add current lab members here
+  # - name: "First Last"
+  #   role: "PhD Student"
+  #   email: ""
+  #   interests: ""
 
 staff:
-  - name: "Jordan Scientist"
-    role: "Lab Manager"
-    email: "jordan@example.edu"
-    interests: "Operations, safety, training"
+  # Add staff here
+  # - name: "First Last"
+  #   role: "Lab Manager"
+  #   email: ""
+  #   interests: ""
 
-alumni: []
+alumni:
+  - name: "Kevin W. Keating"
+    role: "PhD"
+    current: "Resilient"

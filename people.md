@@ -27,9 +27,11 @@ permalink: /people/
 
 {% if site.data.people.alumni and site.data.people.alumni.size > 0 %}
 ## Alumni
-<div class="grid">
+<ul>
 {% for p in site.data.people.alumni %}
-	{% include person-card.html person=p %}
+  <li>
+    <strong>{{ p.name }}</strong>{% if p.role %} ({{ p.role }}){% endif %}{% if p.current %} — now at {{ p.current }}{% endif %}
+  </li>
 {% endfor %}
-</div>
+</ul>
 {% endif %}

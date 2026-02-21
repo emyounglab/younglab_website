@@ -4,20 +4,27 @@ title: Join the lab
 permalink: /join/
 ---
 
-## Prospective students
-We welcome motivated students interested in **X, Y, Z**.
+We welcome motivated students and researchers interested in **synthetic biology, metabolic engineering, genomics, and microbiology**. Our work sits at the interface of chemical engineering and biology, and we value both wet-lab and computational skills.
 
-**How to apply**
-- PhD/MS: Apply through your department’s application portal
-- Undergrads: Email with your interests + résumé + transcript (unofficial is fine)
+## Prospective PhD and MS students
 
-**What to include**
-- 2–3 sentences on why you’re interested in the Young Lab
-- Relevant experience (wet lab, computation, design, etc.)
-- Timeline and availability
+Apply through the [WPI Chemical Engineering graduate program](https://www.wpi.edu/academics/departments/chemical-engineering/graduate). After submitting your application, feel free to reach out by email with your CV and a brief note about your interests.
 
-## Postdocs
-Please email a CV and a brief research statement describing fit with our work.
+**What to include in your email:**
+- 2–3 sentences on why you're interested in the Young Lab specifically
+- Relevant experience (wet lab, computation, genomics, fermentation, etc.)
+- Your timeline and availability
 
-## Collaborators / visiting scholars
-We’re open to collaborations. Send a short note describing the idea and any deadlines.
+## Undergraduate researchers
+
+WPI undergraduates interested in working in the lab are encouraged to email Prof. Young directly. Please include your interests, relevant coursework or experience, and your résumé.
+
+## Postdoctoral researchers
+
+Please email a CV and a brief research statement describing how your interests align with our ongoing work. Candidates with backgrounds in metabolic engineering, synthetic biology, microbial genomics, or related fields are encouraged to apply.
+
+## Collaborators and visiting scholars
+
+We are open to collaborations with academic and industry partners. Send a short note describing the project idea and any relevant timelines.
+
+**Contact:** emyoung@wpi.edu
