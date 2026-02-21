@@ -7,7 +7,7 @@ permalink: /
 
 <div class="hero">
 	<div>
-		<p class="lead"> {{The Young Lab uses genomics, synthetic biology, and metabolic engineering to engineer organisms. We are designing the next generation of biosensors and cell factories for a sustainable future. We are developing biofoundry-based workflows to enable engineering across the tree of life.}}</p>
+		<p class="lead">The Young Lab uses genomics, synthetic biology, and metabolic engineering to engineer organisms. We are designing the next generation of biosensors and cell factories for a sustainable future. We are developing biofoundry-based workflows to enable engineering across the tree of life.</p>
 	</div>
 	
 	<div class="hero-card">

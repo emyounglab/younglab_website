@@ -1,0 +1,10 @@
+title: "Young Lab"
+description: "Synthetic biology and metabolic engineering research."
+url: "https://emyounglab.github.io"
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+# GitHub Pages safe default (no custom plugins)
+plugins: []
