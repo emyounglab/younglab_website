@@ -1,17 +1,38 @@
 pi:
   - name: "Eric M. Young"
-    role: "Principal Investigator"
+    role: "Principal Investigator, BioHub Director"
     email: "emyoung@wpi.edu"
     website: "https://www.wpi.edu/people/faculty/emyoung"
-    interests: "Synthetic biology, metabolic engineering, nonconventional yeasts, microbial genomics"
     photo: "/assets/img/people/Young_Faculty_2017.jpg"
 
 students:
-  # Add current lab members here
-  # - name: "First Last"
-  #   role: "PhD Student"
-  #   email: ""
-  #   interests: ""
+  - name: "Dr. Jaya Gupta"
+    role: "Postdoctoral Researcher"
+    interests: "fungal highways, nonconventional yeast onboarding"
+
+  - name: "Alexandria Adams"
+    role: "PhD Student"
+    interests: "synthetic biology part collections, metabolic engineering, part transferability"
+    
+  - name: "Zekun Li"
+    role: "PhD Student"
+    interests: "nonconventional yeast engineering, biofoundries, automation"
+    
+  - name: "Zoe Horton"
+    role: "PhD Student"
+    interests: "incorporating cell engineering into cell culture"
+    
+  - name: "Nicole Petersen"
+    role: "PhD Student"
+    interests: "nonconventional yeast engineering, natural products, fungal systems"
+    
+  - name: "Ruiyi Wang"
+    role: "PhD Student"
+    interests: "yeast metabolic engineering, bioprocessing"
+    
+  - name: "Taylor Fiore"
+    role: "PhD Student"
+    interests: "natural product biosynthesis, metabolic engineering"
 
 staff:
   # Add staff here
@@ -21,6 +42,53 @@ staff:
   #   interests: ""
 
 alumni:
-  - name: "Kevin W. Keating"
+  - name: "Dr. Nilesh Sharma"
+    role: "Postdoc"
+    current: "Praj Industries"
+    
+  - name: "Dr. Leelakrishna Bankapalli"
     role: "PhD"
-    current: "Resilient"
+    current: "Bycus Therapeutics"
+    
+  - name: "Dr. Joseph H. Collins"
+    role: "PhD"
+    current: "Asimov"
+
+  - name: "Dr. Kevin W. Keating"
+    role: "PhD"
+    current: "Resilience"
+    
+  - name: "Dr. Cassandra Brzycki Newton"
+    role: "PhD"
+    current: "Ayana Bio"
+    
+  - name: "Dr. Sarah J. Weintraub"
+    role: "PhD"
+    current: "Postdoc, Carnegie Mellon University"
+    
+  - name: "Jaclyn Thompson"
+    role: "Technician"
+    current: "Synlogic"
+    
+  - name: "Trent Jones"
+    role: "Undergraduate Researcher"
+    current: "Ginkgo BioWorks"
+    
+  - name: "Celeste Marsan"
+    role: "Undergraduate Researcher"
+    current: "OmniSense Surgical, Inc."
+    
+  - name: "Shravani Balaji"
+    role: "Undergraduate Researcher"
+    current: "PhD Student, Yale University"
+    
+  - name: "Amparo Cosio"
+    role: "Undergraduate Researcher"
+    current: "Asimov"
+    
+  - name: "Justin Roberts"
+    role: "Undergraduate Researcher"
+    current: "PhD Student, University of Delaware"
+
+    
+
