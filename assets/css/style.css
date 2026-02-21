@@ -26,7 +26,8 @@ a{color:inherit}
   z-index:10;
 }
 .header-inner{display:flex; align-items:center; justify-content:space-between; gap:16px;}
-.site-title{font-weight:800; text-decoration:none;}
+.site-title{font-weight:800; text-decoration:none; display:flex; align-items:center; gap:10px;}
+.site-logo{height:40px; width:auto; border-radius:6px; object-fit:cover;}
 .site-nav a{
   text-decoration:none;
   margin-left:12px;
