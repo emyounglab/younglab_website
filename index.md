@@ -1,7 +1,5 @@
 ---
 layout: page
-title: "Young Lab"
-subtitle: "Synthetic Biology"
 permalink: /
 ---
 
