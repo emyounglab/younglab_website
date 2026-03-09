@@ -1,26 +1,39 @@
-- title: "Project A: Scalable strain engineering"
+- title: "Cell Factories"
   status: "Active"
-  summary: "We develop robust pipelines for engineering organisms for industrially relevant conditions."
+  summary: "We engineer organisms with interesting biosynthetic capacity to produce useful compounds like fuels, medicines, and materials. We apply combinatorial metabolic engineering to rapidly explore large genetic search spaces."
   highlights:
-    - "High-throughput design-build-test-learn"
-    - "Scale-down models for scale-up prediction"
-    - "Open protocols and tooling"
-  tags: ["strain-engineering", "DBTL"]
+    - "Metabolic engineering of nonconventional yeasts"
+    - "Combinatorial approaches for pathway optimization"
+    - "Biofuels, biomaterials, and natural products"
+  tags: ["metabolic-engineering", "yeast", "biofuels"]
+  url: "/research/"
 
-- title: "Project B: Fermentation analytics & control"
+- title: "Nonconventional Yeasts"
   status: "Active"
-  summary: "We build data-driven models for bioreactors and create tools for monitoring and control."
+  summary: "Beyond S. cerevisiae, we explore oleaginous and basidiomycete yeasts with naturally advantageous metabolic networks and improved tolerance phenotypes. We use omics-driven workflows to onboard new organisms for engineering."
   highlights:
-    - "Soft sensors from online + offline data"
-    - "Anomaly detection and drift monitoring"
-    - "Reproducible analysis notebooks"
-  tags: ["bioreactors", "data", "control"]
+    - "Oleaginous and red yeast genomics and transcriptomics"
+    - "Omics-driven organism onboarding (Illumina + Nanopore)"
+    - "Tolerance and robustness engineering"
+  tags: ["nonconventional-yeast", "genomics", "omics"]
+  url: "/research/"
 
-- title: "Project C: Open datasets"
-  status: "Ongoing"
-  summary: "We curate and publish datasets to accelerate benchmarking and method development."
+- title: "Microbial Communities & Fungal Highways"
+  status: "Active"
+  summary: "We study molecular communication in soil microbiomes, where fungal mycelia extend for meters underground and enable long-range signaling between species. We are developing synthetic biology strategies for engineering across these large-scale networks."
   highlights:
-    - "Standardized metadata"
-    - "Baseline models and evaluation"
-    - "Community contributions"
-  tags: ["datasets", "open-science"]
+    - "Inter-species molecular communication in soil"
+    - "Fungal network structure and long-range signaling"
+    - "Synthetic biology in complex communities"
+  tags: ["microbiome", "fungal-highways", "soil"]
+  url: "/research/"
+
+- title: "Biosensors"
+  status: "Active"
+  summary: "Biological systems can sense and respond to their environment with exquisite specificity. We design genetic sensors that detect and report desired chemical or environmental signals, using direct part transfer, homology inference, and transcriptomics-guided design."
+  highlights:
+    - "Genetic sensor design and optimization"
+    - "Transcriptomics-guided biosensor development"
+    - "Applications in diagnostics and environmental monitoring"
+  tags: ["biosensors", "genetic-circuits", "transcriptomics"]
+  url: "/research/"

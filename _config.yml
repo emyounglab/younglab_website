@@ -5,6 +5,7 @@ baseurl: ""
 
 markdown: kramdown
 permalink: pretty
+future: true
 
 # GitHub Pages safe default (no custom plugins)
 plugins: []

@@ -1,7 +1,27 @@
 - date: "2026-02-01"
   title: "Young Lab website launched"
-  text: "We’ve launched our new GitHub Pages site."
+  text: "We've launched our new lab website on GitHub Pages. Find out about our research, people, and publications."
 
-- date: "2026-01-10"
-  title: "Paper accepted"
-  text: "Our latest work on X was accepted at Y."
+- date: "2025-10-23"
+  title: "New preprint: Alkane biosynthesis in Debaryomyces hansenii"
+  text: "Zekun Li and co-authors posted a preprint on combinatorial metabolic engineering of alkane biosynthesis in the osmotolerant yeast Debaryomyces hansenii CBS 767."
+  url: "https://doi.org/10.1101/2025.10.23.684212"
+
+- date: "2025-01-01"
+  title: "New paper: Oleaginous yeast biology via comparative transcriptomics"
+  text: "Sarah Weintraub, Zekun Li, and co-authors published in Biotechnology and Bioengineering, using comparative transcriptomics to elucidate oleaginous yeast biology."
+  url: "https://doi.org/10.1002/bit.28891"
+
+- date: "2024-11-01"
+  title: "Dr. Jaya Gupta joins as Postdoctoral Researcher"
+  text: "We welcome Dr. Jaya Gupta to the lab as a Postdoctoral Researcher. Jaya's work focuses on fungal highways and nonconventional yeast onboarding."
+
+- date: "2024-06-01"
+  title: "New paper: Omics-driven onboarding of Xanthophyllomyces dendrorhous"
+  text: "Joe Collins and co-authors published on genome and transcriptome-driven onboarding of the carotenoid-producing red yeast Xanthophyllomyces dendrorhous in Applied Microbiology and Biotechnology."
+  url: "https://doi.org/10.1007/s00253-024-13379-w"
+
+- date: "2024-01-01"
+  title: "New paper: Ensemble detection of DNA engineering signatures"
+  text: "Joe Collins, Kevin Keating, and co-authors published a method for detecting signatures of DNA engineering in ACS Synthetic Biology."
+  url: "https://doi.org/10.1021/acssynbio.3c00398"

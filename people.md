@@ -2,6 +2,7 @@
 layout: page
 title: People
 permalink: /people/
+description: "Meet the Young Lab team at WPI — PI, graduate students, postdocs, and alumni working in synthetic biology and metabolic engineering."
 ---
 
 ## Principal Investigator

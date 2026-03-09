@@ -1,10 +1,7 @@
 <header class="site-header">
-  <div class="container header-inner">
-    <a class="site-title" href="{{ '/' | relative_url }}">
-      <img src="{{ '/assets/img/young_header.JPG' | relative_url }}" alt="{{ site.title }}" class="site-logo">
-      {{ site.title }}
-    </a>
-
+  <img src="{{ '/assets/img/young_header.png' | relative_url }}" alt="{{ site.title }}" class="site-header-img">
+  <div class="header-nav">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
     <nav class="site-nav">
       {% assign links = "
         Home:/,

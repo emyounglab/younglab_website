@@ -2,6 +2,7 @@
 layout: page
 title: Join the lab
 permalink: /join/
+description: "Interested in joining the Young Lab at WPI? We welcome PhD students, undergraduates, postdocs, and collaborators in synthetic biology and metabolic engineering."
 ---
 
 We welcome motivated students and researchers interested in **synthetic biology, metabolic engineering, genomics, and microbiology**. Our work sits at the interface of chemical engineering and biology, and we value both wet-lab and computational skills.
