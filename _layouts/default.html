@@ -18,8 +18,13 @@
     <meta property="og:description" content="{{ page_desc | escape }}" />
     <meta property="og:url" content="{{ page.url | absolute_url }}" />
 
-    <!-- Favicon: add favicon.ico or favicon.png to /assets/img/ -->
-    <link rel="icon" href="{{ '/assets/img/favicon.png' | relative_url }}" type="image/png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ '/assets/img/favicon/favicon-96x96.png' | relative_url }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon/favicon.svg' | relative_url }}" />
+    <link rel="shortcut icon" href="{{ '/assets/img/favicon/favicon.ico' | relative_url }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/favicon/apple-touch-icon.png' | relative_url }}" />
+    <meta name="apple-mobile-web-app-title" content="{{ site.title }}" />
+    <link rel="manifest" href="{{ '/assets/img/favicon/site.webmanifest' | relative_url }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
