@@ -2,13 +2,16 @@
   --max: 980px;
   --pad: 18px;
   --fg: #1a1a1a;
-  --muted: #6b5f57;
-  --line: #e2d9cf;
+  --muted: #6B6457;
+  --line: #D4CCBF;
   --bg: #ffffff;
-  --bg2: #f5f5f5;
+  --bg2: #EDE9E2;
   --red: #AC2B37;
-  --green: #4D7C5F;
-  --header-bg: #5a5758;
+  --orange: #C4622A;
+  --green: #4A5C45;
+  --navy: #1E2E4A;
+  --blue: #6B9EC4;
+  --header-bg: #1E2E4A;
 }
 
 *{box-sizing:border-box}
@@ -21,10 +24,10 @@ body{
 }
 h1,h2,h3,h4,h5,h6{
   font-family: 'DM Serif Display', system-ui, -apple-system, sans-serif;
-  color: var(--red);
+  color: var(--navy);
 }
 a{color:var(--red)}
-a:hover{color:var(--green)}
+a:hover{color:var(--orange)}
 .container{max-width:var(--max); margin:0 auto; padding:var(--pad);}
 
 .site-header{
@@ -52,24 +55,24 @@ a:hover{color:var(--green)}
 .site-nav a{
   text-decoration:none;
   margin-right:4px;
-  color:var(--green);
+  color:var(--orange);
   padding:6px 8px;
   border-radius:8px;
 }
 .site-nav a.active{
   color:#fff;
-  background:var(--green);
+  background:var(--navy);
 }
 .site-nav a:hover{
-  color:var(--fg);
+  color:var(--orange);
   background:var(--line);
 }
 
 .page-header{margin: 12px 0 18px;}
 .page-title{margin:0 0 6px;}
-.page-subtitle{margin:0; color:var(--muted);}
+.page-subtitle{margin:0; color:var(--red);}
 
-.lead{font-size:1.12rem; color:var(--muted);}
+.lead{font-size:1.12rem; color:var(--muted); background:var(--line); padding:16px 20px; border-radius:10px;}
 .h3{font-size:1.1rem; margin:0 0 10px;}
 
 .hero{
@@ -137,12 +140,12 @@ a:hover{color:var(--green)}
 .pub-tags{margin-top:6px;}
 .tag{
   display:inline-block;
-  border:1px solid var(--line);
+  border:1px solid var(--blue);
   padding:2px 8px;
   border-radius:999px;
   font-size:0.85em;
   margin-right:6px;
-  color:var(--muted);
+  color:var(--blue);
 }
 
 .clean-list{list-style:none; padding-left:0; margin:0;}
@@ -170,7 +173,7 @@ a:hover{color:var(--green)}
   color:#fff;
 }
 .research-section{
-  border-left:4px solid var(--green);
+  border-left:4px solid var(--orange);
   padding:20px 24px;
   margin:24px 0;
   background:var(--bg2);
@@ -178,9 +181,63 @@ a:hover{color:var(--green)}
 }
 .research-section h2{
   margin-top:0;
+  color:var(--red);
+}
+#cell-factories{ border-left-color: var(--orange); }
+#biosensors{ border-left-color: var(--blue); }
+#nonconventional-yeasts{ border-left-color: var(--green); }
+#microbial-communities{ border-left-color: var(--navy); }
+
+/* Home page decorative elements */
+.palette-stripe{
+  display:flex;
+  height:17px;
+  margin-bottom:28px;
+  border-radius:4px;
+  overflow:hidden;
+}
+.palette-stripe span{
+  flex:1;
+  transform:skewX(-20deg);
+  margin:0 -6px;
+}
+.ps-red{ background:var(--red); }
+.ps-orange{ background:var(--orange); }
+.ps-green{ background:var(--green); }
+.ps-navy{ background:var(--navy); }
+.ps-blue{ background:var(--blue); }
+.focus-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0 28px;
+}
+.focus-badge{
+  text-decoration:none;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:0.9rem;
+  font-weight:500;
+  color:var(--bg2);
+  border:2px solid transparent;
+  transition: opacity 0.15s;
+}
+.focus-badge:hover{ color:var(--bg2); opacity:0.85; }
+.badge-orange{ background:var(--orange); }
+.badge-blue{ background:var(--blue); }
+.badge-green{ background:var(--green); }
+.badge-navy{ background:var(--navy); }
+hr.palette-rule{
+  border:none;
+  height:2px;
+  background: linear-gradient(to right,
+    var(--red), var(--orange), var(--green), var(--navy), var(--blue)
+  );
+  margin:28px 0;
+  border-radius:2px;
 }
 
-.site-footer{border-top:2px solid var(--red); margin-top:36px; background:var(--bg2);}
+.site-footer{border-top:2px solid var(--navy); margin-top:36px; background:var(--bg2);}
 .footer-inner{padding:18px;}
 
 @media (max-width: 900px){

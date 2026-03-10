@@ -81,25 +81,39 @@ Pages (Markdown):
 - **Headings & site title:** DM Serif Display
 
 ### Colors (CSS variables in style.css)
+Palette inspired by the Time Variance Authority (TVA) from Loki — retro-bureaucratic, mid-century modern feel.
+
 | Variable | Value | Usage |
 |---|---|---|
-| `--red` | `#AC2B37` | WPI Red — links, body headings, highlight |
-| `--green` | `#4D7C5F` | Botanical green — hover, nav active, research cards |
-| `--header-bg` | `#5a5758` | (currently unused — header bg is white) |
+| `--red` | `#AC2B37` | WPI Red — links (default), site title, page subtitles |
+| `--orange` | `#C4622A` | TVA burnt orange — headings, nav links, link hover, research card borders (Cell Factories) |
+| `--green` | `#4A5C45` | Dark sage — nav active bg, research card border (Nonconventional Yeasts) |
+| `--navy` | `#1E2E4A` | Deep navy — footer border, nav active, research card border (Microbial Communities), `--header-bg` |
+| `--blue` | `#6B9EC4` | Dusty slate blue — tags, research card border (Biosensors) |
 | `--fg` | `#1a1a1a` | Body text |
-| `--muted` | `#6b5f57` | Secondary text |
+| `--muted` | `#6B6457` | Secondary text |
 | `--bg` | `#ffffff` | Page background |
-| `--bg2` | `#f5f5f5` | Cards, secondary areas |
-| `--line` | `#e2d9cf` | Borders |
+| `--bg2` | `#EDE9E2` | Warm cream — cards, footer background, badge text color |
+| `--line` | `#D4CCBF` | Warm tan — borders, nav hover background, lead paragraph background |
 
 ### Header Layout
 - Flex row: `young_header.png` on the left (40% width, height auto), nav panel on the right
 - Site title: DM Serif Display, WPI Red
-- Nav links: botanical green; active page gets green background + white text
+- Nav links: burnt orange; active page gets navy background + cream text
 
 ### Research Page
-- Four `.research-section` cards with a botanical green left border
-- No intro text or buttons — cards displayed directly under the page title
+- Four `.research-section` cards, each with a unique left border color keyed by ID:
+  - `#cell-factories` → orange
+  - `#biosensors` → blue
+  - `#nonconventional-yeasts` → sage green
+  - `#microbial-communities` → navy
+- Card titles: WPI Red; base border color is orange (overridden per ID)
+
+### Home Page (`index.md`)
+- **Palette stripe** — 17px tall bar of five skewed parallelogram segments (red, orange, green, navy, blue) at top of content; uses `.palette-stripe` with five `<span>` children (`.ps-red`, `.ps-orange`, `.ps-green`, `.ps-navy`, `.ps-blue`)
+- **Focus badges** — four solid-fill pill links to research sections; cream text on colored backgrounds (`.focus-badge` + `.badge-orange/blue/green/navy`)
+- **Lead paragraph** — `.lead` has `--line` warm tan background with padding and rounded corners
+- **Dividers** — `<hr class="palette-rule"/>` renders as a 2px gradient line across the full palette
 
 ---
 
