@@ -16,13 +16,26 @@
         </div>
       {% endif %}
 
-      {% if include.person.website %}
-        <div class="person-meta">
-          <a href="{{ include.person.website }}" target="_blank" rel="noreferrer">Website</a>
-        </div>
+      {% if include.person.phone %}
+        <div class="person-meta">{{ include.person.phone }}</div>
       {% endif %}
     </div>
   </div>
+
+  {% if include.person.office %}
+    <div class="person-meta muted">{{ include.person.office }}</div>
+  {% endif %}
+  {% if include.person.address %}
+    <div class="person-meta muted">{{ include.person.address }}</div>
+  {% endif %}
+
+  {% if include.person.links %}
+    <div class="person-meta" style="margin-top:8px;">
+      {% for link in include.person.links %}
+        <a href="{{ link.url }}" target="_blank" rel="noreferrer">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}
+      {% endfor %}
+    </div>
+  {% endif %}
 
   {% if include.person.interests %}
     <p class="muted"><strong>Interests:</strong> {{ include.person.interests }}</p>

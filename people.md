@@ -6,8 +6,15 @@ description: "Meet the Young Lab team at WPI — PI, graduate students, postdocs
 ---
 
 ## Principal Investigator
-<div class="grid">
+<div class="grid-single">
 {% for p in site.data.people.pi %}
+	{% include person-card.html person=p %}
+{% endfor %}
+</div>
+
+## Postdoctoral Researchers
+<div class="grid-single">
+{% for p in site.data.people.postdocs %}
 	{% include person-card.html person=p %}
 {% endfor %}
 </div>
@@ -15,13 +22,6 @@ description: "Meet the Young Lab team at WPI — PI, graduate students, postdocs
 ## Students
 <div class="grid">
 {% for p in site.data.people.students %}
-	{% include person-card.html person=p %}
-{% endfor %}
-</div>
-
-## Staff
-<div class="grid">
-{% for p in site.data.people.staff %}
 	{% include person-card.html person=p %}
 {% endfor %}
 </div>

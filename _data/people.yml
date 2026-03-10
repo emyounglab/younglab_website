@@ -1,15 +1,31 @@
 pi:
   - name: "Eric M. Young"
-    role: "Principal Investigator, BioHub Director"
+    role: "Associate Professor, Chemical Engineering · Worcester Polytechnic Institute"
     email: "emyoung@wpi.edu"
-    website: "https://www.wpi.edu/people/faculty/emyoung"
+    phone: "+1 (508) 831-5000 x6398"
+    office: "GP 4003, Life Sciences & Bioengineering Center, Gateway Park"
+    address: "100 Institute Road, Worcester, MA 01609"
     photo: "/assets/img/people/Young_Faculty_2017.jpg"
+    links:
+      - label: "WPI Faculty Profile"
+        url: "https://www.wpi.edu/people/faculty/emyoung"
+      - label: "Google Scholar"
+        url: "https://scholar.google.com/citations?user=16wgnJUAAAAJ"
+      - label: "ORCID"
+        url: "https://orcid.org/0000-0001-5276-2873"
+      - label: "GitHub"
+        url: "https://github.com/emyounglab"
+      - label: "Twitter/X"
+        url: "https://twitter.com/ericmyces"
+      - label: "LinkedIn"
+        url: "https://www.linkedin.com/in/ericmyoung7"
 
-students:
+postdocs:
   - name: "Dr. Jaya Gupta"
     role: "Postdoctoral Researcher"
     interests: "fungal highways, nonconventional yeast onboarding"
 
+students:
   - name: "Alexandria Adams"
     role: "PhD Student"
     interests: "synthetic biology part collections, metabolic engineering, part transferability"
