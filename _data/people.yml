@@ -1,11 +1,27 @@
 pi:
   - name: "Eric M. Young"
     role: "Associate Professor, Chemical Engineering · Worcester Polytechnic Institute"
+    titles:
+      - name: "Associate Professor, Chemical Engineering"
+        url: "https://www.wpi.edu/academics/departments/chemical-engineering"
+      - name: "Director, CERES Service Center"
+        url: "https://www.wpi.edu/research/core-research-facilities/ceres"
+      - name: "Director, BioHub"
+        url: "https://massbiohub.org"
+    affiliations:
+      - name: "Bioinformatics and Computational Biology"
+        url: "https://www.wpi.edu/academics/departments/bioinformatics-computational-biology"
+      - name: "Biology & Biotechnology"
+        url: "https://www.wpi.edu/academics/departments/biology-biotechnology"
+      - name: "Biomedical Engineering"
+        url: "https://www.wpi.edu/academics/departments/biomedical-engineering"
     email: "emyoung@wpi.edu"
     phone: "+1 (508) 831-5000 x6398"
-    office: "GP 4003, Life Sciences & Bioengineering Center, Gateway Park"
-    address: "100 Institute Road, Worcester, MA 01609"
+    building: "Life Sciences & Bioengineering Center"
+    room: "Room GP 4003"
+    address: "60 Prescott Street, Worcester, MA 01605"
     photo: "/assets/img/people/Young_Faculty_2017.jpg"
+    contact_buttons: true
     links:
       - label: "WPI Faculty Profile"
         url: "https://www.wpi.edu/people/faculty/emyoung"
@@ -15,8 +31,6 @@ pi:
         url: "https://orcid.org/0000-0001-5276-2873"
       - label: "GitHub"
         url: "https://github.com/emyounglab"
-      - label: "Twitter/X"
-        url: "https://twitter.com/ericmyces"
       - label: "LinkedIn"
         url: "https://www.linkedin.com/in/ericmyoung7"
 

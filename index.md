@@ -11,7 +11,7 @@ permalink: /
 
 <hr class="palette-rule"/>
 
-## Selected publications
+## Latest Articles
 
 {% assign pubs = site.data.publications | sort: "year" | reverse | slice: 0, 3 %}
 {% for pub in pubs %}

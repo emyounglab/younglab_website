@@ -4,12 +4,14 @@
     <div class="pub-title">
       {% if include.pub.url %}<a href="{{ include.pub.url }}" target="_blank" rel="noreferrer">{{ include.pub.title }}</a>{% else %}{{ include.pub.title }}{% endif %}
     </div>
-    <div class="pub-authors">{{ include.pub.authors }}</div>
+    <div class="pub-authors">{{ include.pub.authors | replace: "E.M. Young", "<strong>E.M. Young</strong>" }}</div>
+    {% if include.pub.attr %}<div class="pub-authors muted">{{ include.pub.attr }}</div>{% endif %}
     <div class="pub-venue muted">
-      {{ include.pub.venue }}
+      <i>{{ include.pub.venue }}</i>
       {% if include.pub.year %} ({{ include.pub.year }}){% endif %}
-      {% if include.pub.doi %} · DOI: {{ include.pub.doi }}{% endif %}
+      {% if include.pub.doi %} · <a href="https://doi.org/{{ include.pub.doi }}" target="_blank" rel="noreferrer">doi</a>{% endif %}
       {% if include.pub.pdf %} · <a href="{{ include.pub.pdf | relative_url }}">PDF</a>{% endif %}
+      {% if include.pub.preprint_url %} · <a href="{{ include.pub.preprint_url }}" target="_blank" rel="noreferrer">preprint</a>{% endif %}
     </div>
     {% if include.pub.tags %}
     <div class="pub-tags">

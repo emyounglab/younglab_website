@@ -8,25 +8,72 @@
 
     <div>
       <div class="person-name">{{ include.person.name }}</div>
+      {% if include.person.contact_buttons %}
+      {% assign ep = include.person.email | split: "@" %}
+      <div class="contact-btns">
+        {% if include.person.email %}
+        <button class="contact-btn" onclick="var e=['{{ ep[0] }}','{{ ep[1] }}'].join('@');window.location.href='mailto:'+e;">Contact</button>
+        {% endif %}
+        {% if include.person.phone %}
+        <button class="contact-btn" onclick="toggleContactPopup(this,'{{ include.person.phone }}')">Phone</button>
+        {% endif %}
+        {% if include.person.building or include.person.address %}
+        <button class="contact-btn" onclick="toggleContactPopup(this,'{{ include.person.building }}\n{{ include.person.room }}\n{{ include.person.address }}')">Address</button>
+        {% endif %}
+      </div>
+      <div class="contact-popup" style="display:none;"></div>
+      {% endif %}
+      {% if include.person.titles %}
+      {% for t in include.person.titles %}<div class="person-role">{% if t.url %}<a href="{{ t.url }}" target="_blank" rel="noreferrer">{{ t.name }}</a>{% else %}{{ t.name }}{% endif %}</div>{% endfor %}
+      {% else %}
       <div class="person-role">{{ include.person.role }}</div>
+      {% endif %}
+      {% if include.person.affiliations %}
+      <div class="person-role muted" style="margin-top:4px; font-size:0.85rem;"><em>Affiliate: {% for a in include.person.affiliations %}{% if a.url %}<a href="{{ a.url }}" target="_blank" rel="noreferrer">{{ a.name }}</a>{% else %}{{ a.name }}{% endif %}{% unless forloop.last %} · {% endunless %}{% endfor %}</em></div>
+      {% endif %}
 
+      {% unless include.person.contact_buttons %}
       {% if include.person.email %}
         <div class="person-meta">
           <a href="mailto:{{ include.person.email }}">{{ include.person.email }}</a>
         </div>
       {% endif %}
-
       {% if include.person.phone %}
         <div class="person-meta">{{ include.person.phone }}</div>
       {% endif %}
+      {% endunless %}
     </div>
   </div>
 
-  {% if include.person.office %}
-    <div class="person-meta muted">{{ include.person.office }}</div>
+  {% unless include.person.contact_buttons %}
+  {% if include.person.building %}
+    <div class="person-meta muted">{{ include.person.building }}</div>
+  {% endif %}
+  {% if include.person.room %}
+    <div class="person-meta muted">{{ include.person.room }}</div>
   {% endif %}
   {% if include.person.address %}
     <div class="person-meta muted">{{ include.person.address }}</div>
+  {% endif %}
+  {% endunless %}
+
+  {% if include.person.contact_buttons %}
+  <script>
+  function toggleContactPopup(btn, info) {
+    var popup = btn.closest('.person-card').querySelector('.contact-popup');
+    if (popup.style.display === 'none' || popup.textContent !== info) {
+      popup.textContent = info;
+      popup.style.display = 'block';
+    } else {
+      popup.style.display = 'none';
+    }
+  }
+  document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('contact-btn')) {
+      document.querySelectorAll('.contact-popup').forEach(function(p){ p.style.display='none'; });
+    }
+  });
+  </script>
   {% endif %}
 
   {% if include.person.links %}

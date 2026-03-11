@@ -1,10 +1,10 @@
 # Publications for the Young Lab
 # Sources: ORCID 0000-0001-5276-2873, CrossRef
-# Types: journal | preprint | book-chapter
+# Types:  preprint | journal | review | book-chapter | patent
 
 - year: 2025
   type: preprint
-  title: "Combinatorial metabolic engineering of alkane biosynthesis in the osmotolerant yeast Debaryomyces hansenii CBS 767"
+  title: "Combinatorial metabolic engineering of alkane biosynthesis in the osmotolerant yeast <i>Debaryomyces hansenii</i> CBS 767"
   authors: "Z. Li, N.K. Sharma, S. Weintraub, E.M. Young"
   venue: "bioRxiv"
   doi: "10.1101/2025.10.23.684212"
@@ -20,27 +20,31 @@
 
 - year: 2024
   type: journal
-  title: "Omics-driven onboarding of the carotenoid producing red yeast Xanthophyllomyces dendrorhous CBS 6938"
-  authors: "E.E. Tobin, J.H. Collins, C.B. Marsan, G.T. Nadeau, K. Mori, A. Lipzen, S. Mondo, I.V. Grigoriev, E.M. Young"
+  title: "Omics-driven onboarding of the carotenoid producing red yeast <i>Xanthophyllomyces dendrorhous</i> CBS 6938"
+  authors: "E.E. Tobin*, J.H. Collins*, C.B. Marsan, G.T. Nadeau, K. Mori, A. Lipzen, S. Mondo, I.V. Grigoriev, E.M. Young"
   venue: "Applied Microbiology and Biotechnology"
   doi: "10.1007/s00253-024-13379-w"
   url: "https://doi.org/10.1007/s00253-024-13379-w"
+  attr: "<i>*= equal contribution</i>"
+  preprint_url: "https://www.biorxiv.org/content/10.1101/2023.07.31.551333v1"
 
 - year: 2024
-  type: journal
+  type: review
   title: "Ten years of the Synthetic Biology Summer Course at Cold Spring Harbor Laboratory"
-  authors: "K.A. Haynes, L.B. Andrews, C.L. Beisel, J. Chappell, C.E. Cuba Samaniego, J.E. Dueber, M.J. Dunlop, E. Franco, J.B. Lucks, V. Noireaux, D.F. Savage, P.A. Silver, M. Smanski, E.M. Young"
+  authors: "K.A. Haynes*, L.B. Andrews, C.L. Beisel, J. Chappell, C.E. Cuba Samaniego, J.E. Dueber, M.J. Dunlop, E. Franco, J.B. Lucks, V. Noireaux, D.F. Savage, P.A. Silver, M. Smanski, E.M. Young"
   venue: "ACS Synthetic Biology"
   doi: "10.1021/acssynbio.4c00276"
+  attr: "<i>*= corresponding</i>"
   url: "https://doi.org/10.1021/acssynbio.4c00276"
 
 - year: 2024
   type: journal
-  title: "A correlative study of the genomic underpinning of virulence traits and drug tolerance of Candida auris"
+  title: "A correlative study of the genomic underpinning of virulence traits and drug tolerance of <i>Candida auris</i>"
   authors: "B. Yang, B. Vaisvil, D. Schmitt, J. Collins, E.M. Young, V. Kapatral, R. Rao"
   venue: "Infection and Immunity"
   doi: "10.1128/iai.00103-24"
   url: "https://doi.org/10.1128/iai.00103-24"
+  preprint_url: "https://www.biorxiv.org/content/10.1101/2023.04.07.536049v1"
 
 - year: 2024
   type: journal
@@ -52,7 +56,7 @@
 
 - year: 2023
   type: journal
-  title: "Integration of yeast episomal/integrative plasmid causes genotypic and phenotypic diversity and improved sesquiterpene production in metabolically engineered Saccharomyces cerevisiae"
+  title: "Integration of yeast episomal/integrative plasmid causes genotypic and phenotypic diversity and improved sesquiterpene production in metabolically engineered <i>Saccharomyces cerevisiae</i>"
   authors: "B. Peng, S.J. Weintraub, Z. Lu, S. Evans, Q. Shen, L. McDonnell, M. Plan, T. Collier, L.C. Cheah, L. Ji, C.B. Howard, W. Anderson, M. Trau, G. Dumsday, E.L. Bredeweg, E.M. Young, R. Speight, C.E. Vickers"
   venue: "ACS Synthetic Biology"
   doi: "10.1021/acssynbio.3c00363"
@@ -60,7 +64,7 @@
 
 - year: 2023
   type: journal
-  title: "Isolation and sequencing of the spoilage yeast Kregervanrija delftensis"
+  title: "Isolation and sequencing of the spoilage yeast <i>Kregervanrija delftensis</i>"
   authors: "J.H. Collins, A. Cosio, G. Brogan, L. Chico, A. Rozen, E. Thomson, E.M. Young"
   venue: "Microbiology Resource Announcements"
   doi: "10.1128/MRA.00397-23"
@@ -76,7 +80,7 @@
 
 - year: 2023
   type: journal
-  title: "Draft genome of the Ogataea polymorpha type strain CBS 4732"
+  title: "Draft genome of the <i>Ogataea polymorpha</i> type strain CBS 4732"
   authors: "J.H. Collins, E.M. Young"
   venue: "Microbiology Resource Announcements"
   doi: "10.1128/MRA.00611-22"
@@ -84,7 +88,7 @@
 
 - year: 2023
   type: preprint
-  title: "Phenotypic and genomic evidence for transparent cellulose, metabolic diversity, and stable cellulose production in the Acetobacteraceae"
+  title: "Phenotypic and genomic evidence for transparent cellulose, metabolic diversity, and stable cellulose production in the <i>Acetobacteraceae</i>"
   authors: "K.W. Keating, E.M. van Zyl, J.H. Collins, C. Nakagawa, S.J. Weintraub, J.M. Coburn, E.M. Young"
   venue: "bioRxiv"
   doi: "10.1101/2023.08.21.554206"
@@ -105,10 +109,11 @@
   venue: "ACS Synthetic Biology"
   doi: "10.1021/acssynbio.3c00104"
   url: "https://doi.org/10.1021/acssynbio.3c00104"
+  preprint_url: "https://www.biorxiv.org/content/10.1101/2023.02.07.527528v1"
 
 - year: 2023
   type: journal
-  title: "Structural properties of optically clear bacterial cellulose produced by Komagataeibacter hansenii using arabitol"
+  title: "Structural properties of optically clear bacterial cellulose produced by <i>Komagataeibacter hansenii</i> using arabitol"
   authors: "E.M. van Zyl, M.A. Kennedy, W. Nason, S.J. Fenlon, E.M. Young, L.J. Smith, S.R. Bhatia, J.M. Coburn"
   venue: "Biomaterials Advances"
   doi: "10.1016/j.bioadv.2023.213345"
@@ -153,11 +158,13 @@
   venue: "Nature Communications"
   doi: "10.1038/s41467-021-21656-9"
   url: "https://doi.org/10.1038/s41467-021-21656-9"
+  preprint_url: "https://www.biorxiv.org/content/10.1101/2020.05.05.079368v1"
 
 - year: 2021
   type: book-chapter
   title: "Secondary metabolite production in plant cell culture: a new epigenetic frontier"
   authors: "C.M. Brzycki, E.M. Young, S.C. Roberts"
+  editor: "S. Malik"
   venue: "Exploring Plant Cells for the Production of Compounds of Interest (Springer)"
   doi: "10.1007/978-3-030-58271-5_1"
   url: "https://doi.org/10.1007/978-3-030-58271-5_1"
@@ -171,7 +178,7 @@
   url: "https://doi.org/10.1038/s41564-020-0757-2"
 
 - year: 2019
-  type: journal
+  type: review
   title: "Synthetic biology for bio-derived structural materials"
   authors: "K.W. Keating, E.M. Young"
   venue: "Current Opinion in Chemical Engineering"
@@ -179,9 +186,109 @@
   url: "https://doi.org/10.1016/j.coche.2019.03.002"
 
 - year: 2018
-  type: journal
+  type: review
   title: "Genetic engineering of host organisms for pharmaceutical synthesis"
   authors: "J.H. Collins, E.M. Young"
   venue: "Current Opinion in Biotechnology"
   doi: "10.1016/j.copbio.2018.02.001"
   url: "https://doi.org/10.1016/j.copbio.2018.02.001"
+  
+- year: 2018
+  type: journal
+  title: "Iterative algorithm-guided design of massive strain libraries, applied to itaconic acid production in yeast"
+  authors: "E.M. Young, Z. Zhao, B.E.M. Gielesen, L. Wu, D.B. Gordon, J.A. Roubos, C.A. Voigt"
+  venue: "Metabolic Engineering"
+  doi: "10.1016/j.ymben.2018.05.002"
+  url: "https://doi.org/10.1016/j.ymben.2018.05.002"
+  
+- year: 2018
+  type: journal
+  title: "A pressure test to make 10 molecules in 90 days: External evaluation of methods to engineer biology​"
+  authors: "A. Casini*, F.-Y. Chang*, R. Eleure*, A. King*, E.M. Young*, Q.M. Dudley, A. Karim, K. Pratt, C. Bristol, A. Forget, A. Ghodasara, R. Warden-Rothman, R. Gan, A. Cristofaro, A.E. Borujeni, M.-H. Ryu, J. Li, Y.-C. Kwon, H. Wang, E. Tatsis, C. Rodriguez-Lopez, S. O’Connor, M.H. Mdema, M.A. Fischbach, M.C. Jewett, C.A. Voigt, and D.B. Gordon"
+  venue: "Journal of the American Chemical Society"
+  attr: "<i>* = Equal contribution</i>"
+  doi: "10.1021/jacs.7b13292"
+  url: "https://pubs.acs.org/doi/10.1021/jacs.7b13292"
+  
+- year: 2017
+  type: journal
+  title: "Formation of nitrogenase nifDK tetramers in the mitochondria of <i>Saccharomyces cerevisiae</i>"
+  authors: "S. Buren, E.M. Young, E. Sweeny, C.A. Voigt, and L. Rubio"
+  venue: "ACS Synthetic Biology"
+  doi: "10.1021/acssynbio.6b00371"
+  url:  "https://pubs.acs.org/doi/full/10.1021/acssynbio.6b00371"
+
+- year: 2016
+  type: journal
+  title: "DoubleDutch: a tool for designing combinatorial libraries of metabolic pathway variants"
+  authors: "N. Roehner, E.M. Young, C.A. Voigt, D.B. Gordon, and D. Densmore"
+  venue: "​ACS Synthetic Biology"
+  
+- year: 2015
+  type: book-chapter
+  title: "Remaining challenges in the metabolic engineering of yeasts for biofuels"
+  authors: "S.-M. Lee, E.M. Young, and H.S. Alper"
+  editor: "M.E. Himmel"
+  venue: "Direct Microbial Conversion of Biomass to Advanced Biofuels"
+  chapter: "12"
+  ISBN: "9780444595928"
+  url: "https://www.sciencedirect.com/science/chapter/edited-volume/abs/pii/B9780444595928000129?via%3Dihub"
+
+- year: 2014
+  type: journal
+  title: "Rewiring yeast sugar transporter preference through modifying a conserved protein motif"
+  authors: "E.M. Young, A. Tong, H. Bui, C. Spofford, and H.S. Alper"
+  venue: "Proceedings of the National Academies of Science of the United States of America"
+  doi: "10.1073/pnas.1311970111"
+  url: "https://www.pnas.org/doi/full/10.1073/pnas.1311970111"
+  
+- year: 2012
+  type: journal
+  title: "A molecular transporter engineering approach to improving xylose catabolism in <i>Saccharomyces cerevisiae</i>"
+  authors: "E.M. Young, A.D. Comer, H. Huang, and H.S. Alper"
+  venue: "Metabolic Engineering"
+  doi: "10.1016/j.ymben.2012.03.004"
+  url: "https://doi.org/10.1016/j.ymben.2012.03.004"
+  
+- year: 2011
+  type: journal
+  title: "Functional survey for heterologous sugar transport proteins, using <i>Saccharomyces cerevisiae</i> as a host"
+  authors: "E.M. Young, A. Poucher, A.D. Comer, A. Bailey, and H.S. Alper"
+  venue: "Applied and Environmental Microbiology"
+  doi: "10.1128/AEM.02651-10"
+  url: "https://doi.org/10.1128/AEM.02651-10"
+
+- year: 2010
+  type: review
+  title: "Synthetic biology: Tools to design, build, and optimize cellular processes"
+  authors: "E.M. Young and H.S. Alper"
+  venue: "Journal of Biomedicine and Biotechnology"
+  doi: "10.1155/2010/130781"
+  url: "https://doi.org/10.1155/2010/130781"
+
+- year: 2010
+  type: review
+  title: "Optimizing pentose utilization in yeast: the need for novel tools and approaches"
+  authors: "E.M. Young, S.-M. Lee, and H.S. Alper"
+  venue: "​Biotechnology for Biofuels"
+  doi: "10.1186/1754-6834-3-24"
+  url: "https://link.springer.com/article/10.1186/1754-6834-3-24"
+  
+- year: 2015
+  type: patent
+  title: "Methods for Engineering Sugar Transporter Preferences"
+  authors: "H.S. Alper and E.M. Young"
+  owner: "Board of Regents, University of Texas System"
+  number: "U.S. Patent #9,926,347"
+  world: "WO2015069796"
+  url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2015069796"
+  
+- year: 2015
+  type: patent
+  title: "Engineered Xylose Transporters with Reduced Glucose Inhibition"
+  authors: "H.S. Alper, S.-M. Lee, E.M. Young"
+  owner: "Board of Regents, University of Texas System"
+  number: "U.S. Patent #9,695,223"
+  world: "WO2015179701"
+  url: "https://patentscope.wipo.int/search/en/detail.jsf;jsessionid=D776144AD70E69CB2D84EE998C9F9EFC.wapp1nC?docId=WO2015179701&recNum=10&office=&queryString=&prevFilter=%26fq%3DOF%3AWO%26fq%3DICF_M%3A%22A61K%22%26fq%3DPAF_M%3A%22BOARD+OF+REGENTS%2C+THE+UNIVERSITY+OF+TEXAS+SYSTEM%22&sortOption=Pub+Date+Desc&maxRec=518"
+  
