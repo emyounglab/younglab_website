@@ -1,25 +1,33 @@
 <header class="site-header">
-  <img src="{{ '/assets/img/young_header.png' | relative_url }}" alt="{{ site.title }}" class="site-header-img">
-  <div class="header-nav">
-    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <nav class="site-nav">
-      {% assign links = "
-        Home:/,
-        Research:/research/,
-        People:/people/,
-        Publications:/publications/,
-        Join:/join/
-      " | strip | split: "," %}
-
-      {% for item in links %}
-        {% assign pair = item | strip | split: ":" %}
-        {% assign label = pair[0] | strip %}
-        {% assign href = pair[1] | strip %}
-        <a href="{{ href | relative_url }}"
-           class="{% if page.url == href or page.permalink == href %}active{% endif %}">
-          {{ label }}
-        </a>
-      {% endfor %}
-    </nav>
+  <div class="site-top">
+    <div class="header-nav">
+      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    </div>
+    <img src="{{ '/assets/img/young_header.png' | relative_url }}" alt="{{ site.title }}" class="site-header-img">
   </div>
+  {% if page.url == '/' or page.permalink == '/' %}
+    {% assign tab_border = 'var(--red)' %}
+  {% elsif page.url == '/research/' or page.permalink == '/research/' %}
+    {% assign tab_border = 'var(--orange)' %}
+  {% elsif page.url == '/people/' or page.permalink == '/people/' %}
+    {% assign tab_border = 'var(--green)' %}
+  {% elsif page.url == '/publications/' or page.permalink == '/publications/' %}
+    {% assign tab_border = 'var(--navy)' %}
+  {% elsif page.url == '/join/' or page.permalink == '/join/' %}
+    {% assign tab_border = 'var(--blue)' %}
+  {% else %}
+    {% assign tab_border = 'var(--navy)' %}
+  {% endif %}
+  <nav class="site-nav" style="--tab-border: {{ tab_border }};">
+    <a href="{{ '/' | relative_url }}"
+       class="tab tab-red{% if page.url == '/' or page.permalink == '/' %} active{% endif %}">Home</a>
+    <a href="{{ '/research/' | relative_url }}"
+       class="tab tab-orange{% if page.url == '/research/' or page.permalink == '/research/' %} active{% endif %}">Research</a>
+    <a href="{{ '/people/' | relative_url }}"
+       class="tab tab-green{% if page.url == '/people/' or page.permalink == '/people/' %} active{% endif %}">People</a>
+    <a href="{{ '/publications/' | relative_url }}"
+       class="tab tab-navy{% if page.url == '/publications/' or page.permalink == '/publications/' %} active{% endif %}">Publications</a>
+    <a href="{{ '/join/' | relative_url }}"
+       class="tab tab-blue{% if page.url == '/join/' or page.permalink == '/join/' %} active{% endif %}">Join</a>
+  </nav>
 </header>

@@ -5,24 +5,26 @@ permalink: /people/
 description: "Meet the Young Lab team at WPI — PI, graduate students, postdocs, and alumni working in synthetic biology and metabolic engineering."
 ---
 
+<div class="people-page" markdown="1">
+
 ## Principal Investigator
 <div class="grid-single">
 {% for p in site.data.people.pi %}
-	{% include person-card.html person=p %}
+{% include person-card.html person=p %}
 {% endfor %}
 </div>
 
 ## Postdoctoral Researchers
 <div class="grid-single">
 {% for p in site.data.people.postdocs %}
-	{% include person-card.html person=p %}
+{% include person-card.html person=p %}
 {% endfor %}
 </div>
 
 ## Students
 <div class="grid">
 {% for p in site.data.people.students %}
-	{% include person-card.html person=p %}
+{% include person-card.html person=p %}
 {% endfor %}
 </div>
 
@@ -36,3 +38,5 @@ description: "Meet the Young Lab team at WPI — PI, graduate students, postdocs
 {% endfor %}
 </ul>
 {% endif %}
+
+</div>

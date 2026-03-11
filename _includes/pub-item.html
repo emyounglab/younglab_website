@@ -1,26 +1,22 @@
 <div class="pub-item">
-  <div class="pub-title">
-    {% if include.pub.url %}
-      <a href="{{ include.pub.url }}" target="_blank" rel="noreferrer">{{ include.pub.title }}</a>
-    {% else %}
-      {{ include.pub.title }}
-    {% endif %}
-  </div>
-
-  <div class="pub-authors">{{ include.pub.authors }}</div>
-
-  <div class="pub-venue muted">
-    {{ include.pub.venue }}
-    {% if include.pub.year %} ({{ include.pub.year }}){% endif %}
-    {% if include.pub.doi %} · DOI: {{ include.pub.doi }}{% endif %}
-    {% if include.pub.pdf %} · <a href="{{ include.pub.pdf | relative_url }}">PDF</a>{% endif %}
-  </div>
-
-  {% if include.pub.tags %}
+  <span class="pub-num">{% if include.num %}{{ include.num }}.{% endif %}</span>
+  <div class="pub-body">
+    <div class="pub-title">
+      {% if include.pub.url %}<a href="{{ include.pub.url }}" target="_blank" rel="noreferrer">{{ include.pub.title }}</a>{% else %}{{ include.pub.title }}{% endif %}
+    </div>
+    <div class="pub-authors">{{ include.pub.authors }}</div>
+    <div class="pub-venue muted">
+      {{ include.pub.venue }}
+      {% if include.pub.year %} ({{ include.pub.year }}){% endif %}
+      {% if include.pub.doi %} · DOI: {{ include.pub.doi }}{% endif %}
+      {% if include.pub.pdf %} · <a href="{{ include.pub.pdf | relative_url }}">PDF</a>{% endif %}
+    </div>
+    {% if include.pub.tags %}
     <div class="pub-tags">
       {% for tag in include.pub.tags %}
         <span class="tag">{{ tag }}</span>
       {% endfor %}
     </div>
-  {% endif %}
+    {% endif %}
+  </div>
 </div>

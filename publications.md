@@ -17,6 +17,7 @@ description: "Peer-reviewed publications, preprints, and book chapters from the 
 {% endfor %}
 
 {% if journals.size > 0 %}
+{% assign total_j = journals.size %}
 {% assign years = "" | split: "" %}
 {% for p in journals %}
 {% unless years contains p.year %}
@@ -24,11 +25,15 @@ description: "Peer-reviewed publications, preprints, and book chapters from the 
 {% endunless %}
 {% endfor %}
 {% for y in years %}
-<h3>{{ y }}</h3>
-{% for pub in journals %}
-{% if pub.year == y %}
-{% include pub-item.html pub=pub %}
-{% endif %}
+{% assign count_before = 0 %}
+{% for p in journals %}
+{% if p.year > y %}{% assign count_before = count_before | plus: 1 %}{% endif %}
+{% endfor %}
+<h3 class="year-stamp">{{ y }}</h3>
+{% assign year_pubs = journals | where: "year", y %}
+{% for pub in year_pubs %}
+{% assign pub_num = total_j | minus: count_before | minus: forloop.index0 %}
+{% include pub-item.html pub=pub num=pub_num %}
 {% endfor %}
 {% endfor %}
 {% else %}
@@ -47,6 +52,7 @@ description: "Peer-reviewed publications, preprints, and book chapters from the 
 {% endfor %}
 
 {% if preprints.size > 0 %}
+{% assign total_pre = preprints.size %}
 {% assign years2 = "" | split: "" %}
 {% for p in preprints %}
 {% unless years2 contains p.year %}
@@ -54,11 +60,15 @@ description: "Peer-reviewed publications, preprints, and book chapters from the 
 {% endunless %}
 {% endfor %}
 {% for y in years2 %}
-<h3>{{ y }}</h3>
-{% for pub in preprints %}
-{% if pub.year == y %}
-{% include pub-item.html pub=pub %}
-{% endif %}
+{% assign count_before2 = 0 %}
+{% for p in preprints %}
+{% if p.year > y %}{% assign count_before2 = count_before2 | plus: 1 %}{% endif %}
+{% endfor %}
+<h3 class="year-stamp">{{ y }}</h3>
+{% assign year_pubs2 = preprints | where: "year", y %}
+{% for pub in year_pubs2 %}
+{% assign pub_num = total_pre | minus: count_before2 | minus: forloop.index0 %}
+{% include pub-item.html pub=pub num=pub_num %}
 {% endfor %}
 {% endfor %}
 {% else %}
@@ -77,7 +87,9 @@ description: "Peer-reviewed publications, preprints, and book chapters from the 
 
 ## Other
 
+{% assign total_other = other.size %}
 {% for pub in other %}
-{% include pub-item.html pub=pub %}
+{% assign pub_num = total_other | minus: forloop.index0 %}
+{% include pub-item.html pub=pub num=pub_num %}
 {% endfor %}
 {% endif %}

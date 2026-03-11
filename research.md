@@ -24,33 +24,3 @@ description: "The Young Lab engineers organisms using synthetic biology and meta
   <li>Applications in diagnostics and environmental monitoring</li>
 </ul>
 </div>
-
-<div class="research-section" id="nonconventional-yeasts">
-<h2>Nonconventional Yeasts</h2>
-<p>Beyond <em>Saccharomyces cerevisiae</em>, we explore oleaginous and basidiomycete yeasts that harbor naturally advantageous metabolic networks. These organisms offer unique biosynthetic capabilities and improved tolerance phenotypes that serve as a foundation for engineering superior cell factories.</p>
-<ul>
-  <li>Oleaginous and red yeast genomics</li>
-  <li>Omics-driven organism onboarding</li>
-  <li>Tolerance and robustness engineering</li>
-</ul>
-</div>
-
-<div class="research-section" id="microbial-communities">
-<h2>Microbial Communities</h2>
-<p>We study soil microbes within complex communities where extensive molecular communication occurs between species. Mycelia extend for meters underground, enabling long-range communication — what we call "fungal highways." We are testing synthetic communication and engineering strategies across large length scales within soil ecosystems.</p>
-<ul>
-  <li>Inter-species molecular communication</li>
-  <li>Synthetic biology in soil communities</li>
-  <li>Fungal networks and long-range signaling</li>
-</ul>
-</div>
-
-## Techniques & capabilities
-- Metabolic engineering and pathway construction
-- Protein engineering and directed evolution
-- Genome sequencing and assembly (Illumina, Nanopore)
-- Transcriptomics and omics data analysis
-- CRISPR-based genome editing
-- High-throughput combinatorial strain construction
-- Genetic circuit design and automation
-- Fermentation and bioreactor operation
