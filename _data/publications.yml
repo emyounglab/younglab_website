@@ -9,6 +9,7 @@
   venue: "bioRxiv"
   doi: "10.1101/2025.10.23.684212"
   url: "https://doi.org/10.1101/2025.10.23.684212"
+  projects: [debaryomyces-hansenii]
 
 - year: 2025
   type: journal
@@ -17,6 +18,7 @@
   venue: "Biotechnology and Bioengineering"
   doi: "10.1002/bit.28891"
   url: "https://doi.org/10.1002/bit.28891"
+  projects: [debaryomyces-hansenii]
 
 - year: 2024
   type: journal
@@ -27,6 +29,7 @@
   url: "https://doi.org/10.1007/s00253-024-13379-w"
   attr: "<i>*= equal contribution</i>"
   preprint_url: "https://www.biorxiv.org/content/10.1101/2023.07.31.551333v1"
+  projects: [xanthophyllomyces-dendrorhous]
 
 - year: 2024
   type: review
@@ -159,6 +162,7 @@
   doi: "10.1038/s41467-021-21656-9"
   url: "https://doi.org/10.1038/s41467-021-21656-9"
   preprint_url: "https://www.biorxiv.org/content/10.1101/2020.05.05.079368v1"
+  projects: [prymetime]
 
 - year: 2021
   type: book-chapter
