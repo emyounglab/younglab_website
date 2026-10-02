@@ -250,15 +250,16 @@ preprint is pending DARPA approval.
 The old `projects:` field is gone — it pointed at the deleted `_projects` pages.
 
 ### Publications page
-Three sections, built by pushing into three arrays in one pass:
-1. **Current work** — everything not training and not a review/chapter. Numbered,
-   grouped by year.
-2. **Reviews and perspectives** (`#reviews`) — reviews and book chapters, not
-   training. Six entries.
-3. **Prior work** (`#prior-work`) — everything tagged `context: training`.
+Two sections (changed 2026-10-02 at Eric's direction):
+1. **Lab work** — everything not `context: training`, reviews and chapters included,
+   numbered and grouped by year. Type tags (Review, Book Chapter, Patent) carry the
+   distinction. Rationale: pulling reviews out thinned the per-year output.
+2. **Prior work** (`#prior-work`) — everything tagged `context: training`.
 
-Reviews deliberately do NOT get a section on the research page: a review is not a
-result, and the research page is kept to the map plus collapsed strips.
+Reviews and chapters also appear on the research page as the **Reviews and
+Perspectives** group (`#reviews`), rendered from publications.yml with pub-item.html —
+it shows the lab as a voice in the field. It replaced the "Funding and Experience"
+group; the funding strip (`#funding`) is now one sponsor line at the end of Resources.
 
 ### Area publication lists
 Each research area's `<details>` ends with a Liquid block:

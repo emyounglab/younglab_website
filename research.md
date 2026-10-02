@@ -43,7 +43,7 @@ description: "The Young Lab makes new organisms engineerable — bacteria, yeast
 
 <div class="rmap-resources">
 <span class="rmap-axis">Current Funding</span>
-<p class="rmap-funding">NSF CREATE Biofoundry &middot; WPI BioHub &middot; DEVCOM &middot; Evonik &middot; Takeda &middot; <a href="#funding">funding and experience</a></p>
+<p class="rmap-funding">NSF CREATE Biofoundry &middot; WPI BioHub &middot; DEVCOM &middot; Evonik &middot; Takeda &middot; <a href="#funding">all funding</a></p>
 </div>
 
 <p class="rmap-note">Hover or focus any item to see what connects to it. Select one to open its section.</p>
@@ -138,35 +138,13 @@ description: "The Young Lab makes new organisms engineerable — bacteria, yeast
 </ul>
 </details>
 
-<h2 class="research-group-label">Funding and Experience</h2>
+<h2 class="research-group-label" id="reviews">Reviews and Perspectives</h2>
 
-<details class="research-section" id="funding">
-<summary><h2>Funding and Experience</h2></summary>
-<h3>Current</h3>
-<ul class="fund-now">
-<li><a href="https://createbiofoundries.org">NSF CREATE Biofoundry</a></li>
-<li><a href="https://massbiohub.org">WPI BioHub</a></li>
-<li>DEVCOM</li>
-<li>Evonik</li>
-<li>Takeda</li>
-</ul>
-<h3>Past</h3>
-<ul class="fund-past">
-<li><b>IARPA FELIX</b> &mdash; detecting engineered organisms</li>
-<li><b>NSF CAREER</b> &mdash; onboarding and engineering <i>Xanthophyllomyces dendrorhous</i> and <i>Debaryomyces hansenii</i></li>
-<li><b>DARPA BioReporters</b> &mdash; soil sensing</li>
-<li><b>DARPA Ceres</b> &mdash; soil sensing</li>
-<li><b>NSF Harnessing the Data Revolution</b> &mdash; synthetic biology knowledge curation</li>
-<li><b>Massachusetts Life Sciences Center Building Breakthroughs</b> &mdash; the WPI Cell Engineering Research Equipment Suite (CERES) and <i>Debaryomyces hansenii</i></li>
-<li><b>BioMADE</b></li>
-</ul>
-<h3>Fellowships in the group</h3>
-<p class="fund-note">Awarded to trainees, not to the lab.</p>
-<ul class="fund-past">
-<li><b>NSF CEDAR NRT</b> &mdash; traineeship</li>
-<li><b>NSF Graduate Research Fellowship</b> &mdash; traineeship</li>
-</ul>
-</details>
+<div class="pub-section">
+{% for pub in site.data.publications %}{% unless pub.context contains "training" %}{% if pub.type == "review" or pub.type == "book-chapter" %}
+{% include pub-item.html pub=pub %}
+{% endif %}{% endunless %}{% endfor %}
+</div>
 
 <h2 class="research-group-label">Resources</h2>
 
@@ -195,19 +173,6 @@ description: "The Young Lab makes new organisms engineerable — bacteria, yeast
 </ul>
 </details>
 
-<details class="research-section" id="reviews">
-<summary><h2>Reviews and Perspectives</h2></summary>
-<p>These reviews and chapters are a starting point for readers new to the field.</p>
-<ul class="reading-list">
-  <li><a href="https://doi.org/10.1016/B978-0-443-24738-5.00099-9">Synthetic Biology: An Overview</a> <span class="rl-meta">2026</span><br>An introduction to the field.</li>
-  <li><a href="https://doi.org/10.1007/978-1-0716-5320-3_19">Automated Genetic Engineering in the Laboratory</a> <span class="rl-meta">2026</span><br>How automation is used for genetic engineering in the lab.</li>
-  <li><a href="https://doi.org/10.1016/j.copbio.2018.02.001">Genetic engineering of host organisms for pharmaceutical synthesis</a> <span class="rl-meta">2018</span><br>How the choice of host affects what a drug pathway can produce.</li>
-  <li><a href="https://doi.org/10.1016/j.coche.2019.03.002">Synthetic biology for bio-derived structural materials</a> <span class="rl-meta">2019</span><br>Using synthetic biology to make structural materials.</li>
-  <li><a href="https://doi.org/10.1007/978-3-030-58271-5_1">Secondary metabolite production in plant cell culture</a> <span class="rl-meta">2021</span><br>With the Roberts lab, on epigenetic control of plant natural products.</li>
-  <li><a href="https://doi.org/10.1021/acssynbio.4c00276">Ten years of the Synthetic Biology Summer Course at Cold Spring Harbor Laboratory</a> <span class="rl-meta">2024</span><br>A decade of the CSHL synthetic biology course, written with the instructors.</li>
-</ul>
-</details>
-
 <details class="research-section" id="organizations">
 <summary><h2>Organizations</h2></summary>
 <p>We build and share automation capacity through two biofoundries, described under <a href="#biofoundries">Biofoundries</a>.</p>
@@ -215,6 +180,11 @@ description: "The Young Lab makes new organisms engineerable — bacteria, yeast
   <li><a href="https://createbiofoundries.org">CREATE Biofoundry</a></li>
   <li><a href="https://massbiohub.org">BioHub</a></li>
 </ul>
+</details>
+
+<details class="research-section" id="funding">
+<summary><h2>Funding</h2></summary>
+<p>NSF &middot; DARPA &middot; IARPA &middot; DEVCOM &middot; BioMADE &middot; Massachusetts Life Sciences Center &middot; WPI BioHub &middot; Evonik &middot; Takeda</p>
 </details>
 
 <p class="research-join">We take PhD students, undergraduates, and postdocs. See <a href="{{ '/join/' | relative_url }}">Join the lab</a>.</p>

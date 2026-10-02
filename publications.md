@@ -8,15 +8,13 @@ description: "Peer-reviewed publications, preprints, reviews, book chapters, and
 {% assign all_pubs = site.data.publications %}
 
 {% assign pubs = "" | split: "" %}
-{% assign reviews = "" | split: "" %}
 {% assign prior = "" | split: "" %}
 {% for p in all_pubs %}
 {% if p.context contains "training" %}{% assign prior = prior | push: p %}
-{% elsif p.type == "review" or p.type == "book-chapter" %}{% assign reviews = reviews | push: p %}
 {% else %}{% assign pubs = pubs | push: p %}{% endif %}
 {% endfor %}
 {% assign total = pubs.size %}
-{% assign grand = pubs.size | plus: reviews.size | plus: prior.size %}
+{% assign grand = pubs.size | plus: prior.size %}
 
 {% assign years = "" | split: "" %}
 {% for p in pubs %}
@@ -26,7 +24,6 @@ description: "Peer-reviewed publications, preprints, reviews, book chapters, and
 
 <nav class="pub-nav">
 {% for y in years %}<a href="#year-{{ y }}">{{ y }}</a>{% endfor %}
-<a href="#reviews">Reviews</a>
 <a href="#prior-work">Prior work</a>
 </nav>
 
@@ -44,17 +41,6 @@ description: "Peer-reviewed publications, preprints, reviews, book chapters, and
 {% endfor %}
 {% endfor %}
 </div>
-
-{% if reviews.size > 0 %}
-<div class="pub-section">
-<h3 id="reviews" class="year-stamp">Reviews and perspectives</h3>
-<p class="muted">Reviews, book chapters, and writing about the field.</p>
-{% for pub in reviews %}
-{% assign pub_num = grand | minus: total | minus: forloop.index0 %}
-{% include pub-item.html pub=pub num=pub_num %}
-{% endfor %}
-</div>
-{% endif %}
 
 {% if prior.size > 0 %}
 <div class="pub-section">
