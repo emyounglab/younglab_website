@@ -32,7 +32,7 @@ permalink: /
 <hr class="palette-rule"/>
 
 <div class="home-parts">
-<span class="rmap-axis">Get Our Parts and Tools</span>
+<h2 class="home-parts-title">Get Our Parts and Tools</h2>
 <div class="rmap-row">
 <a class="rmap-link" href="https://www.addgene.org/kits/young-opencidar/">OpenCidar kit</a>
 <a class="rmap-link" href="https://www.addgene.org/browse/article/28252864/">Xd MoClo kit</a>
