@@ -6,7 +6,7 @@ description: "The Young Lab makes new organisms engineerable — bacteria, yeast
 ---
 
 <div class="rmap" id="rmap">
-<p class="rmap-cap">Our core capability is host onboarding: bringing an organism into the biofoundry pipeline by merging bioinformatics with modular genetic parts libraries, to enable high-throughput combinatorial pathway engineering (building and testing many designs at once).</p>
+<p class="rmap-cap">We engineer microbes so they can be put to work making useful molecules and sensing their environment. Our core capability is making microbes easier to engineer by pairing genome and transcriptome analysis with modular genetic part libraries. This is sometimes called host onboarding: developing the foundational genetic tools an organism needs to enter the biofoundry pipeline for high-throughput combinatorial pathway engineering.</p>
 <svg class="rmap-arcs" aria-hidden="true"></svg>
 
 <div class="rmap-band">
@@ -35,7 +35,7 @@ description: "The Young Lab makes new organisms engineerable — bacteria, yeast
 <div class="rmap-row">
 <a class="rmap-link" href="https://www.addgene.org/kits/young-opencidar/">OpenCidar kit</a>
 <a class="rmap-link" href="https://www.addgene.org/browse/article/28252864/">Xd MoClo kit</a>
-<span class="rmap-link is-soon">Dh MoClo <span class="soon-tag">soon</span></span>
+<a class="rmap-link" href="https://www.addgene.org/browse/article/28275214/">Dh MoClo kit</a>
 <a class="rmap-link" href="https://github.com/emyounglab/prymetime">PRYMETIME</a>
 <a class="rmap-link" href="#part-kits">All resources</a>
 </div>
@@ -176,7 +176,7 @@ description: "The Young Lab makes new organisms engineerable — bacteria, yeast
 <ul class="project-links">
   <li><a href="https://www.addgene.org/kits/young-opencidar/">OpenCidar</a></li>
   <li><a href="https://www.addgene.org/browse/article/28252864/">Xd MoClo</a></li>
-  <li>Dh MoClo <span class="pending">deposit in progress</span></li>
+  <li><a href="https://www.addgene.org/browse/article/28275214/">Dh MoClo</a></li>
 </ul>
 {% include addgene-widget.html %}
 </details>
