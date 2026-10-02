@@ -6,14 +6,12 @@ permalink: /
 <div class="lead">
   We use genomics, synthetic biology, and metabolic engineering<br>
   to design and build biosensors and cell factories.
-</div>
-
-
-<div class="focus-badges">
-<a class="focus-badge badge-orange" href="{{ '/research/#onboarding' | relative_url }}">Organism Onboarding</a>
-<a class="focus-badge badge-green" href="{{ '/research/#metabolic-engineering' | relative_url }}">Metabolic Engineering</a>
-<a class="focus-badge badge-blue" href="{{ '/research/#circuits' | relative_url }}">Genetic Circuits</a>
-<a class="focus-badge badge-navy" href="{{ '/research/#biofoundries' | relative_url }}">Biofoundries</a>
+  <div class="lead-chips">
+<a class="lead-chip" href="{{ '/research/#onboarding' | relative_url }}">Organism Onboarding</a>
+<a class="lead-chip" href="{{ '/research/#metabolic-engineering' | relative_url }}">Metabolic Engineering</a>
+<a class="lead-chip" href="{{ '/research/#circuits' | relative_url }}">Genetic Circuits</a>
+<a class="lead-chip" href="{{ '/research/#biofoundries' | relative_url }}">Biofoundries</a>
+  </div>
 </div>
 
 <hr class="palette-rule"/>
@@ -33,14 +31,13 @@ permalink: /
 
 <hr class="palette-rule"/>
 
-## Get Our Parts and Tools
-
-<div class="focus-badges">
-<a class="focus-badge badge-navy" href="https://www.addgene.org/kits/young-opencidar/">OpenCidar kit</a>
-<a class="focus-badge badge-navy" href="https://www.addgene.org/browse/article/28252864/">Xd MoClo kit</a>
-<a class="focus-badge badge-navy" href="https://www.addgene.org/browse/article/28275214/">Dh MoClo kit</a>
-<a class="focus-badge badge-navy" href="https://github.com/emyounglab/prymetime">PRYMETIME</a>
-<a class="focus-badge badge-blue" href="{{ '/research/#part-kits' | relative_url }}">All resources →</a>
+<div class="home-parts">
+<span class="rmap-axis">Get Our Parts and Tools</span>
+<div class="rmap-row">
+<a class="rmap-link" href="https://www.addgene.org/kits/young-opencidar/">OpenCidar kit</a>
+<a class="rmap-link" href="https://www.addgene.org/browse/article/28252864/">Xd MoClo kit</a>
+<a class="rmap-link" href="https://www.addgene.org/browse/article/28275214/">Dh MoClo kit</a>
+<a class="rmap-link" href="https://github.com/emyounglab/prymetime">PRYMETIME</a>
+<a class="rmap-link" href="https://www.addgene.org/Eric_Young/">All lab plasmids on Addgene →</a>
 </div>
-
-{% include addgene-widget.html %}
+</div>

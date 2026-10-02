@@ -1,5 +1,5 @@
 :root{
-  --max: 1100px;
+  --max: 1400px;
   --pad: 18px;
   --fg: #1a1a1a;
   --muted: #6B6457;
@@ -122,6 +122,11 @@ a:hover{color:var(--navy)}
 .page-subtitle{margin:0; color:var(--red);}
 
 .lead{font-size:1.12rem; color:var(--bg); background:var(--red); padding:16px 20px; border-radius:10px; text-align:center; margin-top:0;}
+.lead-chips{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:14px;}
+.lead-chip{display:inline-block; padding:5px 14px; border-radius:999px; font-size:.88rem; font-weight:500;
+  color:var(--bg); text-decoration:none; border:1.5px solid rgba(248,245,239,.6); transition:background .15s, color .15s;}
+.lead-chip:hover,.lead-chip:focus-visible{background:var(--bg); color:var(--red); border-color:var(--bg); outline:none;}
+.home-parts{background:var(--navy); border-radius:12px; padding:20px 24px; margin:8px 0 28px; display:flex; flex-direction:column; align-items:flex-start; gap:10px;}
 .lead-blue{background:var(--blue); border-radius:10px 10px 0 0; margin-bottom:0;}.h3{font-size:1.1rem; margin:0 0 10px;}
 
 .hero{
