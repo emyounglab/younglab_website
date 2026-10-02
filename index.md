@@ -16,18 +16,24 @@ permalink: /
 
 <hr class="palette-rule"/>
 
-## Latest Articles
+<h2 class="home-title">Latest Articles</h2>
 
 {% comment %}publications.yml is kept newest-first; take the first 3 journal articles or preprints in file order{% endcomment %}
+<div class="home-cards">
 {% assign n = 0 %}
 {% for pub in site.data.publications %}
 {% if n < 3 %}{% if pub.type == "journal" or pub.type == "preprint" %}
-{% include pub-item.html pub=pub %}
+<a class="home-card" href="{{ pub.url }}" target="_blank" rel="noreferrer">
+<span class="home-card-meta">{{ pub.year }} &middot; {{ pub.venue }}</span>
+<span class="home-card-title">{{ pub.title }}</span>
+<span class="home-card-authors">{{ pub.authors | replace: "E.M. Young", "<strong>E.M. Young</strong>" }}</span>
+</a>
 {% assign n = n | plus: 1 %}
 {% endif %}{% endif %}
 {% endfor %}
+</div>
 
-<p><a href="{{ '/publications/' | relative_url }}">All publications →</a></p>
+<p class="home-more"><a href="{{ '/publications/' | relative_url }}">All publications →</a></p>
 
 <hr class="palette-rule"/>
 
