@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: default
 title: Publications
 permalink: /publications/
+key: navy
 description: "Peer-reviewed publications, preprints, reviews, book chapters, and patents from the Young Lab at Worcester Polytechnic Institute."
 ---
 

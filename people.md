@@ -1,56 +1,39 @@
 ---
-layout: page
+layout: default
 title: People
 permalink: /people/
+key: green
+wrap: narrow
 description: "Meet the Young Lab team at WPI — PI, graduate students, postdocs, and alumni working in synthetic biology and metabolic engineering."
 ---
 
-<nav class="pub-nav pub-nav-green">
-  <a href="#principal-investigator">PI</a>
-  <a href="#postdoctoral-researchers">Postdocs</a>
-  <a href="#students">Students</a>
-  <a href="#alumni">Alumni</a>
-</nav>
-
-<div class="people-page">
-
-<h2 id="principal-investigator">Principal Investigator</h2>
-<div class="grid-single">
 {% for p in site.data.people.pi %}
-{% include person-card.html person=p %}
+<section class="intro" id="principal-investigator">
+{% if p.photo %}<img class="portrait" src="{{ p.photo | relative_url }}" alt="{{ p.name | escape }}">{% endif %}
+<h1>{{ p.name }}</h1>
+<p class="lede">{{ p.bio }}</p>
+<p class="intro-links">{% if p.email %}<a href="mailto:{{ p.email }}">{{ p.email }}</a>{% endif %}{% for l in p.links %} · <a href="{{ l.url }}" target="_blank" rel="noreferrer">{{ l.label }}</a>{% endfor %}</p>
+</section>
+{% endfor %}
+
+{% assign members = site.data.people.postdocs | concat: site.data.people.students %}
+{% if site.data.people.staff %}{% assign members = members | concat: site.data.people.staff %}{% endif %}
+<section class="section" id="members">
+<h2 class="center">Current members</h2>
+<div class="rows rows-split">
+{% for p in members %}
+<div class="row"><span class="row-term">{{ p.name }}<span class="row-role">{{ p.role }}</span></span><span class="row-body">{{ p.interests }}</span></div>
 {% endfor %}
 </div>
+</section>
 
-<div class="pub-section-title">
-<h2 id="postdoctoral-researchers">Postdoctoral Researchers</h2>
-<a href="#" class="back-to-top back-to-top-green">↑ top</a>
-</div>
-<div class="grid-single">
-{% for p in site.data.people.postdocs %}
-{% include person-card.html person=p %}
-{% endfor %}
-</div>
-
-<div class="pub-section-title">
-<h2 id="students">Students</h2>
-<a href="#" class="back-to-top back-to-top-green">↑ top</a>
-</div>
-<div class="grid">
-{% for p in site.data.people.students %}
-{% include person-card.html person=p %}
-{% endfor %}
-</div>
-
-{% if site.data.people.alumni and site.data.people.alumni.size > 0 %}
-<div class="pub-section-title">
-<h2 id="alumni">Alumni</h2>
-<a href="#" class="back-to-top back-to-top-green">↑ top</a>
-</div>
-<ul>
+{% if site.data.people.alumni.size > 0 %}
+<section class="panel edge" id="alumni">
+<h2 class="center">Alumni</h2>
+<div class="grid alumni">
 {% for p in site.data.people.alumni %}
-<li><strong>{{ p.name }}</strong>{% if p.role %} ({{ p.role }}){% endif %}{% if p.current %} — now at {{ p.current }}{% endif %}</li>
+<span><b>{{ p.name }}</b><br><span class="muted">{{ p.role }}{% if p.current %} → {{ p.current }}{% endif %}</span></span>
 {% endfor %}
-</ul>
-{% endif %}
-
 </div>
+</section>
+{% endif %}

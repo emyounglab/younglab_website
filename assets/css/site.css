@@ -1,0 +1,272 @@
+/* ==========================================================================
+   Young Lab design system
+   1. Tokens: colour, type, space      5. Components: pill, panel, grid + card,
+   2. Page key                            row, label, section
+   3. Base                             6. Page pieces: hero, intro, toc
+   4. Header, footer (fixed px)        7. Publications (frozen, legacy layout)
+                                       8. Small screens, reduced motion
+   Components use tokens only. The header is a fixed brand bar and stays in px;
+   everything below it is in rem and scales with the root font size.
+   ========================================================================== */
+
+/* ---- 1. Tokens ---- */
+:root{
+  /* palette: the nav tab colours, then paper and ink */
+  --red:    #AC2B37;
+  --orange: #C97720;
+  --green:  #556B4A;
+  --navy:   #1E2E4A;
+  --blue:   #5E8FAF;
+  --blue-dark: #3F6A87;   /* blue at heading size (Join) */
+  --fg:    #1a1a1a;
+  --muted: #6B6457;
+  --bg:    #F8F5EF;
+  --bg2:   #EDE9E2;
+  --line:  #D4CCBF;
+
+  /* type: two families */
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* type scale (rem) */
+  --fs-2xs: .75rem;      /* labels */
+  --fs-xs:  .875rem;     /* meta lines, roles */
+  --fs-sm:  .9375rem;    /* cards, compact lists */
+  --fs-md:  1rem;        /* body */
+  --fs-lg:  1.1875rem;   /* ledes, row titles, toc groups */
+  --fs-xl:  1.375rem;    /* row terms */
+  --fs-2xl: 1.5rem;      /* h3, card titles, dated-row years */
+  --fs-3xl: 2rem;        /* h2 */
+  --fs-4xl: 3.25rem;     /* h1 */
+  --fs-5xl: 4rem;        /* home headline */
+
+  /* space scale (rem) */
+  --sp-1: .375rem;
+  --sp-2: .625rem;
+  --sp-3: .75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-7: 2rem;
+  --sp-8: 3rem;
+  --sp-9: 4rem;
+  --sp-10: 5rem;
+
+  --radius: .75rem;
+  --pill: 999px;
+  --rule: 1px solid var(--line);
+  --edge: 4px;           /* key-colour top edge and nav bar */
+}
+
+/* ---- 2. Page key ----
+   Front matter `key:` sets body.key-<colour>. Components read only these:
+   --key        fills, rules, edges, h1, markers
+   --key-head   h2, h3, card titles
+   --key-link   link text; orange and blue fail at body size, so those pages
+                link in ink with a key underline
+   --key-hover  link hover */
+body{ --key: var(--navy); --key-head: var(--navy); --key-link: var(--blue); --key-hover: var(--navy); }
+.key-red   { --key: var(--red);    --key-head: var(--red);       --key-link: var(--red);   --key-hover: var(--fg); }
+.key-orange{ --key: var(--orange); --key-head: var(--orange);    --key-link: var(--fg);    --key-hover: var(--orange); }
+.key-green { --key: var(--green);  --key-head: var(--green);     --key-link: var(--green); --key-hover: var(--fg); }
+.key-blue  { --key: var(--blue);   --key-head: var(--blue-dark); --key-link: var(--fg);    --key-hover: var(--blue-dark); }
+
+/* ---- 3. Base ---- */
+*{box-sizing:border-box}
+/* the root size grows with the window: 15px at phone width, 16px at 1440, 20px cap */
+html{font-size:clamp(15px, calc(8px + .556vw), 20px); scroll-padding-top:160px}
+body{margin:0; font-family:var(--sans); font-size:var(--fs-md); color:var(--fg); background:var(--bg); line-height:1.55}
+h1,h2,h3{font-family:var(--serif); font-weight:400; margin:0; line-height:1.15}
+h1{font-size:var(--fs-4xl); line-height:1.05; color:var(--key)}
+h2{font-size:var(--fs-3xl); color:var(--key-head)}
+h3{font-size:var(--fs-2xl); color:var(--key-head)}
+a{color:var(--key-link); text-decoration-color:var(--key)}
+a:hover{color:var(--key-hover)}
+a:focus-visible, summary:focus-visible{outline:2px solid var(--key); outline-offset:2px}
+img{max-width:100%}
+sub{line-height:0}
+
+.muted{color:var(--muted)}
+.meta{font-size:var(--fs-xs); color:var(--muted); margin:0}
+.lede{font-size:var(--fs-lg); line-height:1.65; max-width:68ch; margin:0}
+.center{text-align:center}
+
+/* page column (front matter `wrap: full|wide|narrow`), a share of the window */
+.wrap{width:86%; margin:0 auto; padding:var(--sp-9) 0 var(--sp-10); display:flex; flex-direction:column; gap:var(--sp-9)}
+.wrap-full{width:88%}
+.wrap-narrow{width:68%}
+
+/* ---- 4. Header, footer (fixed px) ---- */
+.site-header{position:sticky; top:0; z-index:10; background:var(--bg)}
+.site-top{display:flex; height:90px; overflow:hidden}
+.brand{flex:none; background:var(--red); padding:6px 28px 0 18px}
+.site-title{font-family:var(--serif); font-size:48px; line-height:1.1; color:var(--bg); text-decoration:none}
+.site-title:hover{color:var(--bg2)}
+.site-header-img{height:90px; width:auto; max-width:none; display:block}
+
+.site-nav{display:flex; flex-wrap:wrap; gap:4px; padding:18px 18px 0; border-bottom:var(--edge) solid var(--key)}
+.tab{padding:4px 19px 5px; border-radius:10px 10px 0 0; color:var(--bg2); font-family:var(--serif);
+  font-size:19px; text-decoration:none; white-space:nowrap; opacity:.67; transition:opacity .15s}
+.tab:hover, .tab[aria-current]{opacity:1; color:var(--bg2)}
+.tab-red{background:var(--red)} .tab-orange{background:var(--orange)} .tab-green{background:var(--green)}
+.tab-navy{background:var(--navy)} .tab-blue{background:var(--blue)}
+
+.site-footer{border-top:2px solid var(--key); background:var(--bg2); padding:18px}
+.wpi-logo{display:block; height:48px; margin-bottom:8px}
+
+/* ---- 5. Components ---- */
+
+/* Section: a heading stacked over its content; h2 is the section heading */
+.section{display:flex; flex-direction:column; gap:var(--sp-5)}
+.section > p{margin:0}
+.section > h2 + p{margin-top:calc(var(--sp-1) - var(--sp-5))}   /* a subtitle sits under its heading */
+.section-narrow{width:82%; align-self:center}
+.section-more{align-self:center; font-weight:500}
+
+/* Label: small caps; .label-key puts it in the page key */
+.label{font-size:var(--fs-2xs); font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.label-key{color:var(--key)}
+
+/* Pill: filled (primary) or outline (secondary); .pills lays out a row.
+   Padding is in em so a pill scales with its own text. */
+.pills{display:flex; flex-wrap:wrap; gap:var(--sp-2)}
+.btn{display:inline-block; padding:.6em 1.2em; border-radius:var(--pill); border:1.5px solid var(--key);
+  background:var(--key); color:var(--bg); font-weight:500; text-decoration:none; transition:background .15s, color .15s}
+.btn:hover{background:var(--fg); border-color:var(--fg); color:var(--bg)}
+.btn-outline{background:transparent; color:var(--key-link)}
+.btn-outline:hover{background:var(--key); border-color:var(--key); color:var(--bg)}
+.btn-sm{font-size:var(--fs-sm)}
+
+/* Panel: a cream block that holds a whole section; .panel-bar lays it out in a row */
+.panel{display:flex; flex-direction:column; gap:var(--sp-5); padding:var(--sp-7); background:var(--bg2); border-radius:var(--radius)}
+.panel-bar{flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:space-between; padding:var(--sp-6) var(--sp-7)}
+
+/* Edge: the key-colour top rule, on a panel or a card */
+.edge{border-top:var(--edge) solid var(--key)}
+
+/* Grid: auto-fit columns no narrower than --min */
+.grid{--min:15rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(var(--min), 100%), 1fr)); gap:var(--sp-5)}
+.grid-sm{--min:12.5rem}
+
+/* Card: a cream block in a grid; a linked card lifts on hover */
+.card{display:flex; flex-direction:column; gap:var(--sp-3); padding:var(--sp-6); background:var(--bg2); border-radius:var(--radius);
+  font-size:var(--fs-sm); line-height:1.6}
+.card p{margin:0}
+.card .btn{margin-top:auto; align-self:flex-start}
+.card .meta{margin-top:auto; font-style:italic}
+a.card{color:var(--fg); text-decoration:none; transition:transform .15s}
+a.card:hover{color:var(--fg); transform:translateY(-2px)}
+.card-title{font-family:var(--serif); font-weight:400; font-size:var(--fs-2xl); line-height:1.25; color:var(--key-head); margin:0}
+.label-key + .card-title{color:var(--fg)}   /* a labelled card: the label carries the key */
+.card-links{display:flex; flex-direction:column; gap:var(--sp-3)}
+
+/* Row: a ruled two-column line, term then body. .rows sets the first column;
+   <details class="row"> adds a +/- marker and expands to .row-more */
+.rows{--c1:15rem; display:flex; flex-direction:column; border-bottom:var(--rule)}
+.rows-dated{--c1:5.25rem}
+.rows-split{--c1:40%}
+.row, .row > summary{display:grid; grid-template-columns:minmax(0, var(--c1)) minmax(0, 1fr); gap:var(--sp-6); align-items:baseline}
+.row{padding:var(--sp-5) 0; border-top:var(--rule); color:var(--fg); text-decoration:none}
+.row-term{font-family:var(--serif); font-size:var(--fs-xl); line-height:1.25}
+.row-body{line-height:1.6}
+.row-role{display:block; font-family:var(--sans); font-size:var(--fs-xs); font-weight:500; color:var(--key-link)}
+.row-title{display:block; font-family:var(--serif); font-size:var(--fs-lg); line-height:1.3; margin-bottom:var(--sp-1)}
+.rows-dated .row-term{font-size:var(--fs-2xl); color:var(--key)}
+.rows-split .row-body{color:var(--muted); font-size:var(--fs-sm)}
+.rows-split .row-body::first-letter{text-transform:uppercase}
+a.row:hover .row-title{color:var(--key)}
+
+details.row{display:block}
+details.row > summary{grid-template-columns:minmax(0, var(--c1)) minmax(0, 1fr) var(--sp-6); list-style:none; cursor:pointer}
+details.row > summary::-webkit-details-marker{display:none}
+details.row > summary::after{content:"+"; color:var(--key); font-weight:700; font-size:var(--fs-xl); line-height:1}
+details.row[open] > summary::after{content:"\2212"}
+details.row > summary:hover .row-term{color:var(--key)}
+.row-more{margin:var(--sp-4) var(--sp-8) var(--sp-1) calc(var(--c1) + var(--sp-6)); max-width:72ch; display:flex; flex-direction:column; gap:var(--sp-3)}
+.row-more p{margin:0}
+
+/* ---- 6. Page pieces ---- */
+
+/* Hero (Home) */
+.hero{display:flex; flex-wrap:wrap; align-items:center; gap:4vw}
+.hero-text{flex:999 1 35rem; min-width:0; display:flex; flex-direction:column; gap:var(--sp-7)}
+.hero h1{font-size:var(--fs-5xl); line-height:1.04}
+.hero .lede{max-width:58ch}
+.hero-img{flex:1 1 17.5rem; max-width:23.75rem; width:100%; height:auto; display:block; clip-path:circle(47.6% at 50% 50%)}
+
+/* Intro: a centered page opener (People, Join, 404) */
+.intro{display:flex; flex-direction:column; align-items:center; gap:var(--sp-4); text-align:center}
+.intro p{margin:0}
+.intro .lede{max-width:56ch}
+.intro-links{font-size:var(--fs-sm)}
+.portrait{width:10.5rem; height:10.5rem; border-radius:50%; object-fit:cover; object-position:center top; display:block}
+
+/* Alumni list (People): a grid of name + path */
+.alumni{--min:13.75rem; gap:var(--sp-3) var(--sp-7); font-size:var(--fs-sm); line-height:1.45}
+.alumni b{font-weight:500}
+
+/* TOC: on-this-page panel beside the content (Research) */
+.with-toc{display:flex; flex-wrap:wrap; gap:var(--sp-8); align-items:flex-start}
+.toc{flex:1 1 18rem; max-width:20.5rem; gap:var(--sp-1); padding:var(--sp-6)}
+.toc .label{margin-bottom:var(--sp-1)}
+.toc a{font-size:var(--fs-sm); padding-left:var(--sp-3); text-decoration:none}
+.toc a.toc-group{font-family:var(--serif); font-size:var(--fs-lg); color:var(--key); padding-left:0; margin-top:var(--sp-2)}
+.toc a.toc-group:first-of-type{margin-top:0}
+.toc-main{flex:999 1 37.5rem; min-width:0; display:flex; flex-direction:column; gap:var(--sp-9)}
+
+/* ---- 7. Publications (frozen) ----
+   The one page on the old gutter layout (.container); px kept as it was. */
+.container{max-width:1400px; margin:0; padding:12px 18px 40vh}
+.pub-section{background:var(--bg2); border-radius:0 16px 16px 0; margin-left:-18px; padding:20px 24px 20px 18px; margin-bottom:16px}
+.pub-nav{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px}
+.pub-nav a{display:inline-block; padding:4px 12px; border-radius:4px; background:var(--navy); color:var(--bg2); font-size:.85rem; text-decoration:none; font-weight:500}
+.pub-nav a:hover{background:var(--bg2); color:var(--navy)}
+.pub-item{display:grid; grid-template-columns:2.4em 1fr; padding:10px 0; border-bottom:var(--rule)}
+.pub-num{font-family:var(--serif); font-weight:700; color:var(--blue); text-align:right; padding-right:.5em}
+.pub-title{font-weight:700; color:var(--navy)}
+.pub-title a{color:var(--navy)}
+.pub-title a:hover{color:var(--blue)}
+.pub-authors{color:var(--muted); font-size:.85rem}
+.pub-venue{font-size:.85rem}
+.pub-venue a{color:var(--blue)}
+.pub-venue a:hover{color:var(--navy)}
+.pub-tags{margin-top:6px}
+.year-stamp{font-size:1.8rem; font-weight:700; line-height:1.55; color:var(--blue); letter-spacing:.1em; border-bottom:1px solid var(--blue); margin:28px 0 4px; padding-bottom:2px}
+.tag{display:inline-block; border:1.5px solid var(--red); padding:2px 7px; border-radius:3px; font-size:.75em; margin-right:6px;
+  color:var(--red); font-family:'Courier New',Courier,monospace; text-transform:uppercase; letter-spacing:.06em; transform:rotate(-1deg)}
+.tag.type-journal{border-color:var(--blue); color:var(--blue)}
+.tag.type-preprint{border-color:var(--orange); color:var(--orange)}
+.tag.type-review{border-color:var(--green); color:var(--green)}
+.tag.type-book-chapter{border-color:var(--navy); color:var(--navy)}
+.tag.type-patent{border-color:var(--muted); color:var(--muted)}
+
+/* ---- 8. Small screens, reduced motion ---- */
+@media (max-width:900px){
+  .row-more{margin-left:0; margin-right:0}
+  .section-narrow{width:100%}
+}
+@media (max-width:600px){
+  html{scroll-padding-top:0}
+  .site-header{position:static}
+  .site-top{height:64px}
+  .brand{padding:4px 16px 0}
+  .site-title{font-size:36px}
+  .site-header-img{height:64px}
+  .site-nav{padding:12px 8px 0; gap:3px}
+  .tab{font-size:13px; padding:4px 7px 5px}
+
+  .wrap{width:auto; padding:var(--sp-8) var(--sp-4) var(--sp-9); gap:var(--sp-8)}
+  h1, .hero h1{font-size:2.5rem}
+  h2{font-size:1.75rem}
+  .panel, .panel-bar{padding:var(--sp-6) var(--sp-5)}
+  .with-toc, .toc-main{gap:var(--sp-8)}
+  .toc{max-width:none}
+  .row, .row > summary{grid-template-columns:minmax(0, 1fr); gap:var(--sp-1)}
+  details.row > summary{grid-template-columns:minmax(0, 1fr) var(--sp-6)}
+  details.row > summary .row-body{grid-column:1}
+  details.row > summary::after{grid-column:2; grid-row:1}
+}
+@media (prefers-reduced-motion:reduce){
+  .tab, .btn, a.card{transition:none}
+  a.card:hover{transform:none}
+}

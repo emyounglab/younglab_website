@@ -1,6 +1,7 @@
 pi:
   - name: "Eric M. Young"
     role: "Associate Professor, Chemical Engineering · Worcester Polytechnic Institute"
+    bio: "Associate Professor of Chemical Engineering at WPI. Director of the CERES Service Center and the BioHub."
     titles:
       - name: "Associate Professor, Chemical Engineering"
         url: "https://www.wpi.edu/academics/departments/chemical-engineering"

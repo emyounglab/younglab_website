@@ -37,8 +37,7 @@ _config.yml          # Site title, URL, plugins, future: true
 Gemfile              # Ruby gem dependencies (github-pages ~> 232, minima ~> 2.5)
 
 _layouts/
-  default.html       # Master template (Google Fonts, OG tags, favicon, nav + footer)
-  page.html          # Extends default; adds page title/subtitle header
+  default.html       # The only layout; every page names it. Sets <body class="key-…"> and the <main> column
 
                      # NOTE: the whole Projects system is retired. The _projects
                      # collection, _layouts/project.html and the collections: block
@@ -47,22 +46,26 @@ _layouts/
                      # it was in the nav. Files sit in _to_delete/ until removed by hand.
 
 _includes/
-  nav.html           # Header: image (40% left) + nav panel (right)
-  footer.html        # Copyright + "Built with Jekyll" attribution
-  person-card.html   # Avatar, name, role, email, website, interests
-  pub-item.html      # Title (linked), authors, venue, year, DOI, PDF, tags
-  news-item.html     # Date, title, text, optional "Read more" link (field: url)
-  addgene-widget.html # Addgene kit widget, included by the Part Kits section of research.md
+  nav.html           # Red wordmark block + header image, then the tab row (tabs from one list)
+  footer.html        # WPI logo, copyright
+  pub-item.html      # Publications page entry: title, authors, venue, DOI, tags
+  news-item.html     # One news row: date, title, text, optional "Read more" (field: url)
+
+_design/              # Design targets (home/research/people/join.html, README.md), excluded from the build
+  tabled.md          # Text the targets had no place for, verbatim
+  shots/             # Site vs target screenshots, 1440 and 390
 
 _data/               # YAML content files — edit these to update site content
   people.yml         # PI, students, staff, alumni
   publications.yml   # All publications (journal, preprint, book-chapter)
   news.yml           # News items (sorted newest-first on news.md)
+  resources.yml      # Part kits, software, biofoundries, funding: Research Resources cards + Home parts bar
 
 assets/
-  css/style.css      # Custom CSS; CSS variables for theming
+  css/site.css      # The design system: tokens, page key, components (see Design System)
   img/
-    young_header.png # Header image (40% width, left side of nav)
+    young_header.png # Header image, right of the wordmark block
+    (home hero uses favicon/favicon.png, the same seal image)
     people/          # Person photos
     logos/
       wpi_logo.png   # WPI logo (available for use in layouts)
@@ -77,11 +80,11 @@ assets/
       site.webmanifest
 
 Pages (Markdown):
-  index.md           # Home: lead paragraph + 3 most recent publications (dynamic)
-  research.md        # The .rmap map + collapsed Research Areas / Applications / Resources
-  people.md          # Renders people.yml into card grids
+  index.md           # Home: hero, area cards, 3 latest articles (dynamic), parts panel
+  research.md        # TOC panel + area rows, application rows, Resources, Perspectives
+  people.md          # PI intro, member rows, alumni panel, all from people.yml
   publications.md    # Renders publications.yml grouped by year/type
-  news.md            # Renders news.yml newest-first via news-item.html include
+  news.md            # news.yml as rows, newest first (not in the nav)
   join.md            # Recruitment info for PhD, undergrad, postdoc, collaborators
 ```
 
@@ -90,19 +93,29 @@ Pages (Markdown):
 ## Design System
 
 ### Fonts (Google Fonts)
-- **Body:** DM Sans (400, 500)
-- **Headings & site title:** DM Serif Display
+- **Body:** DM Sans (400, 500, 700 for small uppercase labels)
+- **Headings & site title:** DM Serif Display, weight 400 (no faux bold)
+- Two families only. Inter was removed 2026-10-02; Publications now uses DM Sans.
 
-### Colors (CSS variables in style.css)
+**Visual target:** the "Final" page of the "Young Lab Home Directions" design
+canvas (claude.ai/artifact/PDxHL82qhm3vLthKvyiW2n): Home, Research, People, Join.
+Publications is frozen as it was. **Mockup text is approved copy** (headings,
+sentences, button labels): use it. **Lists come from the data files** (alumni,
+members, publications, venues): the mockups show samples, not counts.
+Settled by Eric 2026-10-02. Tokens and brand book: the "Young Lab" design
+system artifact (claude.ai/artifact/Vp7KR5c4z2jWeqDAeKRF2L).
+
+### Colors (CSS variables in site.css)
 Palette inspired by the Time Variance Authority (TVA) from Loki — retro-bureaucratic, mid-century modern feel.
 
 | Variable | Value | Usage |
 |---|---|---|
-| `--red` | `#AC2B37` | WPI Red — site title, header bg, lead paragraph bg, person card border |
-| `--orange` | `#C97720` | TVA burnt orange — page titles, research section headings and borders, back links |
-| `--green` | `#556B4A` | Dark sage — people page headings, person card borders, research nav buttons |
-| `--navy` | `#1E2E4A` | Deep navy — body headings, footer border, pub section headers, tab active underline |
-| `--blue` | `#5E8FAF` | Dusty slate blue — links, pub numbers, year stamps, join tab |
+| `--red` | `#AC2B37` | WPI Red — wordmark block; Home key |
+| `--orange` | `#C97720` | TVA burnt orange — Research key |
+| `--green` | `#556B4A` | Dark sage — People key |
+| `--navy` | `#1E2E4A` | Deep navy — Publications key (and the default) |
+| `--blue` | `#5E8FAF` | Dusty slate blue — Join key; Publications links, numbers, year stamps |
+| `--blue-dark` | `#3F6A87` | Blue at heading size on the Join page |
 | `--fg` | `#1a1a1a` | Body text |
 | `--muted` | `#6B6457` | Secondary text (roles, authors, meta) |
 | `--bg` | `#F8F5EF` | Page background (warm off-white) |
@@ -121,48 +134,99 @@ other palette colours appear only where genuinely needed, and sparingly.
 | Publications | `--navy` |
 | Join | `--blue` |
 
-On the research page that means orange carries the group labels, section borders,
-headings, the +/− markers, and the map chips.
+**Mechanism (2026-10-02).** Each page's front matter sets `key: red|orange|green|navy|blue`;
+`default.html` puts `class="key-<key>"` on `<body>`, and `.key-*` defines four
+variables. Components use only these, never a hue name:
 
-**Links take the colour of where they lead.** The paper links on the research page
-are navy because they go to publications, and Publications is the navy page. That
-is the rule, not a contrast workaround. It also happens to read well: orange at
-body size on cream is 2.81:1 and would not hold as link text.
+| Variable | Use |
+|---|---|
+| `--key` | fills, rules, edges, h1, +/− markers |
+| `--key-head` | h2, h3, card titles (Join: `--blue-dark` #3F6A87) |
+| `--key-link` | link text. Red/green: the key. Orange/blue: ink `--fg` with a key underline, because those hues fail at body size (orange 2.81:1 on cream). Navy (Publications): `--blue`, as before |
+| `--key-hover` | link hover |
 
-Red, green and blue do not appear on the research page at all; the site-wide
-`a{color:var(--blue)}` is overridden by `.research-section a`.
+Hue names appear only in the nav tabs and the header wordmark block. The nav bar
+and footer rule take `--key`. Do not "fix" orange headings to navy for contrast.
 
-Do not "fix" orange headings to navy for contrast. That is a deliberate choice.
+**Pages scale with the window.** The root font size is fluid (15px at phone width,
+16px at 1440, capped at 20px) and component sizes are in rem. Front matter
+`wrap: full|wide|narrow` puts the page in the `.wrap` column at 88% / 86% / 68% of
+the window (Home / Research and Join / People), with no fixed caps. A page without
+`wrap` gets the old `.container` gutter; only Publications uses it.
+
+The stylesheet is `assets/css/site.css`, not `style.css`: with no `theme:` set,
+GitHub Pages' default theme also writes `assets/css/style.css`, and the two
+collided during local rebuilds (renamed 2026-10-02). `_design/` is in `exclude`
+so files dropped there don't trigger rebuilds.
+
+### Tokens (site.css §1)
+Components use tokens only; no raw sizes below the header.
+- **Type** `--fs-2xs` .75 · `--fs-xs` .875 · `--fs-sm` .9375 · `--fs-md` 1 ·
+  `--fs-lg` 1.1875 · `--fs-xl` 1.375 · `--fs-2xl` 1.5 · `--fs-3xl` 2 (h2) ·
+  `--fs-4xl` 3.25 (h1) · `--fs-5xl` 4 (home headline), all rem.
+- **Space** `--sp-1` .375 · `--sp-2` .625 · `--sp-3` .75 · `--sp-4` 1 · `--sp-5` 1.25 ·
+  `--sp-6` 1.5 · `--sp-7` 2 · `--sp-8` 3 · `--sp-9` 4 · `--sp-10` 5, all rem.
+- `--radius`, `--pill`, `--rule` (1px tan line), `--edge` (4px).
+- The header and footer are a fixed brand bar in px, on purpose. Publications
+  (§7) keeps its old px values.
+
+### Components (site.css §5) — one per pattern
+- **Section** `.section` stacks a heading (plain `h2`) over its content;
+  `.section-narrow` (82%, centered), `.section-more` (centered link after it).
+- **Label** `.label` small caps, muted; `.label-key` puts it in the page key.
+- **Pill** `.btn` (filled key) and `.btn-outline`; `.btn-sm`; `.pills` lays out a row.
+  Pill padding is in em so it scales with its own text.
+- **Panel** `.panel` (cream block holding a section); `.panel-bar` lays it out in a row.
+- **Edge** `.edge`: key-colour top rule, on a panel or a card.
+- **Grid** `.grid`: auto-fit columns no narrower than `--min` (15rem; `.grid-sm`
+  12.5rem). Holds cards, and the alumni list (`.grid.alumni`).
+- **Card** `.card`: `.card-title`, `.card-links`. A card that leads with
+  `.label.label-key` shows its title in ink. A linked `a.card` lifts 2px on hover.
+- **Row** `.row` in `.rows`: ruled grid line, `.row-term` then `.row-body`.
+  `.rows-dated` (5.25rem year column), `.rows-split` (40%), default 15rem.
+  `<details class="row">` adds a +/− marker and expands to `.row-more`.
+- Page pieces (§6): `.hero` (Home); `.intro` centered opener (People, Join, 404);
+  `.toc` panel beside `.toc-main` (Research).
+- Utilities: `.meta` (small muted line), `.lede`, `.muted`, `.center`.
+
+Add a modifier to an existing component before adding a new class. No inline styles.
+
+### Structure rules
+- Every page sets `layout: default` explicitly. Do not rely on `defaults:` in
+  `_config.yml`: `jekyll serve` skipped them for 404.html while `jekyll build`
+  applied them (seen 2026-10-02).
+- Active nav tab is styled from `aria-current`, set in `nav.html`; there is no
+  `.active` class.
+- The Research TOC is front matter (`toc:` in research.md); each `id` must match a
+  section or row id on the page.
+- Resource links live once, in `_data/resources.yml`. A link with a `home:` label
+  also appears on the Home parts bar.
 
 ### Header Layout
-- Flex row: `young_header.png` on the left (40% width, height auto), nav panel on the right
-- Site title: DM Serif Display, cream (`--bg`) on WPI Red (`--red`) background
-- Nav tabs: colored backgrounds per tab; active page underline matches tab color via `--tab-border` CSS variable
+- Red block with the "Young Lab" wordmark, then `young_header.png` at 90px tall
+- Tab row below on a 4px `--key` bar; tabs come from one list in `nav.html`
+- Sticky above 600px; below it the header scrolls away and the tabs shrink to fit one line at 390px
 
-### Research Page — the map is the page
-**Rebuilt 2026-08-25.** The navy map carries the page; everything below it is a
-collapsed `<details>`. No `.pub-nav` row.
+### Research Page
+**Rebuilt 2026-10-02 to the Final canvas.** The navy map, its arcs script and the
+`EDGES` array are gone. Layout: an "On this page" `.panel.edge.toc` beside
+`.toc-main`, which holds four sections:
 
-**Inside the navy panel** (`.rmap`), top to bottom: `.rmap-cap` capability line
-(DM Serif, white) · **Research Areas** band, four orange chips, label above ·
-**Applications** band, five cream chips, label **below** the row so the arcs,
-which land on chip tops, never cross it · **Get Our Parts and Tools** row of
-outlined white pills · **Current Funding** line · the hover note.
+1. **Research** (`#areas`): h1, lede, then four `<details class="row">` —
+   `#onboarding`, `#metabolic-engineering`, `#circuits`, `#biofoundries`. The
+   summary shows the canvas one-liner; `.row-more` holds the full prose, unedited.
+   Metabolic Engineering's opening sentence *is* its one-liner, so it shows only
+   in the summary. The other three repeat their first sentence in the body.
+2. **Applications** (`#applications`): five rows — `#app-soil-sensing`,
+   `#app-biomanufacturing`, `#app-medicines`, `#app-biomaterials`,
+   `#app-biosecurity`. Each body ends with a `.meta` "Draws on" line naming the
+   areas that feed it.
+3. **Resources** (`#resources`): four cards — `#part-kits`, `#software-projects`,
+   `#organizations` (titled Biofoundries), `#funding`.
+4. **Perspectives** (`#reviews`): labelled cards for every non-training review and
+   book chapter, rendered from publications.yml.
 
-**Four Research Areas** — `#onboarding`, `#metabolic-engineering`, `#circuits`
-(Genetic Circuits), `#biofoundries`.
-
-**Five Applications**, each its own card — `#app-soil-sensing`,
-`#app-biomanufacturing`, `#app-medicines`, `#app-biomaterials`,
-`#app-biosecurity`. Each lists the areas that feed it, and **those links must
-match the `EDGES` array** in the inline script. Eleven edges, checked both ways.
-
-**Funding and Experience** (`#funding`) — three tiers. Current as solid navy
-pills (`.fund-now`), Past as a quiet tan-ruled list (`.fund-past`), and
-Fellowships separately, labelled *"Awarded to trainees, not to the lab."*
-Fellowships are the trainee's award, not the lab's; do not merge them into Past.
-
-**Resources** — three cards: `#part-kits`, `#software-projects`, `#organizations`.
+Anchor IDs are unchanged from the map version, so old deep links still work.
 
 **Papers are inline links on the claims they support**, not citation lists. An
 earlier version generated a publication list per area with Liquid; it read as a
@@ -177,19 +241,11 @@ whose claim they support — CREATE under Automation, BioHub under Scale. Do not
 add standalone `<h3>` blocks for organisations; they read as disconnected.
 
 **Collaborations are a rule, not a group.** Each area names who it works with in
-a `.rs-collab` line. Do not create a Collaborations section.
+a `.meta` line. Do not create a Collaborations section.
 
-**Collapsed sections.** `<details class="research-section">` with an `<h2>` in
-`<summary>` and a +/− marker. Any in-page link opens its target `<details>`, and
-a deep link like `/research/#biosecurity` opens on load.
-
-Arcs hide and bands stack below 900px. `draw()` uses the same 900px gate, and
-also bails when either chip row wraps, because the arc geometry assumes one line
-per row. `prefers-reduced-motion` kills transitions.
-
-Focus rings: orange chips take a white border; cream Application chips take an
-orange `outline` with a 2px offset. A navy border on a cream chip is invisible —
-it merges into the navy panel behind it. Verified 2026-08-28.
+**Expanding rows.** Any in-page link opens its target `<details>`, and a deep link
+like `/research/#app-biosecurity` opens on load (the small inline script).
+Rows stack to one column below 600px.
 
 - Prose is Eric's own text, recut. Do not rewrite it without asking; the register
   is deliberate (peers and collaborators, method first, no premise-explaining).
@@ -256,16 +312,11 @@ Two sections (changed 2026-10-02 at Eric's direction):
    distinction. Rationale: pulling reviews out thinned the per-year output.
 2. **Prior work** (`#prior-work`) — everything tagged `context: training`.
 
-Reviews and chapters also appear on the research page as the **Reviews and
-Perspectives** group (`#reviews`), rendered from publications.yml with pub-item.html —
-it shows the lab as a voice in the field. It replaced the "Funding and Experience"
-group; the funding strip (`#funding`) is now one sponsor line at the end of Resources.
+Reviews and chapters also appear on the research page as **Perspectives**
+(`#reviews`), rendered as cards from publications.yml. It shows the lab as a voice
+in the field. Funding is one sponsor line in the Resources Funding card.
 
-### Area publication lists
-Each research area's `<details>` ends with a Liquid block:
-`where_exp: "p", "p.areas contains '<slug>'"`, rendered with `pub-item.html`.
-Verified against a real build 2026-08-25: 8 / 6 / 2 / 8, no unrendered Liquid.
-
+### Content conventions
 - `Software Projects` under Resources lists **PRYMETIME only**
   (github.com/emyounglab/prymetime). The other repos in the emyounglab org are
   paper supplements, not projects — do not list them. SBKS is Myers' project, not
@@ -275,11 +326,19 @@ Verified against a real build 2026-08-25: 8 / 6 / 2 / 8, no unrendered Liquid.
   `people.yml` keeps the fuller "Dr. Cassandra Brzycki Newton" so readers who knew
   the earlier name can connect them.
 
-### Home Page (`index.md`)
-- **Palette stripe** — 17px tall bar of five skewed parallelogram segments (red, orange, green, navy, blue) at top of content; uses `.palette-stripe` with five `<span>` children (`.ps-red`, `.ps-orange`, `.ps-green`, `.ps-navy`, `.ps-blue`)
-- **Focus badges** — four solid-fill pill links to research sections; cream text on colored backgrounds (`.focus-badge` + `.badge-orange/blue/green/navy`)
-- **Lead paragraph** — `.lead` has `--line` warm tan background with padding and rounded corners
-- **Dividers** — `<hr class="palette-rule"/>` renders as a 2px gradient line across the full palette
+### Home Page (`index.md`, key red)
+- **Hero**: headline, lede, three pills (Our research filled; Publications and Join outlined), `favicon/favicon.png` clipped to a circle
+- **Research Areas**: four `.card.edge` links to the research rows
+- **Latest articles**: `.rows.rows-dated`, the first three journal articles or preprints in publications.yml
+- **Get our parts and tools**: `.panel.panel-bar` of outlined small pills
+
+### People Page (`people.md`, key green, narrow)
+- **PI intro**: portrait, name, `bio:` (a people.yml field, added 2026-10-02), then email and `links` in one line. Phone, address, affiliations and titles stay in the data but are not rendered.
+- **Current members**: `.rows.rows-split` built from postdocs, students and staff, showing name, role and interests (first letter capitalized by CSS)
+- **Alumni**: `.panel.edge` grid, "role → current"
+
+### Join Page (`join.md`, key blue)
+- Centered intro with an email pill, then four `.card.edge` cards: `#phd-ms`, `#undergraduates`, `#postdocs`, `#collaborators`. Copy is the mockup text; the old, longer copy is in `_design/tabled.md`.
 
 ---
 
@@ -378,14 +437,24 @@ Alumni go under the `alumni:` key with `current:` for their current position.
 
 ### Adding a research area or application (`research.md`)
 Both are plain HTML in `research.md` — no collection, no data file. Each is a
-`<details class="research-section" id="...">` with `<summary><h2>Title</h2></summary>`,
-one or more `<p>`, and for an application a `.project-links` list naming the
-research areas it draws on. A new chip also needs an entry in the `EDGES` array
-in the inline `<script>`, or it will have no arcs.
-Then add a chip to the matching `.rmap-band` and an entry to the `EDGES` array in
-the script. Keep anchor IDs stable.
+`<details class="row" id="...">` whose `<summary>` holds a `.row-term` title and
+a `.row-body` one-liner, followed by a `.row-more` div of `<p>`s. An application
+ends with a `.meta` "Draws on" line linking its areas. Add the area to the TOC
+panel, and for a new research area a card on `index.md`. Keep anchor IDs stable.
 
 ---
+
+## Tasks
+
+Last verified against the working tree: 2026-10-02
+
+- [x] Recode site.css and the page markup into one design system to the Final canvas (Home, Research, People, Join). Verdict: done, uncommitted; 508 → 246 lines of CSS; checked at 1440 and 390 against _design/*.html, screenshots in _design/shots/.
+- [x] Consistency audit, items 1–8 plus font normalization. Verdict: done, uncommitted; type and space tokens, News and 404 on `.wrap`, labels merged, `.grid` replaces `.card-grid`, `_data/resources.yml`, TOC in front matter, page.html and addgene-widget.html deleted, Inter removed; all seven pages checked at 1440 and 390.
+- [ ] Update the "Young Lab" design system artifact tokens with the new type and space scales. Verdict: the artifact has neither.
+- [ ] Decide each item in `_design/tabled.md` (restore, cut, or rehome). Verdict: the PRYMETIME uses list and the Addgene widget have no home in the canvas.
+- [ ] Update the "Young Lab" design system artifact README: it still describes navy panels, red banners and left-border strips, which the canvas dropped. Verdict: the tokens are unchanged; only the shapes text is stale.
+- [ ] Reconcile with the uncommitted rebuild on the other machine (emyoung). Verdict: that work never reached origin; discard it there before pulling this.
+- [ ] Remove the stale `.git/worktrees/head` folder by hand. Verdict: OneDrive locked it during cleanup; git no longer lists it.
 
 ## PI Contact
 

@@ -28,14 +28,19 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
   </head>
 
-  <body>
+  {% comment %}The page key comes from the nav tab colour; see CLAUDE.md, Page colour keying.{% endcomment %}
+  <body class="key-{{ page.key | default: 'navy' }}">
     {% include nav.html %}
 
+    {% if page.wrap %}
+    <main class="wrap wrap-{{ page.wrap }}">
+    {% else %}
     <main class="container">
+    {% endif %}
       {{ content }}
     </main>
 

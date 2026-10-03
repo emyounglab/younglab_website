@@ -1,12 +1,16 @@
 ---
-layout: page
+layout: default
 title: News
 permalink: /news/
+wrap: narrow
 ---
 
+<section class="section">
+<h1>News</h1>
 {% assign items = site.data.news | sort: "date" | reverse %}
-<ul class="clean-list">
+<div class="rows">
 {% for n in items %}
-  {% include news-item.html item=n %}
+{% include news-item.html item=n %}
 {% endfor %}
-</ul>
+</div>
+</section>

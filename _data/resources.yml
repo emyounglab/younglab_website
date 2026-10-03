@@ -1,0 +1,44 @@
+# Lab resources: one source for the Research page Resources cards and the
+# Home page "Get our parts and tools" bar.
+#   id     anchor on the Research page (keep stable; old deep links use these)
+#   home   label for the Home bar; links without it appear on Research only
+
+groups:
+  - id: part-kits
+    title: Part kits
+    links:
+      - name: OpenCidar
+        home: OpenCidar kit
+        url: https://www.addgene.org/kits/young-opencidar/
+      - name: Xd MoClo
+        home: Xd MoClo kit
+        url: https://www.addgene.org/browse/article/28252864/
+      - name: Dh MoClo
+        home: Dh MoClo kit
+        url: https://www.addgene.org/browse/article/28275214/
+
+  - id: software-projects
+    title: Software
+    links:
+      - name: PRYMETIME
+        home: PRYMETIME
+        url: https://github.com/emyounglab/prymetime
+      - name: All lab repositories on GitHub
+        url: https://github.com/emyounglab
+
+  - id: organizations
+    title: Biofoundries
+    links:
+      - name: CREATE Biofoundry
+        url: https://createbiofoundries.org
+      - name: BioHub
+        url: https://massbiohub.org
+
+  - id: funding
+    title: Funding
+    text: "NSF · DARPA · IARPA · DEVCOM · BioMADE · Massachusetts Life Sciences Center · WPI BioHub · Evonik · Takeda"
+
+# last pill on the Home bar
+addgene:
+  home: All on Addgene →
+  url: https://www.addgene.org/Eric_Young/
