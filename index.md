@@ -21,7 +21,7 @@ wrap: full
 <section class="section">
 <h2 class="center">Research Areas</h2>
 <div class="grid">
-<a class="card edge" href="{{ '/research/#metabolic-engineering' | relative_url }}"><span class="title">Metabolic Engineering</span><span>We engineer microbes, using modular parts libraries and combinatorial pathway engineering, to overproduce a target molecule.</span></a>
+<a class="card edge" href="{{ '/research/#metabolic-engineering' | relative_url }}"><span class="title">Metabolic Engineering</span><span>We use modular parts libraries and combinatorial pathway engineering to make a host overproduce a target molecule.</span></a>
 <a class="card edge" href="{{ '/research/#circuits' | relative_url }}"><span class="title">Genetic Circuits</span><span>We have developed a fungal-bacterial system that can send signals centimeters underground.</span></a>
 <a class="card edge" href="{{ '/research/#onboarding' | relative_url }}"><span class="title">Organism Onboarding</span><span>We build the genomic foundation and modular parts that make a new host engineerable.</span></a>
 <a class="card edge" href="{{ '/research/#biofoundries' | relative_url }}"><span class="title">Biofoundries</span><span>We integrate genome sequencing into strain development to verify the accuracy of genetic engineering.</span></a>
