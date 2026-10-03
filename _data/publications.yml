@@ -88,7 +88,7 @@
   doi: "10.1128/iai.00103-24"
   url: "https://doi.org/10.1128/iai.00103-24"
   preprint_url: "https://www.biorxiv.org/content/10.1101/2023.04.07.536049v1"
-  areas: [biofoundries]
+  areas: [onboarding, biofoundries]
   context: [collaboration]
 
 - year: 2024

@@ -3,7 +3,7 @@
    1. Tokens: colour, type, space      5. Components: pill, panel, grid + card,
    2. Page key                            row, label, section
    3. Base                             6. Page pieces: hero, intro, toc
-   4. Header, footer (fixed px)        7. Publications (frozen, legacy layout)
+   4. Header, footer (fixed px)        7. Publication list
                                        8. Small screens, reduced motion
    Components use tokens only. The header is a fixed brand bar and stays in px;
    everything below it is in rem and scales with the root font size.
@@ -85,10 +85,11 @@ a:hover{color:var(--key-hover)}
 a:focus-visible, summary:focus-visible{outline:2px solid var(--key); outline-offset:2px}
 img{max-width:100%}
 sub{line-height:0}
+p{margin:0}   /* containers space their children with gap; no paragraph margins */
 
 .muted{color:var(--muted)}
-.meta{font-size:var(--fs-xs); color:var(--muted); margin:0}
-.lede{font-size:var(--fs-lg); line-height:1.65; max-width:68ch; margin:0}
+.meta{font-size:var(--fs-xs); color:var(--muted)}
+.lede{font-size:var(--fs-lg); line-height:1.65; max-width:68ch}
 .center{text-align:center}
 
 /* page column (front matter `wrap: full|wide|narrow`), a share of the window */
@@ -99,8 +100,8 @@ sub{line-height:0}
 /* ---- 4. Header, footer (fixed px) ---- */
 .site-header{position:sticky; top:0; z-index:10; background:var(--bg)}
 .site-top{display:flex; height:90px; overflow:hidden}
-.brand{flex:none; background:var(--red); padding:6px 28px 0 18px}
-.site-title{font-family:var(--serif); font-size:48px; line-height:1.1; color:var(--bg); text-decoration:none}
+.brand{flex:none; display:flex; align-items:center; background:var(--red); padding:0 28px 0 18px}
+.site-title{font-family:var(--serif); font-size:48px; line-height:1; color:var(--bg); text-decoration:none}
 .site-title:hover{color:var(--bg2)}
 .site-header-img{height:90px; width:auto; max-width:none; display:block}
 
@@ -118,7 +119,6 @@ sub{line-height:0}
 
 /* Section: a heading stacked over its content; h2 is the section heading */
 .section{display:flex; flex-direction:column; gap:var(--sp-5)}
-.section > p{margin:0}
 .section > h2 + p{margin-top:calc(var(--sp-1) - var(--sp-5))}   /* a subtitle sits under its heading */
 .section-narrow{width:82%; align-self:center}
 .section-more{align-self:center; font-weight:500}
@@ -148,16 +148,16 @@ sub{line-height:0}
 .grid{--min:15rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(var(--min), 100%), 1fr)); gap:var(--sp-5)}
 .grid-sm{--min:12.5rem}
 
-/* Card: a cream block in a grid; a linked card lifts on hover */
+/* Card: a cream block in a grid; a linked card lifts on hover. .title is the title
+   element for cards and the PI card (.media) */
 .card{display:flex; flex-direction:column; gap:var(--sp-3); padding:var(--sp-6); background:var(--bg2); border-radius:var(--radius);
   font-size:var(--fs-sm); line-height:1.6}
-.card p{margin:0}
 .card .btn{margin-top:auto; align-self:flex-start}
 .card .meta{margin-top:auto; font-style:italic}
 a.card{color:var(--fg); text-decoration:none; transition:transform .15s}
 a.card:hover{color:var(--fg); transform:translateY(-2px)}
-.card-title{font-family:var(--serif); font-weight:400; font-size:var(--fs-2xl); line-height:1.25; color:var(--key-head); margin:0}
-.label-key + .card-title{color:var(--fg)}   /* a labelled card: the label carries the key */
+.title{font-family:var(--serif); font-weight:400; font-size:var(--fs-2xl); line-height:1.25; color:var(--key-head)}
+.label-key + .title{color:var(--fg)}   /* a labelled card: the label carries the key */
 .card-links{display:flex; flex-direction:column; gap:var(--sp-3)}
 
 /* Row: a ruled two-column line, term then body. .rows sets the first column;
@@ -165,6 +165,7 @@ a.card:hover{color:var(--fg); transform:translateY(-2px)}
 .rows{--c1:15rem; display:flex; flex-direction:column; border-bottom:var(--rule)}
 .rows-dated{--c1:5.25rem}
 .rows-split{--c1:40%}
+.rows-plain .row-term{font-family:var(--sans); font-size:var(--fs-xs); color:var(--muted)}   /* term as a small dateline */
 .row, .row > summary{display:grid; grid-template-columns:minmax(0, var(--c1)) minmax(0, 1fr); gap:var(--sp-6); align-items:baseline}
 .row{padding:var(--sp-5) 0; border-top:var(--rule); color:var(--fg); text-decoration:none}
 .row-term{font-family:var(--serif); font-size:var(--fs-xl); line-height:1.25}
@@ -179,11 +180,11 @@ a.row:hover .row-title{color:var(--key)}
 details.row{display:block}
 details.row > summary{grid-template-columns:minmax(0, var(--c1)) minmax(0, 1fr) var(--sp-6); list-style:none; cursor:pointer}
 details.row > summary::-webkit-details-marker{display:none}
-details.row > summary::after{content:"+"; color:var(--key); font-weight:700; font-size:var(--fs-xl); line-height:1}
+details.row > summary::after{content:"+"; grid-column:3; color:var(--key); font-weight:700; font-size:var(--fs-xl); line-height:1}
 details.row[open] > summary::after{content:"\2212"}
+details.row[open] > summary .row-body{display:none}   /* open: the summary gives way to the full text */
 details.row > summary:hover .row-term{color:var(--key)}
 .row-more{margin:var(--sp-4) var(--sp-8) var(--sp-1) calc(var(--c1) + var(--sp-6)); max-width:72ch; display:flex; flex-direction:column; gap:var(--sp-3)}
-.row-more p{margin:0}
 
 /* ---- 6. Page pieces ---- */
 
@@ -196,10 +197,12 @@ details.row > summary:hover .row-term{color:var(--key)}
 
 /* Intro: a centered page opener (People, Join, 404) */
 .intro{display:flex; flex-direction:column; align-items:center; gap:var(--sp-4); text-align:center}
-.intro p{margin:0}
 .intro .lede{max-width:56ch}
-.intro-links{font-size:var(--fs-sm)}
-.portrait{width:10.5rem; height:10.5rem; border-radius:50%; object-fit:cover; object-position:center top; display:block}
+
+/* Media: an image beside its text (the PI card on People) */
+.media{display:flex; flex-direction:row; align-items:center; gap:var(--sp-6)}
+.media-body{display:flex; flex-direction:column; gap:var(--sp-1); min-width:0}
+.portrait{flex:none; width:6rem; height:6rem; border-radius:50%; object-fit:cover; object-position:center top; display:block}
 
 /* Alumni list (People): a grid of name + path */
 .alumni{--min:13.75rem; gap:var(--sp-3) var(--sp-7); font-size:var(--fs-sm); line-height:1.45}
@@ -213,26 +216,22 @@ details.row > summary:hover .row-term{color:var(--key)}
 .toc a.toc-group{font-family:var(--serif); font-size:var(--fs-lg); color:var(--key); padding-left:0; margin-top:var(--sp-2)}
 .toc a.toc-group:first-of-type{margin-top:0}
 .toc-main{flex:999 1 37.5rem; min-width:0; display:flex; flex-direction:column; gap:var(--sp-9)}
+.toc-main-compact{gap:var(--sp-7)}   /* list pages: sections sit closer */
 
-/* ---- 7. Publications (frozen) ----
-   The one page on the old gutter layout (.container); px kept as it was. */
-.container{max-width:1400px; margin:0; padding:12px 18px 40vh}
-.pub-section{background:var(--bg2); border-radius:0 16px 16px 0; margin-left:-18px; padding:20px 24px 20px 18px; margin-bottom:16px}
-.pub-nav{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px}
-.pub-nav a{display:inline-block; padding:4px 12px; border-radius:4px; background:var(--navy); color:var(--bg2); font-size:.85rem; text-decoration:none; font-weight:500}
-.pub-nav a:hover{background:var(--bg2); color:var(--navy)}
-.pub-item{display:grid; grid-template-columns:2.4em 1fr; padding:10px 0; border-bottom:var(--rule)}
-.pub-num{font-family:var(--serif); font-weight:700; color:var(--blue); text-align:right; padding-right:.5em}
-.pub-title{font-weight:700; color:var(--navy)}
-.pub-title a{color:var(--navy)}
-.pub-title a:hover{color:var(--blue)}
-.pub-authors{color:var(--muted); font-size:.85rem}
-.pub-venue{font-size:.85rem}
-.pub-venue a{color:var(--blue)}
-.pub-venue a:hover{color:var(--navy)}
-.pub-tags{margin-top:6px}
-.year-stamp{font-size:1.8rem; font-weight:700; line-height:1.55; color:var(--blue); letter-spacing:.1em; border-bottom:1px solid var(--blue); margin:28px 0 4px; padding-bottom:2px}
-.tag{display:inline-block; border:1.5px solid var(--red); padding:2px 7px; border-radius:3px; font-size:.75em; margin-right:6px;
+/* ---- 7. Publication list (Publications page) ----
+   One entry per paper (pub-item.html): number, title, authors, venue, links, type tags.
+   The type tags are the one place other palette hues appear on a navy page: they
+   encode publication type, not page identity. */
+.pub-list{border-top:var(--rule)}
+.pub-item{display:grid; grid-template-columns:2.5em minmax(0, 1fr); padding:var(--sp-3) 0; border-bottom:var(--rule)}
+.pub-num{font-family:var(--serif); font-weight:700; color:var(--key-link); text-align:right; padding-right:.5em}
+.pub-title{font-weight:700; color:var(--key-head)}
+.pub-title a{color:inherit}
+.pub-title a:hover{color:var(--key-link)}
+.pub-authors, .pub-venue{font-size:var(--fs-xs)}
+.pub-authors{color:var(--muted)}
+.pub-tags{margin-top:var(--sp-1)}
+.tag{display:inline-block; border:1.5px solid var(--red); padding:2px 7px; border-radius:3px; font-size:var(--fs-2xs); margin-right:var(--sp-1);
   color:var(--red); font-family:'Courier New',Courier,monospace; text-transform:uppercase; letter-spacing:.06em; transform:rotate(-1deg)}
 .tag.type-journal{border-color:var(--blue); color:var(--blue)}
 .tag.type-preprint{border-color:var(--orange); color:var(--orange)}
@@ -249,7 +248,7 @@ details.row > summary:hover .row-term{color:var(--key)}
   html{scroll-padding-top:0}
   .site-header{position:static}
   .site-top{height:64px}
-  .brand{padding:4px 16px 0}
+  .brand{padding:0 16px}
   .site-title{font-size:36px}
   .site-header-img{height:64px}
   .site-nav{padding:12px 8px 0; gap:3px}
@@ -261,6 +260,7 @@ details.row > summary:hover .row-term{color:var(--key)}
   .panel, .panel-bar{padding:var(--sp-6) var(--sp-5)}
   .with-toc, .toc-main{gap:var(--sp-8)}
   .toc{max-width:none}
+  .media{flex-direction:column; align-items:flex-start}
   .row, .row > summary{grid-template-columns:minmax(0, 1fr); gap:var(--sp-1)}
   details.row > summary{grid-template-columns:minmax(0, 1fr) var(--sp-6)}
   details.row > summary .row-body{grid-column:1}

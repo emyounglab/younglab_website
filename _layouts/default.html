@@ -36,11 +36,8 @@
   <body class="key-{{ page.key | default: 'navy' }}">
     {% include nav.html %}
 
-    {% if page.wrap %}
-    <main class="wrap wrap-{{ page.wrap }}">
-    {% else %}
-    <main class="container">
-    {% endif %}
+    <main class="wrap wrap-{{ page.wrap | default: 'wide' }}">
+
       {{ content }}
     </main>
 

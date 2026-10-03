@@ -8,9 +8,9 @@ description: "The Young Lab makes new organisms engineerable — bacteria, yeast
 # On-this-page panel. Each id must match a section or row id below.
 toc:
   - { title: Research, id: areas, items: [
-      { title: Organism Onboarding, id: onboarding },
       { title: Metabolic Engineering, id: metabolic-engineering },
       { title: Genetic Circuits, id: circuits },
+      { title: Organism Onboarding, id: onboarding },
       { title: Biofoundries, id: biofoundries } ] }
   - { title: Applications, id: applications }
   - { title: Resources, id: resources }
@@ -19,12 +19,7 @@ toc:
 
 <div class="with-toc">
 
-<aside class="panel edge toc">
-<span class="label">On this page</span>
-{% for s in page.toc %}<a class="toc-group" href="#{{ s.id }}">{{ s.title }}</a>
-{% for i in s.items %}<a href="#{{ i.id }}">{{ i.title }}</a>
-{% endfor %}{% endfor %}
-</aside>
+{% include toc.html %}
 
 <div class="toc-main">
 
@@ -33,19 +28,11 @@ toc:
 <p class="lede">We engineer microbes so they can be put to work making useful molecules and sensing their environment. Our core capability is making microbes easier to engineer by pairing genome and transcriptome analysis with modular genetic part libraries.</p>
 <div class="rows">
 
-<details class="row" id="onboarding">
-<summary><span class="row-term">Organism Onboarding</span><span class="row-body">We build the genomic foundation and modular parts that make a new host engineerable.</span></summary>
-<div class="row-more">
-<p>We build the genomic foundation and modular parts that make a new host engineerable &mdash; nonconventional yeasts, diverse bacteria, and plant cell cultures. Our key strategy is merging bioinformatics and development of modular genetic parts libraries to facilitate high-throughput combinatorial pathway engineering in these organisms.</p>
-<p>In yeasts we have developed two hosts, <a href="https://doi.org/10.1101/2025.10.23.684212"><i>Debaryomyces hansenii</i></a> and <a href="https://doi.org/10.1007/s00253-024-13379-w"><i>Xanthophyllomyces dendrorhous</i></a>, that can grow on inexpensive sugars, and we use <a href="https://doi.org/10.1002/bit.28891">comparative transcriptomics</a> to characterize a new yeast before we engineer it. The same foundation has produced reference genomes and phenotype maps for other nonconventional yeasts &mdash; <a href="https://doi.org/10.1128/MRA.00397-23"><i>Kregervanrija delftensis</i></a>, <a href="https://doi.org/10.1128/MRA.00611-22"><i>Ogataea polymorpha</i></a>, and <a href="https://doi.org/10.1093/g3journal/jkad093">probiotic strains characterised by nanopore sequencing</a>.</p>
-<p>In bacteria we have developed <a href="https://doi.org/10.1021/acssynbio.3c00104">a genetic part library</a> that is generalizable to a large set of gram negative soil bacteria and biomaterial producing bacteria, using a broad host range plasmid to test already designed DNA parts in various organisms. We have tested this in <i>Pseudomonas putida</i>, a soil bacterium with unusual metabolic versatility and tolerance of chemical stress, which makes it a durable host, or chassis, for sensing in the field; in <i>Cupriavidus necator</i>, a potential platform host for biomaterial production from CO<sub>2</sub>; and in <a href="https://doi.org/10.1101/2023.08.21.554206">bacterial nanocellulose producing bacteria</a>.</p>
-</div>
-</details>
-
 <details class="row" id="metabolic-engineering">
-<summary><span class="row-term">Metabolic Engineering</span><span class="row-body">We engineer these hosts, using modular parts libraries and combinatorial pathway engineering, to overproduce a target molecule.</span></summary>
+<summary><span class="row-term">Metabolic Engineering</span><span class="row-body">We engineer microbes, using modular parts libraries and combinatorial pathway engineering, to overproduce a target molecule.</span></summary>
 <div class="row-more">
-<p><b><i>Debaryomyces hansenii</i>.</b> Grows in extremely salty water on lignocellulosic biomass and overproduces fatty acids, which can support on-demand manufacture of oleochemicals like omega-3 fatty acids, <a href="https://doi.org/10.1101/2025.10.23.684212">alkanes</a>, or lubricants.</p>
+<p>We engineer microbes, using modular parts libraries and combinatorial pathway engineering, to overproduce a target molecule.</p>
+<p><b><i>Debaryomyces hansenii</i>.</b> Grows in extremely salty water on lignocellulosic biomass and overproduces fatty acids, which can support on-demand manufacture of oleochemicals like omega-3 fatty acids, <a href="https://doi.org/10.1002/bit.70350">alkanes</a>, or lubricants.</p>
 <p><b><i>Xanthophyllomyces dendrorhous</i>.</b> Grows on lignocellulosic biomass and overproduces <a href="https://doi.org/10.1007/s00253-024-13379-w">terpenes</a>, a diverse class of molecules that has long held promise for making medicines, fuels, and chemicals.</p>
 <p><b><i>Taxus chinensis</i>.</b> In collaboration with Prof. Susan Roberts we extend this to <a href="https://doi.org/10.1007/978-3-030-58271-5_1">plant cell culture</a>, engineering <a href="https://doi.org/10.1016/j.ymben.2026.102524">suspension cell lines to overproduce paclitaxel</a>, including <a href="https://doi.org/10.3389/fbioe.2023.1272811">CRISPR-guided control of supporting pathways</a>.</p>
 <p class="meta">Co-advised PhD work with the Roberts lab at WPI.</p>
@@ -58,6 +45,15 @@ toc:
 <p>We have developed a unique fungal-bacterial system that can send signals centimeters underground. The system uses bacteria with a biosensor to detect a chemical, and then fungal mycelia to send the detection signal to the surface. This required a great deal of genetic circuit optimization to make the system work in actual dry soil. We have developed a method of sequential screening to filter out candidate genetic circuits and plan to use this to develop diverse biosensors that work in actual soil.</p>
 <p>This work was funded by DARPA through the BioReporters and Ceres programs. <a href="https://patentsgazette.uspto.gov/week10/OG/html/1544-2/US12571789-20260310.html">US Patent 12,571,789 B1</a> has been awarded.</p>
 <p class="meta">With RTX BBN Technologies.</p>
+</div>
+</details>
+
+<details class="row" id="onboarding">
+<summary><span class="row-term">Organism Onboarding</span><span class="row-body">We build the genomic foundation and modular parts that make a new host engineerable.</span></summary>
+<div class="row-more">
+<p>We build the genomic foundation and modular parts that make a new host engineerable &mdash; nonconventional yeasts, diverse bacteria, and plant cell cultures. Our key strategy is merging bioinformatics and development of modular genetic parts libraries to facilitate high-throughput combinatorial pathway engineering in these organisms.</p>
+<p><b>Parts collections.</b> <a href="https://doi.org/10.1007/s00253-024-13379-w"><i>Xanthophyllomyces dendrorhous</i></a>, <a href="https://doi.org/10.1002/bit.70350"><i>Debaryomyces hansenii</i></a>, <a href="https://doi.org/10.1021/acssynbio.3c00104"><i>Pseudomonas putida</i></a>, <a href="https://doi.org/10.1021/acssynbio.3c00104"><i>Cupriavidus necator</i></a>, and <a href="https://doi.org/10.1101/2023.08.21.554206"><i>Komagataeibacter nataicola</i></a>.</p>
+<p><b>Genomes and transcriptomes.</b> <a href="https://doi.org/10.1128/MRA.00397-23"><i>Kregervanrija delftensis</i></a>, <a href="https://doi.org/10.1128/MRA.00611-22"><i>Ogataea polymorpha</i></a>, <a href="https://doi.org/10.1093/g3journal/jkad093">probiotic yeasts</a> and <a href="https://doi.org/10.1128/iai.00103-24"><i>Candida auris</i></a> (with Reeta Rao), and <a href="https://doi.org/10.1002/bit.28891">oleaginous yeasts</a> by comparative transcriptomics.</p>
 </div>
 </details>
 
@@ -91,7 +87,7 @@ toc:
 <summary><span class="row-term">Biomanufacturing from Inexpensive Biomass</span><span class="row-body">Hosts that grow on biomass, salty water, and CO<sub>2</sub>.</span></summary>
 <div class="row-more">
 <p>Feedstock cost determines whether a bio-based product is viable. We work with hosts that grow on inexpensive inputs: lignocellulosic biomass, water too salty for most organisms, and CO<sub>2</sub>.</p>
-<p><i>Debaryomyces hansenii</i> overproduces fatty acids while growing in extremely salty water, a route to <a href="https://doi.org/10.1101/2025.10.23.684212">alkanes</a> and lubricants. <a href="https://doi.org/10.1007/s00253-024-13379-w"><i>Xanthophyllomyces dendrorhous</i></a> makes terpenes from lignocellulose. <i>Cupriavidus necator</i> fixes CO<sub>2</sub> directly. Scaling any of these from a strain to a process requires fermentation capacity, which the <a href="https://massbiohub.org">BioHub</a> provides.</p>
+<p><i>Debaryomyces hansenii</i> overproduces fatty acids while growing in extremely salty water, a route to <a href="https://doi.org/10.1002/bit.70350">alkanes</a> and lubricants. <a href="https://doi.org/10.1007/s00253-024-13379-w"><i>Xanthophyllomyces dendrorhous</i></a> makes terpenes from lignocellulose. <i>Cupriavidus necator</i> fixes CO<sub>2</sub> directly. Scaling any of these from a strain to a process requires fermentation capacity, which the <a href="https://massbiohub.org">BioHub</a> provides.</p>
 <p class="meta">Draws on <a href="#onboarding">Organism Onboarding</a> · <a href="#metabolic-engineering">Metabolic Engineering</a> · <a href="#biofoundries">Biofoundries</a></p>
 </div>
 </details>
@@ -135,7 +131,7 @@ toc:
 <div class="grid grid-sm">
 {% for g in site.data.resources.groups %}
 <div class="card" id="{{ g.id }}">
-<h3 class="card-title">{{ g.title }}</h3>
+<h3 class="title">{{ g.title }}</h3>
 {% if g.links %}<div class="card-links">{% for l in g.links %}<a href="{{ l.url }}">{{ l.name }}</a>{% endfor %}</div>{% endif %}
 {% if g.text %}<p>{{ g.text }}</p>{% endif %}
 </div>
@@ -148,7 +144,7 @@ toc:
 <p class="muted">Reviews, book chapters, and perspectives we have written for the field.</p>
 <div class="grid">
 {% for pub in site.data.publications %}{% unless pub.context contains "training" %}{% if pub.type == "review" or pub.type == "book-chapter" %}
-<a class="card" href="{{ pub.url }}" target="_blank" rel="noreferrer"><span class="label label-key">{% if pub.type == "review" %}Review{% else %}Book chapter{% endif %} · {{ pub.year }}</span><span class="card-title">{{ pub.title }}</span><span class="meta">{{ pub.venue }}</span></a>
+<a class="card" href="{{ pub.url }}" target="_blank" rel="noreferrer"><span class="label label-key">{% if pub.type == "review" %}Review{% else %}Book chapter{% endif %} · {{ pub.year }}</span><span class="title">{{ pub.title }}</span><span class="meta">{{ pub.venue }}</span></a>
 {% endif %}{% endunless %}{% endfor %}
 </div>
 </section>

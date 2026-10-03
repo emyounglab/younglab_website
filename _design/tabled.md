@@ -101,3 +101,10 @@ PI phone, building, room, address, affiliations and the titles links are still i
 <p><strong>Contact:</strong> <a href="mailto:emyoung@wpi.edu">emyoung@wpi.edu</a></p>
 </div>
 ```
+
+## research.md: Organism Onboarding paragraphs (replaced 2026-10-02 by Parts collections / Genomes and transcriptomes)
+
+```html
+<p>In yeasts we have developed two hosts, <a href="https://doi.org/10.1101/2025.10.23.684212"><i>Debaryomyces hansenii</i></a> and <a href="https://doi.org/10.1007/s00253-024-13379-w"><i>Xanthophyllomyces dendrorhous</i></a>, that can grow on inexpensive sugars, and we use <a href="https://doi.org/10.1002/bit.28891">comparative transcriptomics</a> to characterize a new yeast before we engineer it. The same foundation has produced reference genomes and phenotype maps for other nonconventional yeasts &mdash; <a href="https://doi.org/10.1128/MRA.00397-23"><i>Kregervanrija delftensis</i></a>, <a href="https://doi.org/10.1128/MRA.00611-22"><i>Ogataea polymorpha</i></a>, and <a href="https://doi.org/10.1093/g3journal/jkad093">probiotic strains characterised by nanopore sequencing</a>.</p>
+<p>In bacteria we have developed <a href="https://doi.org/10.1021/acssynbio.3c00104">a genetic part library</a> that is generalizable to a large set of gram negative soil bacteria and biomaterial producing bacteria, using a broad host range plasmid to test already designed DNA parts in various organisms. We have tested this in <i>Pseudomonas putida</i>, a soil bacterium with unusual metabolic versatility and tolerance of chemical stress, which makes it a durable host, or chassis, for sensing in the field; in <i>Cupriavidus necator</i>, a potential platform host for biomaterial production from CO<sub>2</sub>; and in <a href="https://doi.org/10.1101/2023.08.21.554206">bacterial nanocellulose producing bacteria</a>.</p>
+```

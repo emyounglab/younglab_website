@@ -37,8 +37,3 @@ groups:
   - id: funding
     title: Funding
     text: "NSF · DARPA · IARPA · DEVCOM · BioMADE · Massachusetts Life Sciences Center · WPI BioHub · Evonik · Takeda"
-
-# last pill on the Home bar
-addgene:
-  home: All on Addgene →
-  url: https://www.addgene.org/Eric_Young/

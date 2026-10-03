@@ -48,6 +48,7 @@ _layouts/
 _includes/
   nav.html           # Red wordmark block + header image, then the tab row (tabs from one list)
   footer.html        # WPI logo, copyright
+  toc.html           # "On this page" panel from page.toc front matter (Research, Publications, People)
   pub-item.html      # Publications page entry: title, authors, venue, DOI, tags
   news-item.html     # One news row: date, title, text, optional "Read more" (field: url)
 
@@ -82,7 +83,7 @@ assets/
 Pages (Markdown):
   index.md           # Home: hero, area cards, 3 latest articles (dynamic), parts panel
   research.md        # TOC panel + area rows, application rows, Resources, Perspectives
-  people.md          # PI intro, member rows, alumni panel, all from people.yml
+  people.md          # "People" heading, PI card, member rows, alumni panel, all from people.yml
   publications.md    # Renders publications.yml grouped by year/type
   news.md            # news.yml as rows, newest first (not in the nav)
   join.md            # Recruitment info for PhD, undergrad, postdoc, collaborators
@@ -99,7 +100,7 @@ Pages (Markdown):
 
 **Visual target:** the "Final" page of the "Young Lab Home Directions" design
 canvas (claude.ai/artifact/PDxHL82qhm3vLthKvyiW2n): Home, Research, People, Join.
-Publications is frozen as it was. **Mockup text is approved copy** (headings,
+Publications keeps its list behavior and tags; its wrapper was rebuilt on the system 2026-10-02. **Mockup text is approved copy** (headings,
 sentences, button labels): use it. **Lists come from the data files** (alumni,
 members, publications, venues): the mockups show samples, not counts.
 Settled by Eric 2026-10-02. Tokens and brand book: the "Young Lab" design
@@ -151,8 +152,8 @@ and footer rule take `--key`. Do not "fix" orange headings to navy for contrast.
 **Pages scale with the window.** The root font size is fluid (15px at phone width,
 16px at 1440, capped at 20px) and component sizes are in rem. Front matter
 `wrap: full|wide|narrow` puts the page in the `.wrap` column at 88% / 86% / 68% of
-the window (Home / Research and Join / People), with no fixed caps. A page without
-`wrap` gets the old `.container` gutter; only Publications uses it.
+the window (Home / Research, Join, Publications, People / News, 404), with no fixed caps.
+Every page uses `.wrap`; the default is `wide`. The old `.container` layout is gone.
 
 The stylesheet is `assets/css/site.css`, not `style.css`: with no `theme:` set,
 GitHub Pages' default theme also writes `assets/css/style.css`, and the two
@@ -167,8 +168,8 @@ Components use tokens only; no raw sizes below the header.
 - **Space** `--sp-1` .375 · `--sp-2` .625 · `--sp-3` .75 · `--sp-4` 1 · `--sp-5` 1.25 ·
   `--sp-6` 1.5 · `--sp-7` 2 · `--sp-8` 3 · `--sp-9` 4 · `--sp-10` 5, all rem.
 - `--radius`, `--pill`, `--rule` (1px tan line), `--edge` (4px).
-- The header and footer are a fixed brand bar in px, on purpose. Publications
-  (§7) keeps its old px values.
+- The header and footer are a fixed brand bar in px, on purpose. The stamped
+  type tags in §7 keep a few px values for their look.
 
 ### Components (site.css §5) — one per pattern
 - **Section** `.section` stacks a heading (plain `h2`) over its content;
@@ -180,14 +181,17 @@ Components use tokens only; no raw sizes below the header.
 - **Edge** `.edge`: key-colour top rule, on a panel or a card.
 - **Grid** `.grid`: auto-fit columns no narrower than `--min` (15rem; `.grid-sm`
   12.5rem). Holds cards, and the alumni list (`.grid.alumni`).
-- **Card** `.card`: `.card-title`, `.card-links`. A card that leads with
+- **Card** `.card`: `.title` (the title element, also used in `.media`), `.card-links`. A card that leads with
   `.label.label-key` shows its title in ink. A linked `a.card` lifts 2px on hover.
 - **Row** `.row` in `.rows`: ruled grid line, `.row-term` then `.row-body`.
-  `.rows-dated` (5.25rem year column), `.rows-split` (40%), default 15rem.
+  `.rows-dated` (5.25rem year column), `.rows-split` (40%), `.rows-plain` (term as a small
+  dateline, News), default 15rem.
   `<details class="row">` adds a +/− marker and expands to `.row-more`.
-- Page pieces (§6): `.hero` (Home); `.intro` centered opener (People, Join, 404);
+- Page pieces (§6): `.hero` (Home); `.intro` centered opener (Join, 404); `.media` image beside text (PI card);
   `.toc` panel beside `.toc-main` (Research).
 - Utilities: `.meta` (small muted line), `.lede`, `.muted`, `.center`.
+- Paragraphs have no margins (one base rule); containers space children with `gap`.
+- `.media` (image beside text) is self-contained; on the PI card it sits on a `.panel`.
 
 Add a modifier to an existing component before adding a new class. No inline styles.
 
@@ -197,7 +201,8 @@ Add a modifier to an existing component before adding a new class. No inline sty
   applied them (seen 2026-10-02).
 - Active nav tab is styled from `aria-current`, set in `nav.html`; there is no
   `.active` class.
-- The Research TOC is front matter (`toc:` in research.md); each `id` must match a
+- "On this page" panels come from `_includes/toc.html`, fed by `toc:` front matter on
+  Research, Publications and People (Publications passes its years in). Each `id` must match a
   section or row id on the page.
 - Resource links live once, in `_data/resources.yml`. A link with a `home:` label
   also appears on the Home parts bar.
@@ -213,10 +218,12 @@ Add a modifier to an existing component before adding a new class. No inline sty
 `.toc-main`, which holds four sections:
 
 1. **Research** (`#areas`): h1, lede, then four `<details class="row">` —
-   `#onboarding`, `#metabolic-engineering`, `#circuits`, `#biofoundries`. The
+   `#metabolic-engineering`, `#circuits`, `#onboarding`, `#biofoundries` (this order
+   everywhere: rows, TOC, Home cards; set by Eric 2026-10-02). The
    summary shows the canvas one-liner; `.row-more` holds the full prose, unedited.
-   Metabolic Engineering's opening sentence *is* its one-liner, so it shows only
-   in the summary. The other three repeat their first sentence in the body.
+   The one-liners restate each body's opening, so an open row hides its summary
+   line (CSS) and shows only the full text. Never trim a body's first sentence to
+   avoid the repeat: keep every body complete. Applies to Applications rows too.
 2. **Applications** (`#applications`): five rows — `#app-soil-sensing`,
    `#app-biomanufacturing`, `#app-medicines`, `#app-biomaterials`,
    `#app-biosecurity`. Each body ends with a `.meta` "Draws on" line naming the
@@ -231,7 +238,7 @@ Anchor IDs are unchanged from the map version, so old deep links still work.
 **Papers are inline links on the claims they support**, not citation lists. An
 earlier version generated a publication list per area with Liquid; it read as a
 second copy of the publications page and was removed. Full citations live on
-`publications.md`. Of the area-tagged papers, all but one are linked in prose —
+`publications.md`. Every area-tagged paper is linked in prose (verified 2026-10-02) —
 audit with: every `doi` in `publications.yml` that has `areas` should appear in
 `research.md`.
 
@@ -272,15 +279,17 @@ context: [training, collaboration]                                      # 0+, pr
 `biofoundries` is the whole area — software and bioinformatics, automation, and
 scale. Bioinformatics work belongs here; there is no separate slug for it. The
 *Candida auris* paper is `biofoundries` because it was a PRYMETIME collaboration,
-not because it is foundry infrastructure. Confirmed by Eric 2026-08-29.
+not because it is foundry infrastructure (Eric, 2026-08-29). It also carries
+`onboarding`, added by Eric 2026-10-02; it is listed under Genomes and
+transcriptomes in the Organism Onboarding row.
 
 **Rule: a training publication never carries an area.** Training means Eric's own
 doctoral and postdoctoral work, before the lab. Those papers appear only in the
 Prior work section, never under a research area.
 
-Current counts: onboarding 8, biofoundries 11, metabolic-engineering 6,
-circuits 2. Context: 13 training, 12 collaboration, 14 current lab.
-Verified 2026-08-29.
+Current counts: onboarding 9, biofoundries 11, metabolic-engineering 6,
+circuits 2 (verified 2026-10-02). Context: 13 training, 12 collaboration, 14 current lab
+(verified 2026-08-29).
 
 **Rule: `areas` records why the lab was in the room, not what technique it used.**
 Settled by Eric 2026-08-29 after this exact case came up twice.
@@ -306,6 +315,11 @@ preprint is pending DARPA approval.
 The old `projects:` field is gone — it pointed at the deleted `_projects` pages.
 
 ### Publications page
+Wrapper (2026-10-02): an "On this page" `.toc` panel listing the years and Prior
+work, as on Research; h1 "Publications"; each year a `.section` with the year as
+its h2 and a `.pub-list` of `pub-item.html` entries. `.toc-main-compact` keeps the
+year sections closer than Research's. Entries, numbering and tags are unchanged.
+
 Two sections (changed 2026-10-02 at Eric's direction):
 1. **Lab work** — everything not `context: training`, reviews and chapters included,
    numbered and grouped by year. Type tags (Review, Book Chapter, Patent) carry the
@@ -332,8 +346,8 @@ in the field. Funding is one sponsor line in the Resources Funding card.
 - **Latest articles**: `.rows.rows-dated`, the first three journal articles or preprints in publications.yml
 - **Get our parts and tools**: `.panel.panel-bar` of outlined small pills
 
-### People Page (`people.md`, key green, narrow)
-- **PI intro**: portrait, name, `bio:` (a people.yml field, added 2026-10-02), then email and `links` in one line. Phone, address, affiliations and titles stay in the data but are not rendered.
+### People Page (`people.md`, key green, wide, TOC: Principal Investigator / Current members / Alumni)
+- **PI card** (redesigned 2026-10-02 so the page leads with the lab, not the PI): page h1 is "People"; then a compact left-aligned `.panel.edge.media`: 6rem round photo, "Principal Investigator" label, name, `bio:` (a people.yml field), then email and `links` in one meta line. Phone, address, affiliations and titles stay in the data but are not rendered.
 - **Current members**: `.rows.rows-split` built from postdocs, students and staff, showing name, role and interests (first letter capitalized by CSS)
 - **Alumni**: `.panel.edge` grid, "role → current"
 

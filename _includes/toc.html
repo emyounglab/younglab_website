@@ -1,0 +1,11 @@
+{% comment %}"On this page" panel. Renders page.toc from front matter:
+  - { title: Shown, id: section-id, items: [ { title: ..., id: ... } ] }
+An entry with `years: true` lists include.years as #year-<y> links (Publications).
+Each id must match an element id on the page.{% endcomment %}
+<aside class="panel edge toc">
+<span class="label">On this page</span>
+{% for s in page.toc %}<a class="toc-group" href="#{{ s.id }}">{{ s.title }}</a>
+{% for i in s.items %}<a href="#{{ i.id }}">{{ i.title }}</a>
+{% endfor %}{% if s.years %}{% for y in include.years %}<a href="#year-{{ y }}">{{ y }}</a>
+{% endfor %}{% endif %}{% endfor %}
+</aside>

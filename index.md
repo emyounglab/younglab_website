@@ -7,7 +7,7 @@ wrap: full
 
 <section class="hero">
 <div class="hero-text">
-<h1>Biosensors and cell factories, built from new microbes.</h1>
+<h1>Microbes for biosensing and manufacturing</h1>
 <p class="lede">We use genomics, synthetic biology, and metabolic engineering to design and build biosensors and cell factories.</p>
 <div class="pills">
 <a class="btn" href="{{ '/research/' | relative_url }}">Our research</a>
@@ -21,10 +21,10 @@ wrap: full
 <section class="section">
 <h2 class="center">Research Areas</h2>
 <div class="grid">
-<a class="card edge" href="{{ '/research/#onboarding' | relative_url }}"><span class="card-title">Organism Onboarding</span><span>We build the genomic foundation and modular parts that make a new host engineerable.</span></a>
-<a class="card edge" href="{{ '/research/#metabolic-engineering' | relative_url }}"><span class="card-title">Metabolic Engineering</span><span>We engineer these hosts, using modular parts libraries and combinatorial pathway engineering, to overproduce a target molecule.</span></a>
-<a class="card edge" href="{{ '/research/#circuits' | relative_url }}"><span class="card-title">Genetic Circuits</span><span>We have developed a fungal-bacterial system that can send signals centimeters underground.</span></a>
-<a class="card edge" href="{{ '/research/#biofoundries' | relative_url }}"><span class="card-title">Biofoundries</span><span>We integrate genome sequencing into strain development to verify the accuracy of genetic engineering.</span></a>
+<a class="card edge" href="{{ '/research/#metabolic-engineering' | relative_url }}"><span class="title">Metabolic Engineering</span><span>We engineer microbes, using modular parts libraries and combinatorial pathway engineering, to overproduce a target molecule.</span></a>
+<a class="card edge" href="{{ '/research/#circuits' | relative_url }}"><span class="title">Genetic Circuits</span><span>We have developed a fungal-bacterial system that can send signals centimeters underground.</span></a>
+<a class="card edge" href="{{ '/research/#onboarding' | relative_url }}"><span class="title">Organism Onboarding</span><span>We build the genomic foundation and modular parts that make a new host engineerable.</span></a>
+<a class="card edge" href="{{ '/research/#biofoundries' | relative_url }}"><span class="title">Biofoundries</span><span>We integrate genome sequencing into strain development to verify the accuracy of genetic engineering.</span></a>
 </div>
 </section>
 
@@ -45,11 +45,10 @@ wrap: full
 
 <section class="panel panel-bar">
 <h2>Get our parts and tools</h2>
-{% comment %}links come from _data/resources.yml: every link with a `home` label, then Addgene{% endcomment %}
+{% comment %}links come from _data/resources.yml: every link with a `home` label{% endcomment %}
 <div class="pills">
 {% for g in site.data.resources.groups %}{% for l in g.links %}{% if l.home %}
 <a class="btn btn-outline btn-sm" href="{{ l.url }}">{{ l.home }}</a>
 {% endif %}{% endfor %}{% endfor %}
-<a class="btn btn-outline btn-sm" href="{{ site.data.resources.addgene.url }}">{{ site.data.resources.addgene.home }}</a>
 </div>
 </section>

@@ -8,7 +8,7 @@ wrap: narrow
 <section class="section">
 <h1>News</h1>
 {% assign items = site.data.news | sort: "date" | reverse %}
-<div class="rows">
+<div class="rows rows-plain">
 {% for n in items %}
 {% include news-item.html item=n %}
 {% endfor %}
