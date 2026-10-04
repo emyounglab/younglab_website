@@ -1,0 +1,110 @@
+<!doctype html>
+<!-- HYPOTHESIS FILE: header options for review. Not part of the site (Jekyll excludes _design/).
+     Uses the real site.css and header image; extra rules below exist only to show the options. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Header options</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<style>
+  .opt{margin:0 0 56px}
+  .opt-label{font:700 13px/1.4 var(--sans); letter-spacing:.1em; text-transform:uppercase; color:var(--muted); padding:0 18px 8px}
+  .opt-note{font:15px/1.5 var(--sans); color:var(--fg); padding:10px 18px 0; max-width:90ch}
+  .opt .site-header{position:static}
+  .site-top{align-items:stretch}
+
+  /* A: institution block on the right */
+  .aside-inst{margin-left:auto; display:flex; align-items:center; gap:14px; padding:0 22px; text-align:right}
+  .aside-inst img{height:44px; width:auto}
+  .aside-inst span{display:block; font-family:var(--sans); font-size:14px; line-height:1.35; color:var(--muted)}
+  .aside-inst b{display:block; font-family:var(--serif); font-weight:400; font-size:19px; color:var(--fg)}
+
+  /* B and D: tabs in the band, right-aligned on the key bar */
+  .band{display:flex; align-items:stretch; height:90px; border-bottom:var(--edge) solid var(--key)}
+  .band .site-nav{margin-left:auto; align-self:flex-end; border-bottom:0; padding:0 18px 0 0}
+  .band-right{margin-left:auto; display:flex; flex-direction:column; justify-content:flex-end; align-items:flex-end; gap:10px; padding-right:18px}
+  .band-right .site-nav{margin:0; padding:0}
+  .band-right small{font:14px/1 var(--sans); color:var(--muted)}
+
+  /* C: utility links */
+  .aside-util{margin-left:auto; display:flex; align-items:center; gap:18px; padding:0 22px; font:15px/1 var(--sans)}
+  .aside-util a{color:var(--fg); text-decoration-color:var(--key)}
+  .aside-util .btn{color:var(--bg); text-decoration:none}
+</style>
+</head>
+<body class="key-blue">
+
+<div class="opt" style="padding-top:24px">
+  <div class="opt-label">Now</div>
+  <header class="site-header">
+    <div class="site-top">
+      <div class="brand"><a class="site-title" href="#">Young Lab</a></div>
+      <img src="../assets/img/young_header.png" alt="" class="site-header-img">
+    </div>
+    <nav class="site-nav"><a class="tab tab-red" href="#">Home</a><a class="tab tab-orange" href="#">Research</a><a class="tab tab-green" href="#">People</a><a class="tab tab-navy" href="#">Publications</a><a class="tab tab-blue" href="#" aria-current="page">Join</a></nav>
+  </header>
+</div>
+
+<div class="opt">
+  <div class="opt-label">A · Institution block</div>
+  <header class="site-header">
+    <div class="site-top">
+      <div class="brand"><a class="site-title" href="#">Young Lab</a></div>
+      <img src="../assets/img/young_header.png" alt="" class="site-header-img">
+      <div class="aside-inst">
+        <div><b>Chemical Engineering</b><span>Worcester Polytechnic Institute</span></div>
+        <img src="../assets/img/logos/wpi_logo.png" alt="WPI">
+      </div>
+    </div>
+    <nav class="site-nav"><a class="tab tab-red" href="#">Home</a><a class="tab tab-orange" href="#">Research</a><a class="tab tab-green" href="#">People</a><a class="tab tab-navy" href="#">Publications</a><a class="tab tab-blue" href="#" aria-current="page">Join</a></nav>
+  </header>
+  <p class="opt-note">Puts the affiliation on every page (today the WPI logo is only in the footer). Same height as now. On phones the block hides and the header is unchanged.</p>
+</div>
+
+<div class="opt">
+  <div class="opt-label">B · Tabs move into the band</div>
+  <header class="site-header">
+    <div class="band">
+      <div class="brand"><a class="site-title" href="#">Young Lab</a></div>
+      <img src="../assets/img/young_header.png" alt="" class="site-header-img">
+      <nav class="site-nav"><a class="tab tab-red" href="#">Home</a><a class="tab tab-orange" href="#">Research</a><a class="tab tab-green" href="#">People</a><a class="tab tab-navy" href="#">Publications</a><a class="tab tab-blue" href="#" aria-current="page">Join</a></nav>
+    </div>
+  </header>
+  <p class="opt-note">One row instead of two: the header loses about 50px, which matters most while it is sticky. The empty space becomes the navigation. On phones the tabs drop below the band, as now.</p>
+</div>
+
+<div class="opt">
+  <div class="opt-label">C · Utility links</div>
+  <header class="site-header">
+    <div class="site-top">
+      <div class="brand"><a class="site-title" href="#">Young Lab</a></div>
+      <img src="../assets/img/young_header.png" alt="" class="site-header-img">
+      <div class="aside-util">
+        <a href="#">emyoung@wpi.edu</a><a href="#">GitHub</a><a href="#">Scholar</a><a href="#">Addgene</a>
+        <a class="btn btn-sm" href="#">Join the lab</a>
+      </div>
+    </div>
+    <nav class="site-nav"><a class="tab tab-red" href="#">Home</a><a class="tab tab-orange" href="#">Research</a><a class="tab tab-green" href="#">People</a><a class="tab tab-navy" href="#">Publications</a><a class="tab tab-blue" href="#" aria-current="page">Join</a></nav>
+  </header>
+  <p class="opt-note">The links people hunt for, on every page. The Join pill duplicates the Join tab, so it could go. The links would come from people.yml so they stay in one place.</p>
+</div>
+
+<div class="opt">
+  <div class="opt-label">D · B plus an affiliation line</div>
+  <header class="site-header">
+    <div class="band">
+      <div class="brand"><a class="site-title" href="#">Young Lab</a></div>
+      <img src="../assets/img/young_header.png" alt="" class="site-header-img">
+      <div class="band-right">
+        <small>Chemical Engineering · Worcester Polytechnic Institute</small>
+        <nav class="site-nav"><a class="tab tab-red" href="#">Home</a><a class="tab tab-orange" href="#">Research</a><a class="tab tab-green" href="#">People</a><a class="tab tab-navy" href="#">Publications</a><a class="tab tab-blue" href="#" aria-current="page">Join</a></nav>
+      </div>
+    </div>
+  </header>
+  <p class="opt-note">The compact one-row header from B, with the affiliation set small above the tabs. The most useful use of the space, at the cost of a busier right edge.</p>
+</div>
+
+</body>
+</html>
