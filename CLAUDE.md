@@ -408,6 +408,11 @@ A fuller sample lives outside the repo. Ask Eric for it before a prose pass.
 - **No custom plugins** — must remain GitHub Pages safe (`plugins: []` in _config.yml)
 - **Permalink style:** `pretty` (e.g., `/people/` not `/people.html`)
 - **alumni** `current_position:` field in people.yml uses key `current:`
+- **Branches** (settled by Eric 2026-10-04). `main` is the live site: GitHub Pages
+  builds from it. Multi-file passes (audits, redesigns, anything to review before it
+  goes live) go on a branch named for the task (`streamline`, `people-photos`),
+  deleted after merge. Single-file edits (a news item, a publication, a typo) go
+  straight to `main`. No standing `dev` branch. Eric merges and pushes.
 
 ---
 
