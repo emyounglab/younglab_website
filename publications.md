@@ -36,16 +36,15 @@ Numbers count down across both lists, newest first.{% endcomment %}
 <h1>Publications</h1>
 </section>
 
+{% assign pub_num = grand %}
 {% for y in years %}
-{% assign count_before = 0 %}
-{% for p in pubs %}{% if p.year > y %}{% assign count_before = count_before | plus: 1 %}{% endif %}{% endfor %}
 <section class="section" id="year-{{ y }}">
 <h2>{{ y }}</h2>
 <div class="pub-list">
 {% assign year_pubs = pubs | where: "year", y %}
 {% for pub in year_pubs %}
-{% assign pub_num = grand | minus: count_before | minus: forloop.index0 %}
 {% include pub-item.html pub=pub num=pub_num %}
+{% assign pub_num = pub_num | minus: 1 %}
 {% endfor %}
 </div>
 </section>

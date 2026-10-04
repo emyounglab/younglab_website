@@ -32,12 +32,9 @@ wrap: full
 <section class="section section-narrow">
 <h2 class="center">Latest articles</h2>
 <div class="rows rows-dated">
-{% assign n = 0 %}
-{% for pub in site.data.publications %}
-{% if n < 3 %}{% if pub.type == "journal" or pub.type == "preprint" %}
+{% assign articles = site.data.publications | where_exp: "p", "'journal preprint' contains p.type" %}
+{% for pub in articles limit: 3 %}
 <a class="row" href="{{ pub.url }}" target="_blank" rel="noreferrer"><span class="row-term">{{ pub.year }}</span><span><span class="row-title">{{ pub.title }}</span><span class="meta">{{ pub.authors | replace: "E.M. Young", "<strong>E.M. Young</strong>" }} · <i>{{ pub.venue }}</i></span></span></a>
-{% assign n = n | plus: 1 %}
-{% endif %}{% endif %}
 {% endfor %}
 </div>
 <a class="section-more" href="{{ '/publications/' | relative_url }}">All publications →</a>

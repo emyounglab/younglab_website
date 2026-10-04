@@ -22,7 +22,6 @@ pi:
     room: "Room GP 4003"
     address: "60 Prescott Street, Worcester, MA 01605"
     photo: "/assets/img/people/Young_Faculty_2017.jpg"
-    contact_buttons: true
     links:
       - label: "WPI Faculty Profile"
         url: "https://www.wpi.edu/people/faculty/emyoung"

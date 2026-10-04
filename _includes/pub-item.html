@@ -1,28 +1,18 @@
 <div class="pub-item">
   <span class="pub-num">{% if include.num %}{{ include.num }}.{% endif %}</span>
-  <div class="pub-body">
+  <div>
     <div class="pub-title">
       {% if include.pub.url %}<a href="{{ include.pub.url }}" target="_blank" rel="noreferrer">{{ include.pub.title }}</a>{% else %}{{ include.pub.title }}{% endif %}
     </div>
     <div class="pub-authors">{{ include.pub.authors | replace: "E.M. Young", "<strong>E.M. Young</strong>" }}</div>
-    {% if include.pub.attr %}<div class="pub-authors muted">{{ include.pub.attr }}</div>{% endif %}
-    <div class="pub-venue muted">
+    {% if include.pub.attr %}<div class="pub-authors">{{ include.pub.attr }}</div>{% endif %}
+    <div class="pub-venue">
       <i>{{ include.pub.venue }}</i>
       {% if include.pub.year %} ({{ include.pub.year }}){% endif %}
       {% if include.pub.doi %} · <a href="https://doi.org/{{ include.pub.doi }}" target="_blank" rel="noreferrer">doi</a>{% endif %}
       {% if include.pub.pdf %} · <a href="{{ include.pub.pdf | relative_url }}">PDF</a>{% endif %}
       {% if include.pub.preprint_url %} · <a href="{{ include.pub.preprint_url }}" target="_blank" rel="noreferrer">preprint</a>{% endif %}
     </div>
-    <div class="pub-tags">
-      {% case include.pub.type %}
-      {% when "journal" %}<span class="tag type-journal">Journal</span>
-      {% when "preprint" %}<span class="tag type-preprint">Preprint</span>
-      {% when "review" %}<span class="tag type-review">Review</span>
-      {% when "book-chapter" %}<span class="tag type-book-chapter">Book Chapter</span>
-      {% when "patent" %}<span class="tag type-patent">Patent</span>
-      {% else %}{% if include.pub.type %}<span class="tag">{{ include.pub.type }}</span>{% endif %}
-      {% endcase %}
-      {% if include.pub.tags %}{% for tag in include.pub.tags %}<span class="tag">{{ tag }}</span>{% endfor %}{% endif %}
-    </div>
+    {% if include.pub.type %}<div class="pub-tags"><span class="tag type-{{ include.pub.type }}">{{ include.pub.type | replace: "-", " " }}</span></div>{% endif %}
   </div>
 </div>

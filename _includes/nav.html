@@ -8,7 +8,7 @@
   <nav class="site-nav" aria-label="Main">
     {% assign tabs = "Home,/,red|Research,/research/,orange|People,/people/,green|Publications,/publications/,navy|Join,/join/,blue" | split: "|" %}
     {% for t in tabs %}{% assign f = t | split: "," %}
-    <a href="{{ f[1] | relative_url }}" class="tab tab-{{ f[2] }}"{% if page.url == f[1] %} aria-current="page"{% endif %}>{{ f[0] }}</a>
+    <a href="{{ f[1] | relative_url }}" class="tab key-{{ f[2] }}"{% if page.url == f[1] %} aria-current="page"{% endif %}>{{ f[0] }}</a>
     {% endfor %}
   </nav>
 </header>

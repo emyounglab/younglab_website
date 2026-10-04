@@ -143,9 +143,10 @@ toc:
 <h2>Perspectives</h2>
 <p class="muted">Reviews, book chapters, and perspectives we have written for the field.</p>
 <div class="grid">
-{% for pub in site.data.publications %}{% unless pub.context contains "training" %}{% if pub.type == "review" or pub.type == "book-chapter" %}
-<a class="card" href="{{ pub.url }}" target="_blank" rel="noreferrer"><span class="label label-key">{% if pub.type == "review" %}Review{% else %}Book chapter{% endif %} · {{ pub.year }}</span><span class="title">{{ pub.title }}</span><span class="meta">{{ pub.venue }}</span></a>
-{% endif %}{% endunless %}{% endfor %}
+{% assign perspectives = site.data.publications | where_exp: "p", "'review book-chapter' contains p.type" %}
+{% for pub in perspectives %}{% unless pub.context contains "training" %}
+<a class="card" href="{{ pub.url }}" target="_blank" rel="noreferrer"><span class="label label-key">{{ pub.type | replace: "-", " " }} · {{ pub.year }}</span><span class="title">{{ pub.title }}</span><span class="meta">{{ pub.venue }}</span></a>
+{% endunless %}{% endfor %}
 </div>
 </section>
 
