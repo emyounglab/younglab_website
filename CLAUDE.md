@@ -48,7 +48,7 @@ _includes/
 
 _design/              # Design targets (home/research/people/join.html, README.md), excluded from the build
   tabled.md          # Text the targets had no place for, verbatim
-  shots/             # Site vs target screenshots, 1440 and 390
+                     # (shots/ removed 2026-10-04: screenshots are regenerated per check, not kept)
 
 _data/               # YAML content files — edit these to update site content
   people.yml         # PI, students, staff, alumni
@@ -460,7 +460,7 @@ panel, and for a new research area a card on `index.md`. Keep anchor IDs stable.
 
 Last verified against the working tree: 2026-10-04
 
-- [x] Recode site.css and the page markup into one design system to the Final canvas (Home, Research, People, Join). Verdict: done, uncommitted; 508 → 246 lines of CSS; checked at 1440 and 390 against _design/*.html, screenshots in _design/shots/.
+- [x] Recode site.css and the page markup into one design system to the Final canvas (Home, Research, People, Join). Verdict: done, uncommitted; 508 → 246 lines of CSS; checked at 1440 and 390 against _design/*.html.
 - [x] Consistency audit, items 1–8 plus font normalization. Verdict: done, uncommitted; type and space tokens, News and 404 on `.wrap`, labels merged, `.grid` replaces `.card-grid`, `_data/resources.yml`, TOC in front matter, page.html and addgene-widget.html deleted, Inter removed; all seven pages checked at 1440 and 390.
 - [x] Streamlining audit, items 1–8 plus three decisions (branch `streamline`). Verdict: done; visible text identical on all seven pages (only diffs: lowercase type labels the CSS uppercases); Home and Research pixel-identical at 390 and 1440; Publications differs only in the de-fauxed numbers and the 2rem phone spacing between years. Palette PNGs, `pub.tags` and `contact_buttons` removed.
 - [ ] Update the "Young Lab" design system artifact tokens with the new type and space scales. Verdict: the artifact has neither.
