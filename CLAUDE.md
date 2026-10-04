@@ -3,7 +3,7 @@
 ## Project Overview
 
 Jekyll-based GitHub Pages site for the Young Lab at Worcester Polytechnic Institute.
-URL: https://emyounglab.github.io
+URL: https://ericmyoung.com (CNAME and `_config.yml`, verified 2026-10-04)
 
 **Research focus:** Synthetic biology, metabolic engineering, nonconventional yeasts, microbial communities, biosensors.
 
@@ -34,16 +34,10 @@ bundle exec jekyll build
 
 ```
 _config.yml          # Site title, URL, plugins, future: true
-Gemfile              # Ruby gem dependencies (github-pages ~> 232, minima ~> 2.5)
+Gemfile              # github-pages ~> 232 only (no theme, no plugins), plus Windows gems
 
 _layouts/
   default.html       # The only layout; every page names it. Sets <body class="key-…"> and the <main> column
-
-                     # NOTE: the whole Projects system is retired. The _projects
-                     # collection, _layouts/project.html and the collections: block
-                     # went 2026-08-25; projects.md and _data/projects.yml went
-                     # 2026-08-29. All of it duplicated the research page and none of
-                     # it was in the nav. Files sit in _to_delete/ until removed by hand.
 
 _includes/
   nav.html           # One row: red wordmark block, header image, tabs (from one list) on the key bar
@@ -54,7 +48,7 @@ _includes/
 
 _design/              # Design targets (home/research/people/join.html, README.md), excluded from the build
   tabled.md          # Text the targets had no place for, verbatim
-  shots/             # Site vs target screenshots, 1440 and 390
+                     # (shots/ removed 2026-10-04: screenshots are regenerated per check, not kept)
 
 _data/               # YAML content files — edit these to update site content
   people.yml         # PI, students, staff, alumni
@@ -146,7 +140,9 @@ variables. Components use only these, never a hue name:
 | `--key-link` | link text. Red/green: the key. Orange/blue: ink `--fg` with a key underline, because those hues fail at body size (orange 2.81:1 on cream). Navy (Publications): `--blue`, as before |
 | `--key-hover` | link hover |
 
-Hue names appear only in the nav tabs and the header wordmark block. The nav bar
+Hue names appear only in the `.key-*` definitions, the header wordmark block and
+the publication type tags. Each nav tab carries its own `key-<colour>` class and
+fills with `--key` (2026-10-04). The nav bar
 and footer rule take `--key`. Do not "fix" orange headings to navy for contrast.
 
 **Pages scale with the window.** The root font size is fluid (15px at phone width,
@@ -415,6 +411,11 @@ A fuller sample lives outside the repo. Ask Eric for it before a prose pass.
 - **No custom plugins** — must remain GitHub Pages safe (`plugins: []` in _config.yml)
 - **Permalink style:** `pretty` (e.g., `/people/` not `/people.html`)
 - **alumni** `current_position:` field in people.yml uses key `current:`
+- **Branches** (settled by Eric 2026-10-04). `main` is the live site: GitHub Pages
+  builds from it. Multi-file passes (audits, redesigns, anything to review before it
+  goes live) go on a branch named for the task (`streamline`, `people-photos`),
+  deleted after merge. Single-file edits (a news item, a publication, a typo) go
+  straight to `main`. No standing `dev` branch. Eric merges and pushes.
 
 ---
 
@@ -437,12 +438,14 @@ Alumni go under the `alumni:` key with `current:` for their current position.
   authors: "Last A, Last B, Young EM"
   venue: "Journal Name"
   year: 2026
-  type: journal                # journal | preprint | book-chapter
+  type: journal                # journal | preprint | review | book-chapter | patent
   doi: "10.xxxx/xxxxx"        # shown as text; title links to url
   url: "https://doi.org/..."   # link on title
   pdf: "/assets/pdf/..."       # optional
-  tags: ["yeast", "CRISPR"]   # optional
 ```
+The type tag prints the `type` slug (hyphens to spaces; CSS uppercases it) and takes
+its colour from `.type-<slug>` in site.css §7. A new type needs a `.type-` rule.
+The free-form `tags:` field was removed 2026-10-04; no entry used it.
 
 ### Adding a news item (`_data/news.yml`)
 ```yaml
@@ -465,8 +468,9 @@ panel, and for a new research area a card on `index.md`. Keep anchor IDs stable.
 
 Last verified against the working tree: 2026-10-04
 
-- [x] Recode site.css and the page markup into one design system to the Final canvas (Home, Research, People, Join). Verdict: done, uncommitted; 508 → 246 lines of CSS; checked at 1440 and 390 against _design/*.html, screenshots in _design/shots/.
+- [x] Recode site.css and the page markup into one design system to the Final canvas (Home, Research, People, Join). Verdict: done, uncommitted; 508 → 246 lines of CSS; checked at 1440 and 390 against _design/*.html.
 - [x] Consistency audit, items 1–8 plus font normalization. Verdict: done, uncommitted; type and space tokens, News and 404 on `.wrap`, labels merged, `.grid` replaces `.card-grid`, `_data/resources.yml`, TOC in front matter, page.html and addgene-widget.html deleted, Inter removed; all seven pages checked at 1440 and 390.
+- [x] Streamlining audit, items 1–8 plus three decisions (branch `streamline`). Verdict: done; visible text identical on all seven pages (only diffs: lowercase type labels the CSS uppercases); Home and Research pixel-identical at 390 and 1440; Publications differs only in the de-fauxed numbers and the 2rem phone spacing between years. Palette PNGs, `pub.tags` and `contact_buttons` removed.
 - [ ] Update the "Young Lab" design system artifact tokens with the new type and space scales. Verdict: the artifact has neither.
 - [ ] Decide each item in `_design/tabled.md` (restore, cut, or rehome). Verdict: the PRYMETIME uses list and the Addgene widget have no home in the canvas.
 - [ ] Update the "Young Lab" design system artifact README: it still describes navy panels, red banners and left-border strips, which the canvas dropped. Verdict: the tokens are unchanged; only the shapes text is stale.

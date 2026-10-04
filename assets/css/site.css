@@ -64,8 +64,9 @@
    --key-head   h2, h3, card titles
    --key-link   link text; orange and blue fail at body size, so those pages
                 link in ink with a key underline
-   --key-hover  link hover */
-body{ --key: var(--navy); --key-head: var(--navy); --key-link: var(--blue); --key-hover: var(--navy); }
+   --key-hover  link hover
+   The nav tabs carry these classes too, for their fill. */
+body, .key-navy{ --key: var(--navy); --key-head: var(--navy); --key-link: var(--blue); --key-hover: var(--navy); }
 .key-red   { --key: var(--red);    --key-head: var(--red);       --key-link: var(--red);   --key-hover: var(--fg); }
 .key-orange{ --key: var(--orange); --key-head: var(--orange);    --key-link: var(--fg);    --key-hover: var(--orange); }
 .key-green { --key: var(--green);  --key-head: var(--green);     --key-link: var(--green); --key-hover: var(--fg); }
@@ -107,11 +108,9 @@ p{margin:0}   /* containers space their children with gap; no paragraph margins 
 .site-header-img{height:90px; width:auto; max-width:none; display:block}
 
 .site-nav{display:flex; flex-wrap:wrap; gap:4px; margin-left:auto; padding:0 18px 0 0}
-.tab{padding:4px 19px 5px; border-radius:10px 10px 0 0; color:var(--bg2); font-family:var(--serif);
+.tab{padding:4px 19px 5px; border-radius:10px 10px 0 0; background:var(--key); color:var(--bg2); font-family:var(--serif);
   font-size:19px; text-decoration:none; white-space:nowrap; opacity:.67; transition:opacity .15s}
 .tab:hover, .tab[aria-current]{opacity:1; color:var(--bg2)}
-.tab-red{background:var(--red)} .tab-orange{background:var(--orange)} .tab-green{background:var(--green)}
-.tab-navy{background:var(--navy)} .tab-blue{background:var(--blue)}
 
 .site-footer{border-top:2px solid var(--key); background:var(--bg2); padding:18px}
 .wpi-logo{display:block; height:48px; margin-bottom:8px}
@@ -157,7 +156,7 @@ p{margin:0}   /* containers space their children with gap; no paragraph margins 
 .card .meta{margin-top:auto; font-style:italic}
 a.card{color:var(--fg); text-decoration:none; transition:transform .15s}
 a.card:hover{color:var(--fg); transform:translateY(-2px)}
-.title{font-family:var(--serif); font-weight:400; font-size:var(--fs-2xl); line-height:1.25; color:var(--key-head)}
+.title{font-family:var(--serif); font-size:var(--fs-2xl); line-height:1.25; color:var(--key-head)}
 .label-key + .title{color:var(--fg)}   /* a labelled card: the label carries the key */
 .card-links{display:flex; flex-direction:column; gap:var(--sp-3)}
 
@@ -196,7 +195,7 @@ details.row > summary:hover .row-term{color:var(--key)}
 .hero .lede{max-width:58ch}
 .hero-img{flex:1 1 17.5rem; max-width:23.75rem; width:100%; height:auto; display:block; clip-path:circle(47.6% at 50% 50%)}
 
-/* Intro: a centered page opener (People, Join, 404) */
+/* Intro: a centered page opener (Join, 404) */
 .intro{display:flex; flex-direction:column; align-items:center; gap:var(--sp-4); text-align:center}
 .intro .lede{max-width:56ch}
 
@@ -209,7 +208,7 @@ details.row > summary:hover .row-term{color:var(--key)}
 .alumni{--min:13.75rem; gap:var(--sp-3) var(--sp-7); font-size:var(--fs-sm); line-height:1.45}
 .alumni b{font-weight:500}
 
-/* TOC: on-this-page panel beside the content (Research) */
+/* TOC: on-this-page panel beside the content (Research, People, Publications) */
 .with-toc{display:flex; flex-wrap:wrap; gap:var(--sp-8); align-items:flex-start}
 .toc{flex:1 1 18rem; max-width:20.5rem; gap:var(--sp-1); padding:var(--sp-6)}
 .toc .label{margin-bottom:var(--sp-1)}
@@ -225,20 +224,20 @@ details.row > summary:hover .row-term{color:var(--key)}
    encode publication type, not page identity. */
 .pub-list{border-top:var(--rule)}
 .pub-item{display:grid; grid-template-columns:2.5em minmax(0, 1fr); padding:var(--sp-3) 0; border-bottom:var(--rule)}
-.pub-num{font-family:var(--serif); font-weight:700; color:var(--key-link); text-align:right; padding-right:.5em}
+.pub-num{font-family:var(--serif); color:var(--key-link); text-align:right; padding-right:.5em}
 .pub-title{font-weight:700; color:var(--key-head)}
 .pub-title a{color:inherit}
 .pub-title a:hover{color:var(--key-link)}
-.pub-authors, .pub-venue{font-size:var(--fs-xs)}
-.pub-authors{color:var(--muted)}
+.pub-authors, .pub-venue{font-size:var(--fs-xs); color:var(--muted)}
 .pub-tags{margin-top:var(--sp-1)}
-.tag{display:inline-block; border:1.5px solid var(--red); padding:2px 7px; border-radius:3px; font-size:var(--fs-2xs); margin-right:var(--sp-1);
-  color:var(--red); font-family:'Courier New',Courier,monospace; text-transform:uppercase; letter-spacing:.06em; transform:rotate(-1deg)}
-.tag.type-journal{border-color:var(--blue); color:var(--blue)}
-.tag.type-preprint{border-color:var(--orange); color:var(--orange)}
-.tag.type-review{border-color:var(--green); color:var(--green)}
-.tag.type-book-chapter{border-color:var(--navy); color:var(--navy)}
-.tag.type-patent{border-color:var(--muted); color:var(--muted)}
+/* the border takes the text colour, so each type sets one colour */
+.tag{display:inline-block; border:1.5px solid; padding:2px 7px; border-radius:3px; font-size:var(--fs-2xs);
+  font-family:'Courier New',Courier,monospace; text-transform:uppercase; letter-spacing:.06em; transform:rotate(-1deg)}
+.type-journal{color:var(--blue)}
+.type-preprint{color:var(--orange)}
+.type-review{color:var(--green)}
+.type-book-chapter{color:var(--navy)}
+.type-patent{color:var(--muted)}
 
 /* ---- 8. Small screens, reduced motion ---- */
 @media (min-width:1161px){
@@ -261,11 +260,10 @@ details.row > summary:hover .row-term{color:var(--key)}
   .site-nav{padding:12px 8px 0; gap:3px}
   .tab{font-size:13px; padding:4px 7px 5px}
 
+  :root{--fs-3xl:1.75rem; --fs-4xl:2.5rem; --fs-5xl:2.5rem}   /* h2, h1, home headline */
   .wrap{width:auto; padding:var(--sp-8) var(--sp-4) var(--sp-9); gap:var(--sp-8)}
-  h1, .hero h1{font-size:2.5rem}
-  h2{font-size:1.75rem}
   .panel, .panel-bar{padding:var(--sp-6) var(--sp-5)}
-  .with-toc, .toc-main{gap:var(--sp-8)}
+  .toc-main:not(.toc-main-compact){gap:var(--sp-8)}
   .toc{max-width:none}
   .media{flex-direction:column; align-items:flex-start}
   .row, .row > summary{grid-template-columns:minmax(0, 1fr); gap:var(--sp-1)}
