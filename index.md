@@ -7,8 +7,8 @@ wrap: full
 
 <section class="hero">
 <div class="hero-text">
-<h1>Microbes for biosensing and manufacturing</h1>
-<p class="lede">We use genomics, synthetic biology, and metabolic engineering to design and build biosensors and cell factories.</p>
+<h1>Microbes for manufacturing and sensing</h1>
+<p class="lede">We use genomics, synthetic biology, and metabolic engineering to design and build cell factories and biosensors.</p>
 <div class="pills">
 <a class="btn" href="{{ '/research/' | relative_url }}">Our research</a>
 <a class="btn btn-outline" href="{{ '/publications/' | relative_url }}">Publications</a>
