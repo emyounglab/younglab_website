@@ -99,13 +99,14 @@ p{margin:0}   /* containers space their children with gap; no paragraph margins 
 
 /* ---- 4. Header, footer (fixed px) ---- */
 .site-header{position:sticky; top:0; z-index:10; background:var(--bg)}
-.site-top{display:flex; height:90px; overflow:hidden}
-.brand{flex:none; display:flex; align-items:center; background:var(--red); padding:0 28px 0 18px}
+/* one row: wordmark, image, then the tabs on the key bar; tabs drop to a second row below 1160px */
+.site-top{display:flex; align-items:flex-end; height:calc(90px + var(--edge)); overflow:hidden; border-bottom:var(--edge) solid var(--key)}
+.brand{flex:none; align-self:stretch; display:flex; align-items:center; background:var(--red); padding:0 28px 0 18px}
 .site-title{font-family:var(--serif); font-size:48px; line-height:1; color:var(--bg); text-decoration:none}
 .site-title:hover{color:var(--bg2)}
 .site-header-img{height:90px; width:auto; max-width:none; display:block}
 
-.site-nav{display:flex; flex-wrap:wrap; gap:4px; padding:18px 18px 0; border-bottom:var(--edge) solid var(--key)}
+.site-nav{display:flex; flex-wrap:wrap; gap:4px; margin-left:auto; padding:0 18px 0 0}
 .tab{padding:4px 19px 5px; border-radius:10px 10px 0 0; color:var(--bg2); font-family:var(--serif);
   font-size:19px; text-decoration:none; white-space:nowrap; opacity:.67; transition:opacity .15s}
 .tab:hover, .tab[aria-current]{opacity:1; color:var(--bg2)}
@@ -240,6 +241,13 @@ details.row > summary:hover .row-term{color:var(--key)}
 .tag.type-patent{border-color:var(--muted); color:var(--muted)}
 
 /* ---- 8. Small screens, reduced motion ---- */
+@media (min-width:1161px){
+  html{scroll-padding-top:110px}
+}
+@media (max-width:1160px){
+  .site-top{display:grid; grid-template-columns:auto minmax(0, 1fr); height:auto}
+  .site-nav{grid-column:1 / -1; margin-left:0; padding:18px 18px 0}
+}
 @media (max-width:900px){
   .row-more{margin-left:0; margin-right:0}
   .section-narrow{width:100%}
@@ -247,7 +255,6 @@ details.row > summary:hover .row-term{color:var(--key)}
 @media (max-width:600px){
   html{scroll-padding-top:0}
   .site-header{position:static}
-  .site-top{height:64px}
   .brand{padding:0 16px}
   .site-title{font-size:36px}
   .site-header-img{height:64px}

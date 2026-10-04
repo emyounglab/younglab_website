@@ -46,7 +46,7 @@ _layouts/
                      # it was in the nav. Files sit in _to_delete/ until removed by hand.
 
 _includes/
-  nav.html           # Red wordmark block + header image, then the tab row (tabs from one list)
+  nav.html           # One row: red wordmark block, header image, tabs (from one list) on the key bar
   footer.html        # WPI logo, copyright
   toc.html           # "On this page" panel from page.toc front matter (Research, Publications, People)
   pub-item.html      # Publications page entry: title, authors, venue, DOI, tags
@@ -208,8 +208,11 @@ Add a modifier to an existing component before adding a new class. No inline sty
   also appears on the Home parts bar.
 
 ### Header Layout
-- Red block with the "Young Lab" wordmark, then `young_header.png` at 90px tall
-- Tab row below on a 4px `--key` bar; tabs come from one list in `nav.html`
+- One row (option B of `_design/header-options.html`, chosen by Eric 2026-10-04): red
+  wordmark block, `young_header.png` at 90px, then the tabs right-aligned, all on a 4px
+  `--key` bar. Header is 94px, down from 150px. Tabs come from one list in `nav.html`
+- At 1160px and below the tabs drop to a second row (grid), as before; the breakpoint
+  leaves room between the image and the Home tab at 19px tab type
 - Sticky above 600px; below it the header scrolls away and the tabs shrink to fit one line at 390px
 
 ### Research Page
@@ -460,7 +463,7 @@ panel, and for a new research area a card on `index.md`. Keep anchor IDs stable.
 
 ## Tasks
 
-Last verified against the working tree: 2026-10-02
+Last verified against the working tree: 2026-10-04
 
 - [x] Recode site.css and the page markup into one design system to the Final canvas (Home, Research, People, Join). Verdict: done, uncommitted; 508 → 246 lines of CSS; checked at 1440 and 390 against _design/*.html, screenshots in _design/shots/.
 - [x] Consistency audit, items 1–8 plus font normalization. Verdict: done, uncommitted; type and space tokens, News and 404 on `.wrap`, labels merged, `.grid` replaces `.card-grid`, `_data/resources.yml`, TOC in front matter, page.html and addgene-widget.html deleted, Inter removed; all seven pages checked at 1440 and 390.
@@ -468,6 +471,7 @@ Last verified against the working tree: 2026-10-02
 - [ ] Decide each item in `_design/tabled.md` (restore, cut, or rehome). Verdict: the PRYMETIME uses list and the Addgene widget have no home in the canvas.
 - [ ] Update the "Young Lab" design system artifact README: it still describes navy panels, red banners and left-border strips, which the canvas dropped. Verdict: the tokens are unchanged; only the shapes text is stale.
 - [ ] Reconcile with the uncommitted rebuild on the other machine (emyoung). Verdict: that work never reached origin; discard it there before pulling this.
+- [x] Build header option B (tabs in the band). Verdict: done 2026-10-04 on branch claude/exciting-ptolemy-jy9q29; checked at 1440, 1161, 1160, 700 and 390, no horizontal scroll.
 - [ ] Remove the stale `.git/worktrees/head` folder by hand. Verdict: OneDrive locked it during cleanup; git no longer lists it.
 
 ## PI Contact
